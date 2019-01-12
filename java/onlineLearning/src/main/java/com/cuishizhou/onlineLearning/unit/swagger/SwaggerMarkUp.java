@@ -60,26 +60,28 @@ public class SwaggerMarkUp {
                 .build()
                 .toFolder(Paths.get("./docs/markdown/generated"));
     }
-//  /**
-//   * 生成Confluence格式文档
-//   * @throws Exception
-//   */
-//  @Test
-//  public void generateConfluenceDocs() throws Exception {
-//      //    输出Confluence使用的格式
-//      Swagger2MarkupConfig config = new Swagger2MarkupConfigBuilder()
-//              .withMarkupLanguage(MarkupLanguage.CONFLUENCE_MARKUP)
-//              .withOutputLanguage(Language.ZH)
-//              .withPathsGroupedBy(GroupBy.TAGS)
-//              .withGeneratedExamples()
-//              .withoutInlineSchema()
-//              .build();
-//
-//      Swagger2MarkupConverter.from(new URL("http://localhost:8081/swagger-ui.html"))
-//              .withConfig(config)
-//              .build()
-//              .toFolder(Paths.get("./docs/confluence/generated"));
-//  }
+
+    /**
+     * 生成Confluence格式文档
+     *
+     * @throws Exception
+     */
+    @Test
+    public void generateConfluenceDocs() throws Exception {
+        //    输出Confluence使用的格式
+        Swagger2MarkupConfig config = new Swagger2MarkupConfigBuilder()
+                .withMarkupLanguage(MarkupLanguage.CONFLUENCE_MARKUP)
+                .withOutputLanguage(Language.ZH)
+                .withPathsGroupedBy(GroupBy.TAGS)
+                .withGeneratedExamples()
+                .withoutInlineSchema()
+                .build();
+
+        Swagger2MarkupConverter.from(new URL("http://localhost:8081/swagger-ui.html"))
+                .withConfig(config)
+                .build()
+                .toFolder(Paths.get("./docs/confluence/generated"));
+    }
 
     /**
      * 生成AsciiDocs格式文档,并汇总成一个文件
