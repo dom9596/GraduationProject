@@ -1,5 +1,8 @@
 package com.cuishizhou.onlineLearning.test;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +19,8 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/hello")
-public class HelloWorld {
+@Api(value = "测试", description = "")
+public class HelloWorldController {
 
     /**
      * http://localhost:8081/hello
@@ -29,6 +33,7 @@ public class HelloWorld {
     /**
      * http://localhost:8081/hello/info?name=cuishizhou
      */
+//    @PostMapping("/info")
     @RequestMapping("/info")
     public Map<String, String> getInfo(@RequestParam String name) {
         Map<String, String> map = new HashMap<>();
