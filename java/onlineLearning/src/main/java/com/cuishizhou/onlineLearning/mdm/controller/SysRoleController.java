@@ -45,7 +45,7 @@ public class SysRoleController {
      * @return
      */
     @RequestMapping("/select_by_id")
-    public Result<SysRolePo> selectByPrimaryKey(Integer roleId) {
+    public Result<SysRolePo> selectByPrimaryKey(Long roleId) {
         Result<SysRolePo> result = new Result<>();
         SysRolePo po = sysRoleService.selectByPrimaryKey(roleId);
         result.setData(po);
@@ -58,9 +58,9 @@ public class SysRoleController {
      * @return
      */
     @RequestMapping("/delete_by_id")
-    public Result<Integer> deleteByPrimaryKey(Integer roleId) {
-        Result<Integer> result = new Result<>();
-        Integer num = sysRoleService.deleteByPrimaryKey(roleId);
+    public Result<Long> deleteByPrimaryKey(Long roleId) {
+        Result<Long> result = new Result<>();
+        Long num = sysRoleService.deleteByPrimaryKey(roleId);
         result.setData(num);
         return result;
     }
@@ -71,9 +71,9 @@ public class SysRoleController {
      * @return
      */
     @RequestMapping("/save_sysRole")
-    public Result<Integer> insert(SysRolePo sysRole) {
-        Result<Integer> result = new Result<>();
-        Integer num = sysRoleService.insertSelective(sysRole);
+    public Result<Long> insert(SysRolePo sysRole) {
+        Result<Long> result = new Result<>();
+        Long num = sysRoleService.insertSelective(sysRole);
         result.setData(num);
         return result;
     }
@@ -84,9 +84,9 @@ public class SysRoleController {
      * @return
      */
     @RequestMapping("/update_sysRole")
-    public Result<Integer> updateByPrimaryKeySelective(SysRolePo sysRole) {
-        Result<Integer> result = new Result<>();
-        Integer num = sysRoleService.updateByPrimaryKeySelective(sysRole);
+    public Result<Long> updateByPrimaryKeySelective(SysRolePo sysRole) {
+        Result<Long> result = new Result<>();
+        Long num = sysRoleService.updateByPrimaryKeySelective(sysRole);
         result.setData(num);
         return result;
     }

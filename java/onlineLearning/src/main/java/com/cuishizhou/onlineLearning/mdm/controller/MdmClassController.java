@@ -45,7 +45,7 @@ public class MdmClassController {
      * @return
      */
     @RequestMapping("/select_by_id")
-    public Result<MdmClassPo> selectByPrimaryKey(Integer classId) {
+    public Result<MdmClassPo> selectByPrimaryKey(Long classId) {
         Result<MdmClassPo> result = new Result<>();
         MdmClassPo po = mdmClassService.selectByPrimaryKey(classId);
         result.setData(po);
@@ -58,9 +58,9 @@ public class MdmClassController {
      * @return
      */
     @RequestMapping("/delete_by_id")
-    public Result<Integer> deleteByPrimaryKey(Integer classId) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmClassService.deleteByPrimaryKey(classId);
+    public Result<Long> deleteByPrimaryKey(Long classId) {
+        Result<Long> result = new Result<>();
+        Long num = mdmClassService.deleteByPrimaryKey(classId);
         result.setData(num);
         return result;
     }
@@ -71,9 +71,9 @@ public class MdmClassController {
      * @return
      */
     @RequestMapping("/save_mdmClass")
-    public Result<Integer> insert(MdmClassPo mdmClass) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmClassService.insertSelective(mdmClass);
+    public Result<Long> insert(MdmClassPo mdmClass) {
+        Result<Long> result = new Result<>();
+        Long num = mdmClassService.insertSelective(mdmClass);
         result.setData(num);
         return result;
     }
@@ -84,9 +84,9 @@ public class MdmClassController {
      * @return
      */
     @RequestMapping("/update_mdmClass")
-    public Result<Integer> updateByPrimaryKeySelective(MdmClassPo mdmClass) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmClassService.updateByPrimaryKeySelective(mdmClass);
+    public Result<Long> updateByPrimaryKeySelective(MdmClassPo mdmClass) {
+        Result<Long> result = new Result<>();
+        Long num = mdmClassService.updateByPrimaryKeySelective(mdmClass);
         result.setData(num);
         return result;
     }

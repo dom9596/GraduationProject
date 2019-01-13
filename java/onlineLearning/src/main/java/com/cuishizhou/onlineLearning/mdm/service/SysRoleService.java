@@ -20,23 +20,23 @@ public interface SysRoleService {
 
     Page<SysRolePo> selectPaged(RowBounds rowBounds);
 
-    SysRolePo selectByPrimaryKey(Integer roleId);
+    SysRolePo selectByPrimaryKey(Long roleId);
 
-    Integer deleteByPrimaryKey(Integer roleId);
+    Long deleteByPrimaryKey(Long roleId);
 
-    Integer insert(SysRolePo sysRole);
+    Long insert(SysRolePo sysRole);
 
-    Integer insertSelective(SysRolePo sysRole);
+    Long insertSelective(SysRolePo sysRole);
 
-    Integer insertSelectiveIgnore(SysRolePo sysRole);
+    Long insertSelectiveIgnore(SysRolePo sysRole);
 
-    Integer updateByPrimaryKeySelective(SysRolePo sysRole);
+    Long updateByPrimaryKeySelective(SysRolePo sysRole);
 
-    Integer updateByPrimaryKey(SysRolePo sysRole);
+    Long updateByPrimaryKey(SysRolePo sysRole);
 
-    Integer batchInsert(List<SysRolePo> list);
+    Long batchInsert(List<SysRolePo> list);
 
-    Integer batchUpdate(List<SysRolePo> list);
+    Long batchUpdate(List<SysRolePo> list);
 
     /**
      * 存在即更新
@@ -44,7 +44,7 @@ public interface SysRoleService {
      * @param map
      * @return
      */
-    Integer upsert(SysRolePo sysRole);
+    Long upsert(SysRolePo sysRole);
 
     /**
      * 存在即更新，可选择具体属性
@@ -52,13 +52,13 @@ public interface SysRoleService {
      * @param map
      * @return
      */
-    Integer upsertSelective(SysRolePo sysRole);
+    Long upsertSelective(SysRolePo sysRole);
 
     List<SysRolePo> query(SysRolePo sysRole);
 
     Long queryTotal();
 
-    Integer deleteBatch(List<Integer> list);
+    Long deleteBatch(List<Long> list);
 
     /*<AUTOGEN--END>*/
 

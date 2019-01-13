@@ -22,15 +22,15 @@ public class MdmClassStudentResp implements Serializable {
     /**
      * 表id
      */
-    private Integer classStudentId;
+    private Long classStudentId;
     /**
      * 班级id
      */
-    private Integer classId;
+    private Long classId;
     /**
      * 学生id
      */
-    private Integer userId;
+    private Long userId;
     /**
      * 更新时间
      */
@@ -46,11 +46,11 @@ public class MdmClassStudentResp implements Serializable {
     /**
      *
      */
-    private Integer createdBy;
+    private Long createdBy;
     /**
      *
      */
-    private Integer lastUpdatedBy;
+    private Long lastUpdatedBy;
     /**
      *
      */
@@ -58,15 +58,15 @@ public class MdmClassStudentResp implements Serializable {
     /**
      *
      */
-    private Integer lastUpdateLogin;
+    private Long lastUpdateLogin;
     /**
      *
      */
-    private Integer programApplicationId;
+    private Long programApplicationId;
     /**
      *
      */
-    private Integer programId;
+    private Long programId;
     /**
      *
      */
@@ -74,7 +74,7 @@ public class MdmClassStudentResp implements Serializable {
     /**
      *
      */
-    private Integer requestId;
+    private Long requestId;
     /**
      *
      */

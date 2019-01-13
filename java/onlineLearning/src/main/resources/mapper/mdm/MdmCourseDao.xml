@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.cuishizhou.onlineLearning.mdm.dao.MdmClassTimeDao">
+<mapper namespace="com.cuishizhou.onlineLearning.mdm.dao.MdmCourseDao">
 
     <!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassTimePo" id="BaseResultMap">
-        <result property="classTimeId" column="class_time_id"/>
-        <result property="classId" column="class_id"/>
-        <result property="classTimeStart" column="class_time_start"/>
-        <result property="classTimeEnd" column="class_time_end"/>
+    <resultMap type="com.cuishizhou.onlineLearning.mdm.model.po.MdmCoursePo" id="BaseResultMap">
+        <result property="courseId" column="course_id"/>
+        <result property="courseCode" column="course_code"/>
+        <result property="courseName" column="course_name"/>
+        <result property="userId" column="user_id"/>
+        <result property="courseDescription" column="course_description"/>
+        <result property="courseStartDate" column="course_start_date"/>
+        <result property="courseEndDate" column="course_end_date"/>
+        <result property="courseCredit" column="course_credit"/>
         <result property="updateDate" column="update_date"/>
         <result property="createDate" column="create_date"/>
         <result property="creationDate" column="creation_date"/>
@@ -43,17 +47,29 @@
         -->
     <sql id="Base_Insert_Selective">
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="classTimeId!=null">
-                class_time_id,
+            <if test="courseId!=null">
+                course_id,
             </if>
-            <if test="classId!=null">
-                class_id,
+            <if test="courseCode!=null">
+                course_code,
             </if>
-            <if test="classTimeStart!=null">
-                class_time_start,
+            <if test="courseName!=null">
+                course_name,
             </if>
-            <if test="classTimeEnd!=null">
-                class_time_end,
+            <if test="userId!=null">
+                user_id,
+            </if>
+            <if test="courseDescription!=null">
+                course_description,
+            </if>
+            <if test="courseStartDate!=null">
+                course_start_date,
+            </if>
+            <if test="courseEndDate!=null">
+                course_end_date,
+            </if>
+            <if test="courseCredit!=null">
+                course_credit,
             </if>
             <if test="updateDate!=null">
                 update_date,
@@ -138,17 +154,29 @@
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="classTimeId!=null">
-                #{classTimeId,jdbcType=INT},
+            <if test="courseId!=null">
+                #{courseId,jdbcType=DECIMAL},
             </if>
-            <if test="classId!=null">
-                #{classId,jdbcType=INT},
+            <if test="courseCode!=null">
+                #{courseCode,jdbcType=VARCHAR},
             </if>
-            <if test="classTimeStart!=null">
-                #{classTimeStart,jdbcType=DATETIME},
+            <if test="courseName!=null">
+                #{courseName,jdbcType=VARCHAR},
             </if>
-            <if test="classTimeEnd!=null">
-                #{classTimeEnd,jdbcType=DATETIME},
+            <if test="userId!=null">
+                #{userId,jdbcType=DECIMAL},
+            </if>
+            <if test="courseDescription!=null">
+                #{courseDescription,jdbcType=VARCHAR},
+            </if>
+            <if test="courseStartDate!=null">
+                #{courseStartDate,jdbcType=DATE},
+            </if>
+            <if test="courseEndDate!=null">
+                #{courseEndDate,jdbcType=DATE},
+            </if>
+            <if test="courseCredit!=null">
+                #{courseCredit,jdbcType=DECIMAL},
             </if>
             <if test="updateDate!=null">
                 #{updateDate,jdbcType=VARCHAR},
@@ -160,28 +188,28 @@
                 #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                #{createdBy,jdbcType=INT},
+                #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                #{lastUpdatedBy,jdbcType=INT},
+                #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                #{lastUpdateLogin,jdbcType=INT},
+                #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                #{programApplicationId,jdbcType=INT},
+                #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                #{programId,jdbcType=INT},
+                #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                #{requestId,jdbcType=INT},
+                #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 #{attributeCategory,jdbcType=VARCHAR},
@@ -238,10 +266,14 @@
       数据库表的基本查询列名集合
     -->
     <sql id="Base_Column_List">
-        class_time_id,
-        class_id,
-        class_time_start,
-        class_time_end,
+        course_id,
+        course_code,
+        course_name,
+        user_id,
+        course_description,
+        course_start_date,
+        course_end_date,
+        course_credit,
         update_date,
         create_date,
         creation_date,
@@ -275,17 +307,29 @@
         Where子句
       -->
     <sql id="Base_Query_Where">
-        <if test="classTimeId!=null">
-            #{classTimeId,jdbcType=INT},
+        <if test="courseId!=null">
+            #{courseId,jdbcType=DECIMAL},
         </if>
-        <if test="classId!=null">
-            #{classId,jdbcType=INT},
+        <if test="courseCode!=null">
+            #{courseCode,jdbcType=VARCHAR},
         </if>
-        <if test="classTimeStart!=null">
-            #{classTimeStart,jdbcType=DATETIME},
+        <if test="courseName!=null">
+            #{courseName,jdbcType=VARCHAR},
         </if>
-        <if test="classTimeEnd!=null">
-            #{classTimeEnd,jdbcType=DATETIME},
+        <if test="userId!=null">
+            #{userId,jdbcType=DECIMAL},
+        </if>
+        <if test="courseDescription!=null">
+            #{courseDescription,jdbcType=VARCHAR},
+        </if>
+        <if test="courseStartDate!=null">
+            #{courseStartDate,jdbcType=DATE},
+        </if>
+        <if test="courseEndDate!=null">
+            #{courseEndDate,jdbcType=DATE},
+        </if>
+        <if test="courseCredit!=null">
+            #{courseCredit,jdbcType=DECIMAL},
         </if>
         <if test="updateDate!=null">
             #{updateDate,jdbcType=VARCHAR},
@@ -297,28 +341,28 @@
             #{creationDate,jdbcType=DATETIME},
         </if>
         <if test="createdBy!=null">
-            #{createdBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdatedBy!=null">
-            #{lastUpdatedBy,jdbcType=INT},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdateDate!=null">
             #{lastUpdateDate,jdbcType=DATETIME},
         </if>
         <if test="lastUpdateLogin!=null">
-            #{lastUpdateLogin,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
         </if>
         <if test="programApplicationId!=null">
-            #{programApplicationId,jdbcType=INT},
+            #{programApplicationId,jdbcType=DECIMAL},
         </if>
         <if test="programId!=null">
-            #{programId,jdbcType=INT},
+            #{programId,jdbcType=DECIMAL},
         </if>
         <if test="programUpdateDate!=null">
             #{programUpdateDate,jdbcType=DATE},
         </if>
         <if test="requestId!=null">
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
         </if>
         <if test="attributeCategory!=null">
             #{attributeCategory,jdbcType=VARCHAR},
@@ -375,17 +419,29 @@
     -->
     <sql id="Base_Update_Column">
         <set>
-            <if test="classTimeId!=null">
-                #{classTimeId,jdbcType=INT},
+            <if test="courseId!=null">
+                #{courseId,jdbcType=DECIMAL},
             </if>
-            <if test="classId!=null">
-                #{classId,jdbcType=INT},
+            <if test="courseCode!=null">
+                #{courseCode,jdbcType=VARCHAR},
             </if>
-            <if test="classTimeStart!=null">
-                #{classTimeStart,jdbcType=DATETIME},
+            <if test="courseName!=null">
+                #{courseName,jdbcType=VARCHAR},
             </if>
-            <if test="classTimeEnd!=null">
-                #{classTimeEnd,jdbcType=DATETIME},
+            <if test="userId!=null">
+                #{userId,jdbcType=DECIMAL},
+            </if>
+            <if test="courseDescription!=null">
+                #{courseDescription,jdbcType=VARCHAR},
+            </if>
+            <if test="courseStartDate!=null">
+                #{courseStartDate,jdbcType=DATE},
+            </if>
+            <if test="courseEndDate!=null">
+                #{courseEndDate,jdbcType=DATE},
+            </if>
+            <if test="courseCredit!=null">
+                #{courseCredit,jdbcType=DECIMAL},
             </if>
             <if test="updateDate!=null">
                 #{updateDate,jdbcType=VARCHAR},
@@ -397,28 +453,28 @@
                 #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                #{createdBy,jdbcType=INT},
+                #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                #{lastUpdatedBy,jdbcType=INT},
+                #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                #{lastUpdateLogin,jdbcType=INT},
+                #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                #{programApplicationId,jdbcType=INT},
+                #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                #{programId,jdbcType=INT},
+                #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                #{requestId,jdbcType=INT},
+                #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 #{attributeCategory,jdbcType=VARCHAR},
@@ -477,47 +533,59 @@
     <select id="selectPaged" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from mdm_class_time
+        from mdm_course
     </select>
 
     <!--
       根据主键查询数据库表
     -->
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from mdm_class_time
-        where class_time_id = #{classTimeId,jdbcType=INT}
+        from mdm_course
+        where course_id = #{courseId,jdbcType=DECIMAL}
     </select>
 
 
     <!--
       根据主键删除数据库表中的记录
     -->
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        delete FROM mdm_class_time
-        where class_time_id = #{classTimeId,jdbcType=INT}
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete FROM mdm_course
+        where course_id = #{courseId,jdbcType=DECIMAL}
     </delete>
 
     <!--
       添加一条记录到数据库表中
     -->
     <insert id="insert" useGeneratedKeys="true" keyProperty="id"
-            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassTimePo">
+            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmCoursePo">
         insert into cps_lock
         (<include refid="Base_Column_List"/>)
         values (
-        <if test="classTimeId!=null">
-            #{classTimeId,jdbcType=INT},
+        <if test="courseId!=null">
+            #{courseId,jdbcType=DECIMAL},
         </if>
-        <if test="classId!=null">
-            #{classId,jdbcType=INT},
+        <if test="courseCode!=null">
+            #{courseCode,jdbcType=VARCHAR},
         </if>
-        <if test="classTimeStart!=null">
-            #{classTimeStart,jdbcType=DATETIME},
+        <if test="courseName!=null">
+            #{courseName,jdbcType=VARCHAR},
         </if>
-        <if test="classTimeEnd!=null">
-            #{classTimeEnd,jdbcType=DATETIME},
+        <if test="userId!=null">
+            #{userId,jdbcType=DECIMAL},
+        </if>
+        <if test="courseDescription!=null">
+            #{courseDescription,jdbcType=VARCHAR},
+        </if>
+        <if test="courseStartDate!=null">
+            #{courseStartDate,jdbcType=DATE},
+        </if>
+        <if test="courseEndDate!=null">
+            #{courseEndDate,jdbcType=DATE},
+        </if>
+        <if test="courseCredit!=null">
+            #{courseCredit,jdbcType=DECIMAL},
         </if>
         <if test="updateDate!=null">
             #{updateDate,jdbcType=VARCHAR},
@@ -529,28 +597,28 @@
             #{creationDate,jdbcType=DATETIME},
         </if>
         <if test="createdBy!=null">
-            #{createdBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdatedBy!=null">
-            #{lastUpdatedBy,jdbcType=INT},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdateDate!=null">
             #{lastUpdateDate,jdbcType=DATETIME},
         </if>
         <if test="lastUpdateLogin!=null">
-            #{lastUpdateLogin,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
         </if>
         <if test="programApplicationId!=null">
-            #{programApplicationId,jdbcType=INT},
+            #{programApplicationId,jdbcType=DECIMAL},
         </if>
         <if test="programId!=null">
-            #{programId,jdbcType=INT},
+            #{programId,jdbcType=DECIMAL},
         </if>
         <if test="programUpdateDate!=null">
             #{programUpdateDate,jdbcType=DATE},
         </if>
         <if test="requestId!=null">
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
         </if>
         <if test="attributeCategory!=null">
             #{attributeCategory,jdbcType=VARCHAR},
@@ -607,8 +675,8 @@
      有选择的添加一条记录到数据库表中
    -->
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"
-            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassTimePo">
-        insert into mdm_class_time
+            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmCoursePo">
+        insert into mdm_course
         <include refid="Base_Insert_Selective"/>
     </insert>
 
@@ -616,38 +684,50 @@
       有选择的可忽略添加一条记录到数据库表中
     -->
     <insert id="insertSelectiveIgnore" useGeneratedKeys="true" keyProperty="id"
-            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassTimePo">
-        insert ignore into mdm_class_time
+            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmCoursePo">
+        insert ignore into mdm_course
         <include refid="Base_Insert_Selective"/>
     </insert>
 
     <!--
       根据主键有选择的更新数据库表
     -->
-    <update id="updateByPrimaryKeySelective" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassTimePo">
-        update mdm_class_time
+    <update id="updateByPrimaryKeySelective" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmCoursePo">
+        update mdm_course
         <include refid="Base_Update_Column"></include>
-        where class_time_id = #{classTimeId,jdbcType=INT}
+        where course_id = #{courseId,jdbcType=DECIMAL}
     </update>
 
 
     <!--
       根据主键更新数据库表
     -->
-    <update id="updateByPrimaryKey" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassTimePo">
-        update mdm_class_time
+    <update id="updateByPrimaryKey" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmCoursePo">
+        update mdm_course
         <set>
-            <if test="classTimeId!=null">
-                class_time_id = #{classTimeId,jdbcType=INT},
+            <if test="courseId!=null">
+                course_id = #{courseId,jdbcType=DECIMAL},
             </if>
-            <if test="classId!=null">
-                class_id = #{classId,jdbcType=INT},
+            <if test="courseCode!=null">
+                course_code = #{courseCode,jdbcType=VARCHAR},
             </if>
-            <if test="classTimeStart!=null">
-                class_time_start = #{classTimeStart,jdbcType=DATETIME},
+            <if test="courseName!=null">
+                course_name = #{courseName,jdbcType=VARCHAR},
             </if>
-            <if test="classTimeEnd!=null">
-                class_time_end = #{classTimeEnd,jdbcType=DATETIME},
+            <if test="userId!=null">
+                user_id = #{userId,jdbcType=DECIMAL},
+            </if>
+            <if test="courseDescription!=null">
+                course_description = #{courseDescription,jdbcType=VARCHAR},
+            </if>
+            <if test="courseStartDate!=null">
+                course_start_date = #{courseStartDate,jdbcType=DATE},
+            </if>
+            <if test="courseEndDate!=null">
+                course_end_date = #{courseEndDate,jdbcType=DATE},
+            </if>
+            <if test="courseCredit!=null">
+                course_credit = #{courseCredit,jdbcType=DECIMAL},
             </if>
             <if test="updateDate!=null">
                 update_date = #{updateDate,jdbcType=VARCHAR},
@@ -659,28 +739,28 @@
                 creation_date = #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                created_by = #{createdBy,jdbcType=INT},
+                created_by = #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                program_application_id = #{programApplicationId,jdbcType=INT},
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                program_id = #{programId,jdbcType=INT},
+                program_id = #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 program_update_date = #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                request_id = #{requestId,jdbcType=INT},
+                request_id = #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR},
@@ -731,19 +811,23 @@
                 attribute15 = #{attribute15,jdbcType=VARCHAR},
             </if>
         </set>
-        where class_time_id = #{classTimeId,jdbcType=INT}
+        where course_id = #{courseId,jdbcType=DECIMAL}
     </update>
 
     <!--
       批量添加记录到数据库表中
     -->
     <insert id="batchInsert" parameterType="java.util.List">
-        insert into mdm_class_time
+        insert into mdm_course
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            class_time_id,
-            class_id,
-            class_time_start,
-            class_time_end,
+            course_id,
+            course_code,
+            course_name,
+            user_id,
+            course_description,
+            course_start_date,
+            course_end_date,
+            course_credit,
             update_date,
             create_date,
             creation_date,
@@ -775,21 +859,25 @@
         values
         <foreach collection="list" index="index" item="item" separator=",">
             <trim prefix="(" suffix=")" suffixOverrides=",">
-                #{classTimeId,jdbcType=INT},
-                #{classId,jdbcType=INT},
-                #{classTimeStart,jdbcType=DATETIME},
-                #{classTimeEnd,jdbcType=DATETIME},
+                #{courseId,jdbcType=DECIMAL},
+                #{courseCode,jdbcType=VARCHAR},
+                #{courseName,jdbcType=VARCHAR},
+                #{userId,jdbcType=DECIMAL},
+                #{courseDescription,jdbcType=VARCHAR},
+                #{courseStartDate,jdbcType=DATE},
+                #{courseEndDate,jdbcType=DATE},
+                #{courseCredit,jdbcType=DECIMAL},
                 #{updateDate,jdbcType=VARCHAR},
                 #{createDate,jdbcType=VARCHAR},
                 #{creationDate,jdbcType=DATETIME},
-                #{createdBy,jdbcType=INT},
-                #{lastUpdatedBy,jdbcType=INT},
+                #{createdBy,jdbcType=DECIMAL},
+                #{lastUpdatedBy,jdbcType=DECIMAL},
                 #{lastUpdateDate,jdbcType=DATETIME},
-                #{lastUpdateLogin,jdbcType=INT},
-                #{programApplicationId,jdbcType=INT},
-                #{programId,jdbcType=INT},
+                #{lastUpdateLogin,jdbcType=DECIMAL},
+                #{programApplicationId,jdbcType=DECIMAL},
+                #{programId,jdbcType=DECIMAL},
                 #{programUpdateDate,jdbcType=DATE},
-                #{requestId,jdbcType=INT},
+                #{requestId,jdbcType=DECIMAL},
                 #{attributeCategory,jdbcType=VARCHAR},
                 #{attribute1,jdbcType=VARCHAR},
                 #{attribute2,jdbcType=VARCHAR},
@@ -815,20 +903,32 @@
     -->
     <update id="batchUpdate" parameterType="java.util.List">
         <foreach collection="list" index="index" item="item" separator=";">
-            update mdm_class_time
+            update mdm_course
             <set>
                 <trim suffixOverrides=",">
-                    <if test="item.classTimeId!=null">
-                        class_time_id = #{classTimeId,jdbcType=INT},
+                    <if test="item.courseId!=null">
+                        course_id = #{courseId,jdbcType=DECIMAL},
                     </if>
-                    <if test="item.classId!=null">
-                        class_id = #{classId,jdbcType=INT},
+                    <if test="item.courseCode!=null">
+                        course_code = #{courseCode,jdbcType=VARCHAR},
                     </if>
-                    <if test="item.classTimeStart!=null">
-                        class_time_start = #{classTimeStart,jdbcType=DATETIME},
+                    <if test="item.courseName!=null">
+                        course_name = #{courseName,jdbcType=VARCHAR},
                     </if>
-                    <if test="item.classTimeEnd!=null">
-                        class_time_end = #{classTimeEnd,jdbcType=DATETIME},
+                    <if test="item.userId!=null">
+                        user_id = #{userId,jdbcType=DECIMAL},
+                    </if>
+                    <if test="item.courseDescription!=null">
+                        course_description = #{courseDescription,jdbcType=VARCHAR},
+                    </if>
+                    <if test="item.courseStartDate!=null">
+                        course_start_date = #{courseStartDate,jdbcType=DATE},
+                    </if>
+                    <if test="item.courseEndDate!=null">
+                        course_end_date = #{courseEndDate,jdbcType=DATE},
+                    </if>
+                    <if test="item.courseCredit!=null">
+                        course_credit = #{courseCredit,jdbcType=DECIMAL},
                     </if>
                     <if test="item.updateDate!=null">
                         update_date = #{updateDate,jdbcType=VARCHAR},
@@ -840,28 +940,28 @@
                         creation_date = #{creationDate,jdbcType=DATETIME},
                     </if>
                     <if test="item.createdBy!=null">
-                        created_by = #{createdBy,jdbcType=INT},
+                        created_by = #{createdBy,jdbcType=DECIMAL},
                     </if>
                     <if test="item.lastUpdatedBy!=null">
-                        last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                        last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
                     </if>
                     <if test="item.lastUpdateDate!=null">
                         last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
                     </if>
                     <if test="item.lastUpdateLogin!=null">
-                        last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                        last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
                     </if>
                     <if test="item.programApplicationId!=null">
-                        program_application_id = #{programApplicationId,jdbcType=INT},
+                        program_application_id = #{programApplicationId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.programId!=null">
-                        program_id = #{programId,jdbcType=INT},
+                        program_id = #{programId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.programUpdateDate!=null">
                         program_update_date = #{programUpdateDate,jdbcType=DATE},
                     </if>
                     <if test="item.requestId!=null">
-                        request_id = #{requestId,jdbcType=INT},
+                        request_id = #{requestId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.attributeCategory!=null">
                         attribute_category = #{attributeCategory,jdbcType=VARCHAR},
@@ -915,7 +1015,7 @@
             </set>
             <where>
                 <trim suffixOverrides=",">
-                    where class_time_id = #{classTimeId,INT}
+                    where course_id = #{courseId,DECIMAL}
                 </trim>
             </where>
         </foreach>
@@ -926,17 +1026,29 @@
    -->
     <sql id="Identifiers_Array_Conditions">
         <foreach collection="array" index="index" item="item" separator=" and ">
-            <if test="item == classTimeId">
-                class_time_id = #{classTimeId,jdbcType=INT}
+            <if test="item == courseId">
+                course_id = #{courseId,jdbcType=DECIMAL}
             </if>
-            <if test="item == classId">
-                class_id = #{classId,jdbcType=INT}
+            <if test="item == courseCode">
+                course_code = #{courseCode,jdbcType=VARCHAR}
             </if>
-            <if test="item == classTimeStart">
-                class_time_start = #{classTimeStart,jdbcType=DATETIME}
+            <if test="item == courseName">
+                course_name = #{courseName,jdbcType=VARCHAR}
             </if>
-            <if test="item == classTimeEnd">
-                class_time_end = #{classTimeEnd,jdbcType=DATETIME}
+            <if test="item == userId">
+                user_id = #{userId,jdbcType=DECIMAL}
+            </if>
+            <if test="item == courseDescription">
+                course_description = #{courseDescription,jdbcType=VARCHAR}
+            </if>
+            <if test="item == courseStartDate">
+                course_start_date = #{courseStartDate,jdbcType=DATE}
+            </if>
+            <if test="item == courseEndDate">
+                course_end_date = #{courseEndDate,jdbcType=DATE}
+            </if>
+            <if test="item == courseCredit">
+                course_credit = #{courseCredit,jdbcType=DECIMAL}
             </if>
             <if test="item == updateDate">
                 update_date = #{updateDate,jdbcType=VARCHAR}
@@ -948,28 +1060,28 @@
                 creation_date = #{creationDate,jdbcType=DATETIME}
             </if>
             <if test="item == createdBy">
-                created_by = #{createdBy,jdbcType=INT}
+                created_by = #{createdBy,jdbcType=DECIMAL}
             </if>
             <if test="item == lastUpdatedBy">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT}
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL}
             </if>
             <if test="item == lastUpdateDate">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME}
             </if>
             <if test="item == lastUpdateLogin">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT}
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL}
             </if>
             <if test="item == programApplicationId">
-                program_application_id = #{programApplicationId,jdbcType=INT}
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL}
             </if>
             <if test="item == programId">
-                program_id = #{programId,jdbcType=INT}
+                program_id = #{programId,jdbcType=DECIMAL}
             </if>
             <if test="item == programUpdateDate">
                 program_update_date = #{programUpdateDate,jdbcType=DATE}
             </if>
             <if test="item == requestId">
-                request_id = #{requestId,jdbcType=INT}
+                request_id = #{requestId,jdbcType=DECIMAL}
             </if>
             <if test="item == attributeCategory">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR}
@@ -1025,13 +1137,17 @@
     <!--
       存在即更新否则插入
     -->
-    <update id="upsert" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassTimePo">
-        insert into mdm_class_time
+    <update id="upsert" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmCoursePo">
+        insert into mdm_course
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            class_time_id,
-            class_id,
-            class_time_start,
-            class_time_end,
+            course_id,
+            course_code,
+            course_name,
+            user_id,
+            course_description,
+            course_start_date,
+            course_end_date,
+            course_credit,
             update_date,
             create_date,
             creation_date,
@@ -1062,21 +1178,25 @@
         </trim>
         values
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            #{classTimeId,jdbcType=INT},
-            #{classId,jdbcType=INT},
-            #{classTimeStart,jdbcType=DATETIME},
-            #{classTimeEnd,jdbcType=DATETIME},
+            #{courseId,jdbcType=DECIMAL},
+            #{courseCode,jdbcType=VARCHAR},
+            #{courseName,jdbcType=VARCHAR},
+            #{userId,jdbcType=DECIMAL},
+            #{courseDescription,jdbcType=VARCHAR},
+            #{courseStartDate,jdbcType=DATE},
+            #{courseEndDate,jdbcType=DATE},
+            #{courseCredit,jdbcType=DECIMAL},
             #{updateDate,jdbcType=VARCHAR},
             #{createDate,jdbcType=VARCHAR},
             #{creationDate,jdbcType=DATETIME},
-            #{createdBy,jdbcType=INT},
-            #{lastUpdatedBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
             #{lastUpdateDate,jdbcType=DATETIME},
-            #{lastUpdateLogin,jdbcType=INT},
-            #{programApplicationId,jdbcType=INT},
-            #{programId,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
+            #{programApplicationId,jdbcType=DECIMAL},
+            #{programId,jdbcType=DECIMAL},
             #{programUpdateDate,jdbcType=DATE},
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
             #{attributeCategory,jdbcType=VARCHAR},
             #{attribute1,jdbcType=VARCHAR},
             #{attribute2,jdbcType=VARCHAR},
@@ -1096,21 +1216,25 @@
         </trim>
         on duplicate key update
         <trim suffixOverrides=",">
-            #{classTimeId,jdbcType=INT},
-            #{classId,jdbcType=INT},
-            #{classTimeStart,jdbcType=DATETIME},
-            #{classTimeEnd,jdbcType=DATETIME},
+            #{courseId,jdbcType=DECIMAL},
+            #{courseCode,jdbcType=VARCHAR},
+            #{courseName,jdbcType=VARCHAR},
+            #{userId,jdbcType=DECIMAL},
+            #{courseDescription,jdbcType=VARCHAR},
+            #{courseStartDate,jdbcType=DATE},
+            #{courseEndDate,jdbcType=DATE},
+            #{courseCredit,jdbcType=DECIMAL},
             #{updateDate,jdbcType=VARCHAR},
             #{createDate,jdbcType=VARCHAR},
             #{creationDate,jdbcType=DATETIME},
-            #{createdBy,jdbcType=INT},
-            #{lastUpdatedBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
             #{lastUpdateDate,jdbcType=DATETIME},
-            #{lastUpdateLogin,jdbcType=INT},
-            #{programApplicationId,jdbcType=INT},
-            #{programId,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
+            #{programApplicationId,jdbcType=DECIMAL},
+            #{programId,jdbcType=DECIMAL},
             #{programUpdateDate,jdbcType=DATE},
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
             #{attributeCategory,jdbcType=VARCHAR},
             #{attribute1,jdbcType=VARCHAR},
             #{attribute2,jdbcType=VARCHAR},
@@ -1134,20 +1258,32 @@
     <!--
       带有空值检查的存在即更新否则插入
     -->
-    <update id="upsertSelective" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassTimePo">
-        insert into mdm_class_time
+    <update id="upsertSelective" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmCoursePo">
+        insert into mdm_course
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="classTimeId!=null">
-                class_time_id,
+            <if test="courseId!=null">
+                course_id,
             </if>
-            <if test="classId!=null">
-                class_id,
+            <if test="courseCode!=null">
+                course_code,
             </if>
-            <if test="classTimeStart!=null">
-                class_time_start,
+            <if test="courseName!=null">
+                course_name,
             </if>
-            <if test="classTimeEnd!=null">
-                class_time_end,
+            <if test="userId!=null">
+                user_id,
+            </if>
+            <if test="courseDescription!=null">
+                course_description,
+            </if>
+            <if test="courseStartDate!=null">
+                course_start_date,
+            </if>
+            <if test="courseEndDate!=null">
+                course_end_date,
+            </if>
+            <if test="courseCredit!=null">
+                course_credit,
             </if>
             <if test="updateDate!=null">
                 update_date,
@@ -1233,17 +1369,29 @@
         </trim>
         values
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="classTimeId!=null">
-                class_time_id = #{classTimeId,jdbcType=INT},
+            <if test="courseId!=null">
+                course_id = #{courseId,jdbcType=DECIMAL},
             </if>
-            <if test="classId!=null">
-                class_id = #{classId,jdbcType=INT},
+            <if test="courseCode!=null">
+                course_code = #{courseCode,jdbcType=VARCHAR},
             </if>
-            <if test="classTimeStart!=null">
-                class_time_start = #{classTimeStart,jdbcType=DATETIME},
+            <if test="courseName!=null">
+                course_name = #{courseName,jdbcType=VARCHAR},
             </if>
-            <if test="classTimeEnd!=null">
-                class_time_end = #{classTimeEnd,jdbcType=DATETIME},
+            <if test="userId!=null">
+                user_id = #{userId,jdbcType=DECIMAL},
+            </if>
+            <if test="courseDescription!=null">
+                course_description = #{courseDescription,jdbcType=VARCHAR},
+            </if>
+            <if test="courseStartDate!=null">
+                course_start_date = #{courseStartDate,jdbcType=DATE},
+            </if>
+            <if test="courseEndDate!=null">
+                course_end_date = #{courseEndDate,jdbcType=DATE},
+            </if>
+            <if test="courseCredit!=null">
+                course_credit = #{courseCredit,jdbcType=DECIMAL},
             </if>
             <if test="updateDate!=null">
                 update_date = #{updateDate,jdbcType=VARCHAR},
@@ -1255,28 +1403,28 @@
                 creation_date = #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                created_by = #{createdBy,jdbcType=INT},
+                created_by = #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                program_application_id = #{programApplicationId,jdbcType=INT},
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                program_id = #{programId,jdbcType=INT},
+                program_id = #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 program_update_date = #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                request_id = #{requestId,jdbcType=INT},
+                request_id = #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR},
@@ -1329,17 +1477,29 @@
         </trim>
         on duplicate key update
         <trim suffixOverrides=",">
-            <if test="classTimeId!=null">
-                class_time_id = #{classTimeId,jdbcType=INT},
+            <if test="courseId!=null">
+                course_id = #{courseId,jdbcType=DECIMAL},
             </if>
-            <if test="classId!=null">
-                class_id = #{classId,jdbcType=INT},
+            <if test="courseCode!=null">
+                course_code = #{courseCode,jdbcType=VARCHAR},
             </if>
-            <if test="classTimeStart!=null">
-                class_time_start = #{classTimeStart,jdbcType=DATETIME},
+            <if test="courseName!=null">
+                course_name = #{courseName,jdbcType=VARCHAR},
             </if>
-            <if test="classTimeEnd!=null">
-                class_time_end = #{classTimeEnd,jdbcType=DATETIME},
+            <if test="userId!=null">
+                user_id = #{userId,jdbcType=DECIMAL},
+            </if>
+            <if test="courseDescription!=null">
+                course_description = #{courseDescription,jdbcType=VARCHAR},
+            </if>
+            <if test="courseStartDate!=null">
+                course_start_date = #{courseStartDate,jdbcType=DATE},
+            </if>
+            <if test="courseEndDate!=null">
+                course_end_date = #{courseEndDate,jdbcType=DATE},
+            </if>
+            <if test="courseCredit!=null">
+                course_credit = #{courseCredit,jdbcType=DECIMAL},
             </if>
             <if test="updateDate!=null">
                 update_date = #{updateDate,jdbcType=VARCHAR},
@@ -1351,28 +1511,28 @@
                 creation_date = #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                created_by = #{createdBy,jdbcType=INT},
+                created_by = #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                program_application_id = #{programApplicationId,jdbcType=INT},
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                program_id = #{programId,jdbcType=INT},
+                program_id = #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 program_update_date = #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                request_id = #{requestId,jdbcType=INT},
+                request_id = #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR},
@@ -1425,25 +1585,24 @@
         </trim>
     </update>
 
-    <select id="query" resultMap="BaseResultMap"
-            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassTimePo">
+    <select id="query" resultMap="BaseResultMap" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmCoursePo">
         select
         <include refid="Base_Column_List"/>
-        from mdm_class_time
+        from mdm_course
         <where>
             <include refid="Base_Query_Where"></include>
         </where>
     </select>
 
     <select id="queryTotal" resultType="long">
-        select count(*) from mdm_class_time
+        select count(*) from mdm_course
     </select>
 
 
     <delete id="deleteBatch">
-        delete from mdm_class_time where class_time_id in
-        <foreach item="classTimeId" collection="list" open="(" separator="," close=")">
-            #{classTimeId}
+        delete from mdm_course where course_id in
+        <foreach item="courseId" collection="list" open="(" separator="," close=")">
+            #{courseId}
         </foreach>
     </delete>
 

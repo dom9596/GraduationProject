@@ -45,7 +45,7 @@ public class MdmStudentQuestionController {
      * @return
      */
     @RequestMapping("/select_by_id")
-    public Result<MdmStudentQuestionPo> selectByPrimaryKey(Integer studentQuestionId) {
+    public Result<MdmStudentQuestionPo> selectByPrimaryKey(Long studentQuestionId) {
         Result<MdmStudentQuestionPo> result = new Result<>();
         MdmStudentQuestionPo po = mdmStudentQuestionService.selectByPrimaryKey(studentQuestionId);
         result.setData(po);
@@ -58,9 +58,9 @@ public class MdmStudentQuestionController {
      * @return
      */
     @RequestMapping("/delete_by_id")
-    public Result<Integer> deleteByPrimaryKey(Integer studentQuestionId) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmStudentQuestionService.deleteByPrimaryKey(studentQuestionId);
+    public Result<Long> deleteByPrimaryKey(Long studentQuestionId) {
+        Result<Long> result = new Result<>();
+        Long num = mdmStudentQuestionService.deleteByPrimaryKey(studentQuestionId);
         result.setData(num);
         return result;
     }
@@ -71,9 +71,9 @@ public class MdmStudentQuestionController {
      * @return
      */
     @RequestMapping("/save_mdmStudentQuestion")
-    public Result<Integer> insert(MdmStudentQuestionPo mdmStudentQuestion) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmStudentQuestionService.insertSelective(mdmStudentQuestion);
+    public Result<Long> insert(MdmStudentQuestionPo mdmStudentQuestion) {
+        Result<Long> result = new Result<>();
+        Long num = mdmStudentQuestionService.insertSelective(mdmStudentQuestion);
         result.setData(num);
         return result;
     }
@@ -84,9 +84,9 @@ public class MdmStudentQuestionController {
      * @return
      */
     @RequestMapping("/update_mdmStudentQuestion")
-    public Result<Integer> updateByPrimaryKeySelective(MdmStudentQuestionPo mdmStudentQuestion) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmStudentQuestionService.updateByPrimaryKeySelective(mdmStudentQuestion);
+    public Result<Long> updateByPrimaryKeySelective(MdmStudentQuestionPo mdmStudentQuestion) {
+        Result<Long> result = new Result<>();
+        Long num = mdmStudentQuestionService.updateByPrimaryKeySelective(mdmStudentQuestion);
         result.setData(num);
         return result;
     }

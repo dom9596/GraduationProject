@@ -22,7 +22,7 @@ public class MdmClassReq implements Serializable {
     /**
      * 表id
      */
-    private Integer classId;
+    private Long classId;
     /**
      * 课程编码
      */
@@ -34,11 +34,11 @@ public class MdmClassReq implements Serializable {
     /**
      * 课程id
      */
-    private Integer courseId;
+    private Long courseId;
     /**
      * 教师id
      */
-    private Integer userId;
+    private Long userId;
     /**
      * 课程描述
      */
@@ -58,11 +58,11 @@ public class MdmClassReq implements Serializable {
     /**
      *
      */
-    private Integer createdBy;
+    private Long createdBy;
     /**
      *
      */
-    private Integer lastUpdatedBy;
+    private Long lastUpdatedBy;
     /**
      *
      */
@@ -70,15 +70,15 @@ public class MdmClassReq implements Serializable {
     /**
      *
      */
-    private Integer lastUpdateLogin;
+    private Long lastUpdateLogin;
     /**
      *
      */
-    private Integer programApplicationId;
+    private Long programApplicationId;
     /**
      *
      */
-    private Integer programId;
+    private Long programId;
     /**
      *
      */
@@ -86,7 +86,7 @@ public class MdmClassReq implements Serializable {
     /**
      *
      */
-    private Integer requestId;
+    private Long requestId;
     /**
      *
      */

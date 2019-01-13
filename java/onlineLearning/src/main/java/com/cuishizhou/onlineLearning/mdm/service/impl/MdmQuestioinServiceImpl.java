@@ -33,47 +33,47 @@ public class MdmQuestioinServiceImpl implements MdmQuestioinService {
     }
 
     @Override
-    public MdmQuestioinPo selectByPrimaryKey(Integer questioinId) {
+    public MdmQuestioinPo selectByPrimaryKey(Long questioinId) {
         return mdmQuestioinDao.selectByPrimaryKey(questioinId);
     }
 
     @Override
-    public Integer deleteByPrimaryKey(Integer questioinId) {
+    public Long deleteByPrimaryKey(Long questioinId) {
         return mdmQuestioinDao.deleteByPrimaryKey(questioinId);
     }
 
     @Override
-    public Integer insert(MdmQuestioinPo mdmQuestioin) {
+    public Long insert(MdmQuestioinPo mdmQuestioin) {
         return mdmQuestioinDao.insert(mdmQuestioin);
     }
 
     @Override
-    public Integer insertSelective(MdmQuestioinPo mdmQuestioin) {
+    public Long insertSelective(MdmQuestioinPo mdmQuestioin) {
         return mdmQuestioinDao.insertSelective(mdmQuestioin);
     }
 
     @Override
-    public Integer insertSelectiveIgnore(MdmQuestioinPo mdmQuestioin) {
+    public Long insertSelectiveIgnore(MdmQuestioinPo mdmQuestioin) {
         return mdmQuestioinDao.insertSelectiveIgnore(mdmQuestioin);
     }
 
     @Override
-    public Integer updateByPrimaryKeySelective(MdmQuestioinPo mdmQuestioin) {
+    public Long updateByPrimaryKeySelective(MdmQuestioinPo mdmQuestioin) {
         return mdmQuestioinDao.updateByPrimaryKeySelective(mdmQuestioin);
     }
 
     @Override
-    public Integer updateByPrimaryKey(MdmQuestioinPo mdmQuestioin) {
+    public Long updateByPrimaryKey(MdmQuestioinPo mdmQuestioin) {
         return mdmQuestioinDao.updateByPrimaryKey(mdmQuestioin);
     }
 
     @Override
-    public Integer batchInsert(List<MdmQuestioinPo> list) {
+    public Long batchInsert(List<MdmQuestioinPo> list) {
         return mdmQuestioinDao.batchInsert(list);
     }
 
     @Override
-    public Integer batchUpdate(List<MdmQuestioinPo> list) {
+    public Long batchUpdate(List<MdmQuestioinPo> list) {
         return mdmQuestioinDao.batchUpdate(list);
     }
 
@@ -84,7 +84,7 @@ public class MdmQuestioinServiceImpl implements MdmQuestioinService {
      * @return
      */
     @Override
-    public Integer upsert(MdmQuestioinPo mdmQuestioin) {
+    public Long upsert(MdmQuestioinPo mdmQuestioin) {
         return mdmQuestioinDao.upsert(mdmQuestioin);
     }
 
@@ -95,7 +95,7 @@ public class MdmQuestioinServiceImpl implements MdmQuestioinService {
      * @return
      */
     @Override
-    public Integer upsertSelective(MdmQuestioinPo mdmQuestioin) {
+    public Long upsertSelective(MdmQuestioinPo mdmQuestioin) {
         return mdmQuestioinDao.upsertSelective(mdmQuestioin);
     }
 
@@ -110,7 +110,7 @@ public class MdmQuestioinServiceImpl implements MdmQuestioinService {
     }
 
     @Override
-    public Integer deleteBatch(List<Integer> list) {
+    public Long deleteBatch(List<Long> list) {
         return mdmQuestioinDao.deleteBatch(list);
     }
 

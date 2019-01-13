@@ -22,23 +22,23 @@ public interface MdmClassDao {
 
     Page<MdmClassPo> selectPaged(RowBounds rowBounds);
 
-    MdmClassPo selectByPrimaryKey(Integer classId);
+    MdmClassPo selectByPrimaryKey(Long classId);
 
-    Integer deleteByPrimaryKey(Integer classId);
+    Long deleteByPrimaryKey(Long classId);
 
-    Integer insert(MdmClassPo mdmClass);
+    Long insert(MdmClassPo mdmClass);
 
-    Integer insertSelective(MdmClassPo mdmClass);
+    Long insertSelective(MdmClassPo mdmClass);
 
-    Integer insertSelectiveIgnore(MdmClassPo mdmClass);
+    Long insertSelectiveIgnore(MdmClassPo mdmClass);
 
-    Integer updateByPrimaryKeySelective(MdmClassPo mdmClass);
+    Long updateByPrimaryKeySelective(MdmClassPo mdmClass);
 
-    Integer updateByPrimaryKey(MdmClassPo mdmClass);
+    Long updateByPrimaryKey(MdmClassPo mdmClass);
 
-    Integer batchInsert(List<MdmClassPo> list);
+    Long batchInsert(List<MdmClassPo> list);
 
-    Integer batchUpdate(List<MdmClassPo> list);
+    Long batchUpdate(List<MdmClassPo> list);
 
     /**
      * 存在即更新
@@ -46,7 +46,7 @@ public interface MdmClassDao {
      * @param
      * @return
      */
-    Integer upsert(MdmClassPo mdmClass);
+    Long upsert(MdmClassPo mdmClass);
 
     /**
      * 存在即更新，可选择具体属性
@@ -54,13 +54,13 @@ public interface MdmClassDao {
      * @param
      * @return
      */
-    Integer upsertSelective(MdmClassPo mdmClass);
+    Long upsertSelective(MdmClassPo mdmClass);
 
     List<MdmClassPo> query(MdmClassPo mdmClass);
 
     Long queryTotal();
 
-    Integer deleteBatch(List<Integer> list);
+    Long deleteBatch(List<Long> list);
 
     /*<AUTOGEN--END>*/
 

@@ -22,23 +22,23 @@ public class MdmStudentQuestionReq implements Serializable {
     /**
      * 表id
      */
-    private Integer studentQuestionId;
+    private Long studentQuestionId;
     /**
      * 学生id
      */
-    private Integer userStuId;
+    private Long userStuId;
     /**
      * 教师id
      */
-    private Integer userTchId;
+    private Long userTchId;
     /**
      * 问题id
      */
-    private Integer questionId;
+    private Long questionId;
     /**
      * 得分
      */
-    private Integer score;
+    private Long score;
     /**
      * 备注
      */
@@ -58,11 +58,11 @@ public class MdmStudentQuestionReq implements Serializable {
     /**
      *
      */
-    private Integer createdBy;
+    private Long createdBy;
     /**
      *
      */
-    private Integer lastUpdatedBy;
+    private Long lastUpdatedBy;
     /**
      *
      */
@@ -70,15 +70,15 @@ public class MdmStudentQuestionReq implements Serializable {
     /**
      *
      */
-    private Integer lastUpdateLogin;
+    private Long lastUpdateLogin;
     /**
      *
      */
-    private Integer programApplicationId;
+    private Long programApplicationId;
     /**
      *
      */
-    private Integer programId;
+    private Long programId;
     /**
      *
      */
@@ -86,7 +86,7 @@ public class MdmStudentQuestionReq implements Serializable {
     /**
      *
      */
-    private Integer requestId;
+    private Long requestId;
     /**
      *
      */

@@ -22,11 +22,11 @@ public class MdmClassTimeReq implements Serializable {
     /**
      * 表id
      */
-    private Integer classTimeId;
+    private Long classTimeId;
     /**
      * 班级
      */
-    private Integer classId;
+    private Long classId;
     /**
      * 上课时间
      */
@@ -50,11 +50,11 @@ public class MdmClassTimeReq implements Serializable {
     /**
      *
      */
-    private Integer createdBy;
+    private Long createdBy;
     /**
      *
      */
-    private Integer lastUpdatedBy;
+    private Long lastUpdatedBy;
     /**
      *
      */
@@ -62,15 +62,15 @@ public class MdmClassTimeReq implements Serializable {
     /**
      *
      */
-    private Integer lastUpdateLogin;
+    private Long lastUpdateLogin;
     /**
      *
      */
-    private Integer programApplicationId;
+    private Long programApplicationId;
     /**
      *
      */
-    private Integer programId;
+    private Long programId;
     /**
      *
      */
@@ -78,7 +78,7 @@ public class MdmClassTimeReq implements Serializable {
     /**
      *
      */
-    private Integer requestId;
+    private Long requestId;
     /**
      *
      */

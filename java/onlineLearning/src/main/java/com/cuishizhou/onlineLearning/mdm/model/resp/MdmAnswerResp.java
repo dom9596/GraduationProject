@@ -22,11 +22,11 @@ public class MdmAnswerResp implements Serializable {
     /**
      * 表id
      */
-    private Integer answerId;
+    private Long answerId;
     /**
      * 题目id
      */
-    private Integer questioinId;
+    private Long questioinId;
     /**
      * 题目类型
      */
@@ -50,11 +50,11 @@ public class MdmAnswerResp implements Serializable {
     /**
      *
      */
-    private Integer createdBy;
+    private Long createdBy;
     /**
      *
      */
-    private Integer lastUpdatedBy;
+    private Long lastUpdatedBy;
     /**
      *
      */
@@ -62,15 +62,15 @@ public class MdmAnswerResp implements Serializable {
     /**
      *
      */
-    private Integer lastUpdateLogin;
+    private Long lastUpdateLogin;
     /**
      *
      */
-    private Integer programApplicationId;
+    private Long programApplicationId;
     /**
      *
      */
-    private Integer programId;
+    private Long programId;
     /**
      *
      */
@@ -78,7 +78,7 @@ public class MdmAnswerResp implements Serializable {
     /**
      *
      */
-    private Integer requestId;
+    private Long requestId;
     /**
      *
      */

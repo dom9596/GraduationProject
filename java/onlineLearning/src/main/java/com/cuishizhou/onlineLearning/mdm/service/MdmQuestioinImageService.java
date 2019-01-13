@@ -20,23 +20,23 @@ public interface MdmQuestioinImageService {
 
     Page<MdmQuestioinImagePo> selectPaged(RowBounds rowBounds);
 
-    MdmQuestioinImagePo selectByPrimaryKey(Integer questioinImageId);
+    MdmQuestioinImagePo selectByPrimaryKey(Long questioinImageId);
 
-    Integer deleteByPrimaryKey(Integer questioinImageId);
+    Long deleteByPrimaryKey(Long questioinImageId);
 
-    Integer insert(MdmQuestioinImagePo mdmQuestioinImage);
+    Long insert(MdmQuestioinImagePo mdmQuestioinImage);
 
-    Integer insertSelective(MdmQuestioinImagePo mdmQuestioinImage);
+    Long insertSelective(MdmQuestioinImagePo mdmQuestioinImage);
 
-    Integer insertSelectiveIgnore(MdmQuestioinImagePo mdmQuestioinImage);
+    Long insertSelectiveIgnore(MdmQuestioinImagePo mdmQuestioinImage);
 
-    Integer updateByPrimaryKeySelective(MdmQuestioinImagePo mdmQuestioinImage);
+    Long updateByPrimaryKeySelective(MdmQuestioinImagePo mdmQuestioinImage);
 
-    Integer updateByPrimaryKey(MdmQuestioinImagePo mdmQuestioinImage);
+    Long updateByPrimaryKey(MdmQuestioinImagePo mdmQuestioinImage);
 
-    Integer batchInsert(List<MdmQuestioinImagePo> list);
+    Long batchInsert(List<MdmQuestioinImagePo> list);
 
-    Integer batchUpdate(List<MdmQuestioinImagePo> list);
+    Long batchUpdate(List<MdmQuestioinImagePo> list);
 
     /**
      * 存在即更新
@@ -44,7 +44,7 @@ public interface MdmQuestioinImageService {
      * @param map
      * @return
      */
-    Integer upsert(MdmQuestioinImagePo mdmQuestioinImage);
+    Long upsert(MdmQuestioinImagePo mdmQuestioinImage);
 
     /**
      * 存在即更新，可选择具体属性
@@ -52,13 +52,13 @@ public interface MdmQuestioinImageService {
      * @param map
      * @return
      */
-    Integer upsertSelective(MdmQuestioinImagePo mdmQuestioinImage);
+    Long upsertSelective(MdmQuestioinImagePo mdmQuestioinImage);
 
     List<MdmQuestioinImagePo> query(MdmQuestioinImagePo mdmQuestioinImage);
 
     Long queryTotal();
 
-    Integer deleteBatch(List<Integer> list);
+    Long deleteBatch(List<Long> list);
 
     /*<AUTOGEN--END>*/
 

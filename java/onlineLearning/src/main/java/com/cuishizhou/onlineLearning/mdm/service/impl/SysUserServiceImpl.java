@@ -33,47 +33,47 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     @Override
-    public SysUserPo selectByPrimaryKey(Integer userId) {
+    public SysUserPo selectByPrimaryKey(Long userId) {
         return sysUserDao.selectByPrimaryKey(userId);
     }
 
     @Override
-    public Integer deleteByPrimaryKey(Integer userId) {
+    public Long deleteByPrimaryKey(Long userId) {
         return sysUserDao.deleteByPrimaryKey(userId);
     }
 
     @Override
-    public Integer insert(SysUserPo sysUser) {
+    public Long insert(SysUserPo sysUser) {
         return sysUserDao.insert(sysUser);
     }
 
     @Override
-    public Integer insertSelective(SysUserPo sysUser) {
+    public Long insertSelective(SysUserPo sysUser) {
         return sysUserDao.insertSelective(sysUser);
     }
 
     @Override
-    public Integer insertSelectiveIgnore(SysUserPo sysUser) {
+    public Long insertSelectiveIgnore(SysUserPo sysUser) {
         return sysUserDao.insertSelectiveIgnore(sysUser);
     }
 
     @Override
-    public Integer updateByPrimaryKeySelective(SysUserPo sysUser) {
+    public Long updateByPrimaryKeySelective(SysUserPo sysUser) {
         return sysUserDao.updateByPrimaryKeySelective(sysUser);
     }
 
     @Override
-    public Integer updateByPrimaryKey(SysUserPo sysUser) {
+    public Long updateByPrimaryKey(SysUserPo sysUser) {
         return sysUserDao.updateByPrimaryKey(sysUser);
     }
 
     @Override
-    public Integer batchInsert(List<SysUserPo> list) {
+    public Long batchInsert(List<SysUserPo> list) {
         return sysUserDao.batchInsert(list);
     }
 
     @Override
-    public Integer batchUpdate(List<SysUserPo> list) {
+    public Long batchUpdate(List<SysUserPo> list) {
         return sysUserDao.batchUpdate(list);
     }
 
@@ -84,7 +84,7 @@ public class SysUserServiceImpl implements SysUserService {
      * @return
      */
     @Override
-    public Integer upsert(SysUserPo sysUser) {
+    public Long upsert(SysUserPo sysUser) {
         return sysUserDao.upsert(sysUser);
     }
 
@@ -95,7 +95,7 @@ public class SysUserServiceImpl implements SysUserService {
      * @return
      */
     @Override
-    public Integer upsertSelective(SysUserPo sysUser) {
+    public Long upsertSelective(SysUserPo sysUser) {
         return sysUserDao.upsertSelective(sysUser);
     }
 
@@ -110,7 +110,7 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     @Override
-    public Integer deleteBatch(List<Integer> list) {
+    public Long deleteBatch(List<Long> list) {
         return sysUserDao.deleteBatch(list);
     }
 

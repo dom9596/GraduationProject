@@ -33,47 +33,47 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     @Override
-    public SysRolePo selectByPrimaryKey(Integer roleId) {
+    public SysRolePo selectByPrimaryKey(Long roleId) {
         return sysRoleDao.selectByPrimaryKey(roleId);
     }
 
     @Override
-    public Integer deleteByPrimaryKey(Integer roleId) {
+    public Long deleteByPrimaryKey(Long roleId) {
         return sysRoleDao.deleteByPrimaryKey(roleId);
     }
 
     @Override
-    public Integer insert(SysRolePo sysRole) {
+    public Long insert(SysRolePo sysRole) {
         return sysRoleDao.insert(sysRole);
     }
 
     @Override
-    public Integer insertSelective(SysRolePo sysRole) {
+    public Long insertSelective(SysRolePo sysRole) {
         return sysRoleDao.insertSelective(sysRole);
     }
 
     @Override
-    public Integer insertSelectiveIgnore(SysRolePo sysRole) {
+    public Long insertSelectiveIgnore(SysRolePo sysRole) {
         return sysRoleDao.insertSelectiveIgnore(sysRole);
     }
 
     @Override
-    public Integer updateByPrimaryKeySelective(SysRolePo sysRole) {
+    public Long updateByPrimaryKeySelective(SysRolePo sysRole) {
         return sysRoleDao.updateByPrimaryKeySelective(sysRole);
     }
 
     @Override
-    public Integer updateByPrimaryKey(SysRolePo sysRole) {
+    public Long updateByPrimaryKey(SysRolePo sysRole) {
         return sysRoleDao.updateByPrimaryKey(sysRole);
     }
 
     @Override
-    public Integer batchInsert(List<SysRolePo> list) {
+    public Long batchInsert(List<SysRolePo> list) {
         return sysRoleDao.batchInsert(list);
     }
 
     @Override
-    public Integer batchUpdate(List<SysRolePo> list) {
+    public Long batchUpdate(List<SysRolePo> list) {
         return sysRoleDao.batchUpdate(list);
     }
 
@@ -84,7 +84,7 @@ public class SysRoleServiceImpl implements SysRoleService {
      * @return
      */
     @Override
-    public Integer upsert(SysRolePo sysRole) {
+    public Long upsert(SysRolePo sysRole) {
         return sysRoleDao.upsert(sysRole);
     }
 
@@ -95,7 +95,7 @@ public class SysRoleServiceImpl implements SysRoleService {
      * @return
      */
     @Override
-    public Integer upsertSelective(SysRolePo sysRole) {
+    public Long upsertSelective(SysRolePo sysRole) {
         return sysRoleDao.upsertSelective(sysRole);
     }
 
@@ -110,7 +110,7 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     @Override
-    public Integer deleteBatch(List<Integer> list) {
+    public Long deleteBatch(List<Long> list) {
         return sysRoleDao.deleteBatch(list);
     }
 

@@ -20,23 +20,23 @@ public interface SysUserRoleService {
 
     Page<SysUserRolePo> selectPaged(RowBounds rowBounds);
 
-    SysUserRolePo selectByPrimaryKey(Integer surId);
+    SysUserRolePo selectByPrimaryKey(Long surId);
 
-    Integer deleteByPrimaryKey(Integer surId);
+    Long deleteByPrimaryKey(Long surId);
 
-    Integer insert(SysUserRolePo sysUserRole);
+    Long insert(SysUserRolePo sysUserRole);
 
-    Integer insertSelective(SysUserRolePo sysUserRole);
+    Long insertSelective(SysUserRolePo sysUserRole);
 
-    Integer insertSelectiveIgnore(SysUserRolePo sysUserRole);
+    Long insertSelectiveIgnore(SysUserRolePo sysUserRole);
 
-    Integer updateByPrimaryKeySelective(SysUserRolePo sysUserRole);
+    Long updateByPrimaryKeySelective(SysUserRolePo sysUserRole);
 
-    Integer updateByPrimaryKey(SysUserRolePo sysUserRole);
+    Long updateByPrimaryKey(SysUserRolePo sysUserRole);
 
-    Integer batchInsert(List<SysUserRolePo> list);
+    Long batchInsert(List<SysUserRolePo> list);
 
-    Integer batchUpdate(List<SysUserRolePo> list);
+    Long batchUpdate(List<SysUserRolePo> list);
 
     /**
      * 存在即更新
@@ -44,7 +44,7 @@ public interface SysUserRoleService {
      * @param map
      * @return
      */
-    Integer upsert(SysUserRolePo sysUserRole);
+    Long upsert(SysUserRolePo sysUserRole);
 
     /**
      * 存在即更新，可选择具体属性
@@ -52,13 +52,13 @@ public interface SysUserRoleService {
      * @param map
      * @return
      */
-    Integer upsertSelective(SysUserRolePo sysUserRole);
+    Long upsertSelective(SysUserRolePo sysUserRole);
 
     List<SysUserRolePo> query(SysUserRolePo sysUserRole);
 
     Long queryTotal();
 
-    Integer deleteBatch(List<Integer> list);
+    Long deleteBatch(List<Long> list);
 
     /*<AUTOGEN--END>*/
 

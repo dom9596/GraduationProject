@@ -20,23 +20,23 @@ public interface MdmClassStudentService {
 
     Page<MdmClassStudentPo> selectPaged(RowBounds rowBounds);
 
-    MdmClassStudentPo selectByPrimaryKey(Integer classStudentId);
+    MdmClassStudentPo selectByPrimaryKey(Long classStudentId);
 
-    Integer deleteByPrimaryKey(Integer classStudentId);
+    Long deleteByPrimaryKey(Long classStudentId);
 
-    Integer insert(MdmClassStudentPo mdmClassStudent);
+    Long insert(MdmClassStudentPo mdmClassStudent);
 
-    Integer insertSelective(MdmClassStudentPo mdmClassStudent);
+    Long insertSelective(MdmClassStudentPo mdmClassStudent);
 
-    Integer insertSelectiveIgnore(MdmClassStudentPo mdmClassStudent);
+    Long insertSelectiveIgnore(MdmClassStudentPo mdmClassStudent);
 
-    Integer updateByPrimaryKeySelective(MdmClassStudentPo mdmClassStudent);
+    Long updateByPrimaryKeySelective(MdmClassStudentPo mdmClassStudent);
 
-    Integer updateByPrimaryKey(MdmClassStudentPo mdmClassStudent);
+    Long updateByPrimaryKey(MdmClassStudentPo mdmClassStudent);
 
-    Integer batchInsert(List<MdmClassStudentPo> list);
+    Long batchInsert(List<MdmClassStudentPo> list);
 
-    Integer batchUpdate(List<MdmClassStudentPo> list);
+    Long batchUpdate(List<MdmClassStudentPo> list);
 
     /**
      * 存在即更新
@@ -44,7 +44,7 @@ public interface MdmClassStudentService {
      * @param map
      * @return
      */
-    Integer upsert(MdmClassStudentPo mdmClassStudent);
+    Long upsert(MdmClassStudentPo mdmClassStudent);
 
     /**
      * 存在即更新，可选择具体属性
@@ -52,13 +52,13 @@ public interface MdmClassStudentService {
      * @param map
      * @return
      */
-    Integer upsertSelective(MdmClassStudentPo mdmClassStudent);
+    Long upsertSelective(MdmClassStudentPo mdmClassStudent);
 
     List<MdmClassStudentPo> query(MdmClassStudentPo mdmClassStudent);
 
     Long queryTotal();
 
-    Integer deleteBatch(List<Integer> list);
+    Long deleteBatch(List<Long> list);
 
     /*<AUTOGEN--END>*/
 

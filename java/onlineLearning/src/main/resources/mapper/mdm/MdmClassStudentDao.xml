@@ -135,13 +135,13 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="classStudentId!=null">
-                #{classStudentId,jdbcType=INT},
+                #{classStudentId,jdbcType=DECIMAL},
             </if>
             <if test="classId!=null">
-                #{classId,jdbcType=INT},
+                #{classId,jdbcType=DECIMAL},
             </if>
             <if test="userId!=null">
-                #{userId,jdbcType=INT},
+                #{userId,jdbcType=DECIMAL},
             </if>
             <if test="updateDate!=null">
                 #{updateDate,jdbcType=VARCHAR},
@@ -153,28 +153,28 @@
                 #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                #{createdBy,jdbcType=INT},
+                #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                #{lastUpdatedBy,jdbcType=INT},
+                #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                #{lastUpdateLogin,jdbcType=INT},
+                #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                #{programApplicationId,jdbcType=INT},
+                #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                #{programId,jdbcType=INT},
+                #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                #{requestId,jdbcType=INT},
+                #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 #{attributeCategory,jdbcType=VARCHAR},
@@ -268,13 +268,13 @@
       -->
     <sql id="Base_Query_Where">
         <if test="classStudentId!=null">
-            #{classStudentId,jdbcType=INT},
+            #{classStudentId,jdbcType=DECIMAL},
         </if>
         <if test="classId!=null">
-            #{classId,jdbcType=INT},
+            #{classId,jdbcType=DECIMAL},
         </if>
         <if test="userId!=null">
-            #{userId,jdbcType=INT},
+            #{userId,jdbcType=DECIMAL},
         </if>
         <if test="updateDate!=null">
             #{updateDate,jdbcType=VARCHAR},
@@ -286,28 +286,28 @@
             #{creationDate,jdbcType=DATETIME},
         </if>
         <if test="createdBy!=null">
-            #{createdBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdatedBy!=null">
-            #{lastUpdatedBy,jdbcType=INT},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdateDate!=null">
             #{lastUpdateDate,jdbcType=DATETIME},
         </if>
         <if test="lastUpdateLogin!=null">
-            #{lastUpdateLogin,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
         </if>
         <if test="programApplicationId!=null">
-            #{programApplicationId,jdbcType=INT},
+            #{programApplicationId,jdbcType=DECIMAL},
         </if>
         <if test="programId!=null">
-            #{programId,jdbcType=INT},
+            #{programId,jdbcType=DECIMAL},
         </if>
         <if test="programUpdateDate!=null">
             #{programUpdateDate,jdbcType=DATE},
         </if>
         <if test="requestId!=null">
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
         </if>
         <if test="attributeCategory!=null">
             #{attributeCategory,jdbcType=VARCHAR},
@@ -365,13 +365,13 @@
     <sql id="Base_Update_Column">
         <set>
             <if test="classStudentId!=null">
-                #{classStudentId,jdbcType=INT},
+                #{classStudentId,jdbcType=DECIMAL},
             </if>
             <if test="classId!=null">
-                #{classId,jdbcType=INT},
+                #{classId,jdbcType=DECIMAL},
             </if>
             <if test="userId!=null">
-                #{userId,jdbcType=INT},
+                #{userId,jdbcType=DECIMAL},
             </if>
             <if test="updateDate!=null">
                 #{updateDate,jdbcType=VARCHAR},
@@ -383,28 +383,28 @@
                 #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                #{createdBy,jdbcType=INT},
+                #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                #{lastUpdatedBy,jdbcType=INT},
+                #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                #{lastUpdateLogin,jdbcType=INT},
+                #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                #{programApplicationId,jdbcType=INT},
+                #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                #{programId,jdbcType=INT},
+                #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                #{requestId,jdbcType=INT},
+                #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 #{attributeCategory,jdbcType=VARCHAR},
@@ -469,20 +469,20 @@
     <!--
       根据主键查询数据库表
     -->
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from mdm_class_student
-        where class_student_id = #{classStudentId,jdbcType=INT}
+        where class_student_id = #{classStudentId,jdbcType=DECIMAL}
     </select>
 
 
     <!--
       根据主键删除数据库表中的记录
     -->
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete FROM mdm_class_student
-        where class_student_id = #{classStudentId,jdbcType=INT}
+        where class_student_id = #{classStudentId,jdbcType=DECIMAL}
     </delete>
 
     <!--
@@ -494,13 +494,13 @@
         (<include refid="Base_Column_List"/>)
         values (
         <if test="classStudentId!=null">
-            #{classStudentId,jdbcType=INT},
+            #{classStudentId,jdbcType=DECIMAL},
         </if>
         <if test="classId!=null">
-            #{classId,jdbcType=INT},
+            #{classId,jdbcType=DECIMAL},
         </if>
         <if test="userId!=null">
-            #{userId,jdbcType=INT},
+            #{userId,jdbcType=DECIMAL},
         </if>
         <if test="updateDate!=null">
             #{updateDate,jdbcType=VARCHAR},
@@ -512,28 +512,28 @@
             #{creationDate,jdbcType=DATETIME},
         </if>
         <if test="createdBy!=null">
-            #{createdBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdatedBy!=null">
-            #{lastUpdatedBy,jdbcType=INT},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdateDate!=null">
             #{lastUpdateDate,jdbcType=DATETIME},
         </if>
         <if test="lastUpdateLogin!=null">
-            #{lastUpdateLogin,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
         </if>
         <if test="programApplicationId!=null">
-            #{programApplicationId,jdbcType=INT},
+            #{programApplicationId,jdbcType=DECIMAL},
         </if>
         <if test="programId!=null">
-            #{programId,jdbcType=INT},
+            #{programId,jdbcType=DECIMAL},
         </if>
         <if test="programUpdateDate!=null">
             #{programUpdateDate,jdbcType=DATE},
         </if>
         <if test="requestId!=null">
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
         </if>
         <if test="attributeCategory!=null">
             #{attributeCategory,jdbcType=VARCHAR},
@@ -611,7 +611,7 @@
             parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassStudentPo">
         update mdm_class_student
         <include refid="Base_Update_Column"></include>
-        where class_student_id = #{classStudentId,jdbcType=INT}
+        where class_student_id = #{classStudentId,jdbcType=DECIMAL}
     </update>
 
 
@@ -622,13 +622,13 @@
         update mdm_class_student
         <set>
             <if test="classStudentId!=null">
-                class_student_id = #{classStudentId,jdbcType=INT},
+                class_student_id = #{classStudentId,jdbcType=DECIMAL},
             </if>
             <if test="classId!=null">
-                class_id = #{classId,jdbcType=INT},
+                class_id = #{classId,jdbcType=DECIMAL},
             </if>
             <if test="userId!=null">
-                user_id = #{userId,jdbcType=INT},
+                user_id = #{userId,jdbcType=DECIMAL},
             </if>
             <if test="updateDate!=null">
                 update_date = #{updateDate,jdbcType=VARCHAR},
@@ -640,28 +640,28 @@
                 creation_date = #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                created_by = #{createdBy,jdbcType=INT},
+                created_by = #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                program_application_id = #{programApplicationId,jdbcType=INT},
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                program_id = #{programId,jdbcType=INT},
+                program_id = #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 program_update_date = #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                request_id = #{requestId,jdbcType=INT},
+                request_id = #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR},
@@ -712,7 +712,7 @@
                 attribute15 = #{attribute15,jdbcType=VARCHAR},
             </if>
         </set>
-        where class_student_id = #{classStudentId,jdbcType=INT}
+        where class_student_id = #{classStudentId,jdbcType=DECIMAL}
     </update>
 
     <!--
@@ -755,20 +755,20 @@
         values
         <foreach collection="list" index="index" item="item" separator=",">
             <trim prefix="(" suffix=")" suffixOverrides=",">
-                #{classStudentId,jdbcType=INT},
-                #{classId,jdbcType=INT},
-                #{userId,jdbcType=INT},
+                #{classStudentId,jdbcType=DECIMAL},
+                #{classId,jdbcType=DECIMAL},
+                #{userId,jdbcType=DECIMAL},
                 #{updateDate,jdbcType=VARCHAR},
                 #{createDate,jdbcType=VARCHAR},
                 #{creationDate,jdbcType=DATETIME},
-                #{createdBy,jdbcType=INT},
-                #{lastUpdatedBy,jdbcType=INT},
+                #{createdBy,jdbcType=DECIMAL},
+                #{lastUpdatedBy,jdbcType=DECIMAL},
                 #{lastUpdateDate,jdbcType=DATETIME},
-                #{lastUpdateLogin,jdbcType=INT},
-                #{programApplicationId,jdbcType=INT},
-                #{programId,jdbcType=INT},
+                #{lastUpdateLogin,jdbcType=DECIMAL},
+                #{programApplicationId,jdbcType=DECIMAL},
+                #{programId,jdbcType=DECIMAL},
                 #{programUpdateDate,jdbcType=DATE},
-                #{requestId,jdbcType=INT},
+                #{requestId,jdbcType=DECIMAL},
                 #{attributeCategory,jdbcType=VARCHAR},
                 #{attribute1,jdbcType=VARCHAR},
                 #{attribute2,jdbcType=VARCHAR},
@@ -798,13 +798,13 @@
             <set>
                 <trim suffixOverrides=",">
                     <if test="item.classStudentId!=null">
-                        class_student_id = #{classStudentId,jdbcType=INT},
+                        class_student_id = #{classStudentId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.classId!=null">
-                        class_id = #{classId,jdbcType=INT},
+                        class_id = #{classId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.userId!=null">
-                        user_id = #{userId,jdbcType=INT},
+                        user_id = #{userId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.updateDate!=null">
                         update_date = #{updateDate,jdbcType=VARCHAR},
@@ -816,28 +816,28 @@
                         creation_date = #{creationDate,jdbcType=DATETIME},
                     </if>
                     <if test="item.createdBy!=null">
-                        created_by = #{createdBy,jdbcType=INT},
+                        created_by = #{createdBy,jdbcType=DECIMAL},
                     </if>
                     <if test="item.lastUpdatedBy!=null">
-                        last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                        last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
                     </if>
                     <if test="item.lastUpdateDate!=null">
                         last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
                     </if>
                     <if test="item.lastUpdateLogin!=null">
-                        last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                        last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
                     </if>
                     <if test="item.programApplicationId!=null">
-                        program_application_id = #{programApplicationId,jdbcType=INT},
+                        program_application_id = #{programApplicationId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.programId!=null">
-                        program_id = #{programId,jdbcType=INT},
+                        program_id = #{programId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.programUpdateDate!=null">
                         program_update_date = #{programUpdateDate,jdbcType=DATE},
                     </if>
                     <if test="item.requestId!=null">
-                        request_id = #{requestId,jdbcType=INT},
+                        request_id = #{requestId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.attributeCategory!=null">
                         attribute_category = #{attributeCategory,jdbcType=VARCHAR},
@@ -891,7 +891,7 @@
             </set>
             <where>
                 <trim suffixOverrides=",">
-                    where class_student_id = #{classStudentId,INT}
+                    where class_student_id = #{classStudentId,DECIMAL}
                 </trim>
             </where>
         </foreach>
@@ -903,13 +903,13 @@
     <sql id="Identifiers_Array_Conditions">
         <foreach collection="array" index="index" item="item" separator=" and ">
             <if test="item == classStudentId">
-                class_student_id = #{classStudentId,jdbcType=INT}
+                class_student_id = #{classStudentId,jdbcType=DECIMAL}
             </if>
             <if test="item == classId">
-                class_id = #{classId,jdbcType=INT}
+                class_id = #{classId,jdbcType=DECIMAL}
             </if>
             <if test="item == userId">
-                user_id = #{userId,jdbcType=INT}
+                user_id = #{userId,jdbcType=DECIMAL}
             </if>
             <if test="item == updateDate">
                 update_date = #{updateDate,jdbcType=VARCHAR}
@@ -921,28 +921,28 @@
                 creation_date = #{creationDate,jdbcType=DATETIME}
             </if>
             <if test="item == createdBy">
-                created_by = #{createdBy,jdbcType=INT}
+                created_by = #{createdBy,jdbcType=DECIMAL}
             </if>
             <if test="item == lastUpdatedBy">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT}
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL}
             </if>
             <if test="item == lastUpdateDate">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME}
             </if>
             <if test="item == lastUpdateLogin">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT}
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL}
             </if>
             <if test="item == programApplicationId">
-                program_application_id = #{programApplicationId,jdbcType=INT}
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL}
             </if>
             <if test="item == programId">
-                program_id = #{programId,jdbcType=INT}
+                program_id = #{programId,jdbcType=DECIMAL}
             </if>
             <if test="item == programUpdateDate">
                 program_update_date = #{programUpdateDate,jdbcType=DATE}
             </if>
             <if test="item == requestId">
-                request_id = #{requestId,jdbcType=INT}
+                request_id = #{requestId,jdbcType=DECIMAL}
             </if>
             <if test="item == attributeCategory">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR}
@@ -1034,20 +1034,20 @@
         </trim>
         values
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            #{classStudentId,jdbcType=INT},
-            #{classId,jdbcType=INT},
-            #{userId,jdbcType=INT},
+            #{classStudentId,jdbcType=DECIMAL},
+            #{classId,jdbcType=DECIMAL},
+            #{userId,jdbcType=DECIMAL},
             #{updateDate,jdbcType=VARCHAR},
             #{createDate,jdbcType=VARCHAR},
             #{creationDate,jdbcType=DATETIME},
-            #{createdBy,jdbcType=INT},
-            #{lastUpdatedBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
             #{lastUpdateDate,jdbcType=DATETIME},
-            #{lastUpdateLogin,jdbcType=INT},
-            #{programApplicationId,jdbcType=INT},
-            #{programId,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
+            #{programApplicationId,jdbcType=DECIMAL},
+            #{programId,jdbcType=DECIMAL},
             #{programUpdateDate,jdbcType=DATE},
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
             #{attributeCategory,jdbcType=VARCHAR},
             #{attribute1,jdbcType=VARCHAR},
             #{attribute2,jdbcType=VARCHAR},
@@ -1067,20 +1067,20 @@
         </trim>
         on duplicate key update
         <trim suffixOverrides=",">
-            #{classStudentId,jdbcType=INT},
-            #{classId,jdbcType=INT},
-            #{userId,jdbcType=INT},
+            #{classStudentId,jdbcType=DECIMAL},
+            #{classId,jdbcType=DECIMAL},
+            #{userId,jdbcType=DECIMAL},
             #{updateDate,jdbcType=VARCHAR},
             #{createDate,jdbcType=VARCHAR},
             #{creationDate,jdbcType=DATETIME},
-            #{createdBy,jdbcType=INT},
-            #{lastUpdatedBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
             #{lastUpdateDate,jdbcType=DATETIME},
-            #{lastUpdateLogin,jdbcType=INT},
-            #{programApplicationId,jdbcType=INT},
-            #{programId,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
+            #{programApplicationId,jdbcType=DECIMAL},
+            #{programId,jdbcType=DECIMAL},
             #{programUpdateDate,jdbcType=DATE},
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
             #{attributeCategory,jdbcType=VARCHAR},
             #{attribute1,jdbcType=VARCHAR},
             #{attribute2,jdbcType=VARCHAR},
@@ -1201,13 +1201,13 @@
         values
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="classStudentId!=null">
-                class_student_id = #{classStudentId,jdbcType=INT},
+                class_student_id = #{classStudentId,jdbcType=DECIMAL},
             </if>
             <if test="classId!=null">
-                class_id = #{classId,jdbcType=INT},
+                class_id = #{classId,jdbcType=DECIMAL},
             </if>
             <if test="userId!=null">
-                user_id = #{userId,jdbcType=INT},
+                user_id = #{userId,jdbcType=DECIMAL},
             </if>
             <if test="updateDate!=null">
                 update_date = #{updateDate,jdbcType=VARCHAR},
@@ -1219,28 +1219,28 @@
                 creation_date = #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                created_by = #{createdBy,jdbcType=INT},
+                created_by = #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                program_application_id = #{programApplicationId,jdbcType=INT},
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                program_id = #{programId,jdbcType=INT},
+                program_id = #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 program_update_date = #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                request_id = #{requestId,jdbcType=INT},
+                request_id = #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR},
@@ -1294,13 +1294,13 @@
         on duplicate key update
         <trim suffixOverrides=",">
             <if test="classStudentId!=null">
-                class_student_id = #{classStudentId,jdbcType=INT},
+                class_student_id = #{classStudentId,jdbcType=DECIMAL},
             </if>
             <if test="classId!=null">
-                class_id = #{classId,jdbcType=INT},
+                class_id = #{classId,jdbcType=DECIMAL},
             </if>
             <if test="userId!=null">
-                user_id = #{userId,jdbcType=INT},
+                user_id = #{userId,jdbcType=DECIMAL},
             </if>
             <if test="updateDate!=null">
                 update_date = #{updateDate,jdbcType=VARCHAR},
@@ -1312,28 +1312,28 @@
                 creation_date = #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                created_by = #{createdBy,jdbcType=INT},
+                created_by = #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                program_application_id = #{programApplicationId,jdbcType=INT},
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                program_id = #{programId,jdbcType=INT},
+                program_id = #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 program_update_date = #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                request_id = #{requestId,jdbcType=INT},
+                request_id = #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR},

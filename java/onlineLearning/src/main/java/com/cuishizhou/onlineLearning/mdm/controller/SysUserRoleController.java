@@ -45,7 +45,7 @@ public class SysUserRoleController {
      * @return
      */
     @RequestMapping("/select_by_id")
-    public Result<SysUserRolePo> selectByPrimaryKey(Integer surId) {
+    public Result<SysUserRolePo> selectByPrimaryKey(Long surId) {
         Result<SysUserRolePo> result = new Result<>();
         SysUserRolePo po = sysUserRoleService.selectByPrimaryKey(surId);
         result.setData(po);
@@ -58,9 +58,9 @@ public class SysUserRoleController {
      * @return
      */
     @RequestMapping("/delete_by_id")
-    public Result<Integer> deleteByPrimaryKey(Integer surId) {
-        Result<Integer> result = new Result<>();
-        Integer num = sysUserRoleService.deleteByPrimaryKey(surId);
+    public Result<Long> deleteByPrimaryKey(Long surId) {
+        Result<Long> result = new Result<>();
+        Long num = sysUserRoleService.deleteByPrimaryKey(surId);
         result.setData(num);
         return result;
     }
@@ -71,9 +71,9 @@ public class SysUserRoleController {
      * @return
      */
     @RequestMapping("/save_sysUserRole")
-    public Result<Integer> insert(SysUserRolePo sysUserRole) {
-        Result<Integer> result = new Result<>();
-        Integer num = sysUserRoleService.insertSelective(sysUserRole);
+    public Result<Long> insert(SysUserRolePo sysUserRole) {
+        Result<Long> result = new Result<>();
+        Long num = sysUserRoleService.insertSelective(sysUserRole);
         result.setData(num);
         return result;
     }
@@ -84,9 +84,9 @@ public class SysUserRoleController {
      * @return
      */
     @RequestMapping("/update_sysUserRole")
-    public Result<Integer> updateByPrimaryKeySelective(SysUserRolePo sysUserRole) {
-        Result<Integer> result = new Result<>();
-        Integer num = sysUserRoleService.updateByPrimaryKeySelective(sysUserRole);
+    public Result<Long> updateByPrimaryKeySelective(SysUserRolePo sysUserRole) {
+        Result<Long> result = new Result<>();
+        Long num = sysUserRoleService.updateByPrimaryKeySelective(sysUserRole);
         result.setData(num);
         return result;
     }

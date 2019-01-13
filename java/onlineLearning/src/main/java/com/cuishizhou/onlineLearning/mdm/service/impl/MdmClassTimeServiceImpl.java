@@ -33,47 +33,47 @@ public class MdmClassTimeServiceImpl implements MdmClassTimeService {
     }
 
     @Override
-    public MdmClassTimePo selectByPrimaryKey(Integer classTimeId) {
+    public MdmClassTimePo selectByPrimaryKey(Long classTimeId) {
         return mdmClassTimeDao.selectByPrimaryKey(classTimeId);
     }
 
     @Override
-    public Integer deleteByPrimaryKey(Integer classTimeId) {
+    public Long deleteByPrimaryKey(Long classTimeId) {
         return mdmClassTimeDao.deleteByPrimaryKey(classTimeId);
     }
 
     @Override
-    public Integer insert(MdmClassTimePo mdmClassTime) {
+    public Long insert(MdmClassTimePo mdmClassTime) {
         return mdmClassTimeDao.insert(mdmClassTime);
     }
 
     @Override
-    public Integer insertSelective(MdmClassTimePo mdmClassTime) {
+    public Long insertSelective(MdmClassTimePo mdmClassTime) {
         return mdmClassTimeDao.insertSelective(mdmClassTime);
     }
 
     @Override
-    public Integer insertSelectiveIgnore(MdmClassTimePo mdmClassTime) {
+    public Long insertSelectiveIgnore(MdmClassTimePo mdmClassTime) {
         return mdmClassTimeDao.insertSelectiveIgnore(mdmClassTime);
     }
 
     @Override
-    public Integer updateByPrimaryKeySelective(MdmClassTimePo mdmClassTime) {
+    public Long updateByPrimaryKeySelective(MdmClassTimePo mdmClassTime) {
         return mdmClassTimeDao.updateByPrimaryKeySelective(mdmClassTime);
     }
 
     @Override
-    public Integer updateByPrimaryKey(MdmClassTimePo mdmClassTime) {
+    public Long updateByPrimaryKey(MdmClassTimePo mdmClassTime) {
         return mdmClassTimeDao.updateByPrimaryKey(mdmClassTime);
     }
 
     @Override
-    public Integer batchInsert(List<MdmClassTimePo> list) {
+    public Long batchInsert(List<MdmClassTimePo> list) {
         return mdmClassTimeDao.batchInsert(list);
     }
 
     @Override
-    public Integer batchUpdate(List<MdmClassTimePo> list) {
+    public Long batchUpdate(List<MdmClassTimePo> list) {
         return mdmClassTimeDao.batchUpdate(list);
     }
 
@@ -84,7 +84,7 @@ public class MdmClassTimeServiceImpl implements MdmClassTimeService {
      * @return
      */
     @Override
-    public Integer upsert(MdmClassTimePo mdmClassTime) {
+    public Long upsert(MdmClassTimePo mdmClassTime) {
         return mdmClassTimeDao.upsert(mdmClassTime);
     }
 
@@ -95,7 +95,7 @@ public class MdmClassTimeServiceImpl implements MdmClassTimeService {
      * @return
      */
     @Override
-    public Integer upsertSelective(MdmClassTimePo mdmClassTime) {
+    public Long upsertSelective(MdmClassTimePo mdmClassTime) {
         return mdmClassTimeDao.upsertSelective(mdmClassTime);
     }
 
@@ -110,7 +110,7 @@ public class MdmClassTimeServiceImpl implements MdmClassTimeService {
     }
 
     @Override
-    public Integer deleteBatch(List<Integer> list) {
+    public Long deleteBatch(List<Long> list) {
         return mdmClassTimeDao.deleteBatch(list);
     }
 

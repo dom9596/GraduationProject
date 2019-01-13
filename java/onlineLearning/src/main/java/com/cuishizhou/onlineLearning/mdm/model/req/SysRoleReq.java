@@ -22,7 +22,7 @@ public class SysRoleReq implements Serializable {
     /**
      * 表id
      */
-    private Integer roleId;
+    private Long roleId;
     /**
      * 编码(学号/工号)
      */
@@ -62,11 +62,11 @@ public class SysRoleReq implements Serializable {
     /**
      *
      */
-    private Integer createdBy;
+    private Long createdBy;
     /**
      *
      */
-    private Integer lastUpdatedBy;
+    private Long lastUpdatedBy;
     /**
      *
      */
@@ -74,15 +74,15 @@ public class SysRoleReq implements Serializable {
     /**
      *
      */
-    private Integer lastUpdateLogin;
+    private Long lastUpdateLogin;
     /**
      *
      */
-    private Integer programApplicationId;
+    private Long programApplicationId;
     /**
      *
      */
-    private Integer programId;
+    private Long programId;
     /**
      *
      */
@@ -90,7 +90,7 @@ public class SysRoleReq implements Serializable {
     /**
      *
      */
-    private Integer requestId;
+    private Long requestId;
     /**
      *
      */

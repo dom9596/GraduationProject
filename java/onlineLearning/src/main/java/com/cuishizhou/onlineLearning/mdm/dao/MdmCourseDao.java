@@ -22,23 +22,23 @@ public interface MdmCourseDao {
 
     Page<MdmCoursePo> selectPaged(RowBounds rowBounds);
 
-    MdmCoursePo selectByPrimaryKey(Integer courseId);
+    MdmCoursePo selectByPrimaryKey(Long courseId);
 
-    Integer deleteByPrimaryKey(Integer courseId);
+    Long deleteByPrimaryKey(Long courseId);
 
-    Integer insert(MdmCoursePo mdmCourse);
+    Long insert(MdmCoursePo mdmCourse);
 
-    Integer insertSelective(MdmCoursePo mdmCourse);
+    Long insertSelective(MdmCoursePo mdmCourse);
 
-    Integer insertSelectiveIgnore(MdmCoursePo mdmCourse);
+    Long insertSelectiveIgnore(MdmCoursePo mdmCourse);
 
-    Integer updateByPrimaryKeySelective(MdmCoursePo mdmCourse);
+    Long updateByPrimaryKeySelective(MdmCoursePo mdmCourse);
 
-    Integer updateByPrimaryKey(MdmCoursePo mdmCourse);
+    Long updateByPrimaryKey(MdmCoursePo mdmCourse);
 
-    Integer batchInsert(List<MdmCoursePo> list);
+    Long batchInsert(List<MdmCoursePo> list);
 
-    Integer batchUpdate(List<MdmCoursePo> list);
+    Long batchUpdate(List<MdmCoursePo> list);
 
     /**
      * 存在即更新
@@ -46,7 +46,7 @@ public interface MdmCourseDao {
      * @param map
      * @return
      */
-    Integer upsert(MdmCoursePo mdmCourse);
+    Long upsert(MdmCoursePo mdmCourse);
 
     /**
      * 存在即更新，可选择具体属性
@@ -54,13 +54,13 @@ public interface MdmCourseDao {
      * @param map
      * @return
      */
-    Integer upsertSelective(MdmCoursePo mdmCourse);
+    Long upsertSelective(MdmCoursePo mdmCourse);
 
     List<MdmCoursePo> query(MdmCoursePo mdmCourse);
 
     Long queryTotal();
 
-    Integer deleteBatch(List<Integer> list);
+    Long deleteBatch(List<Long> list);
 
     /*<AUTOGEN--END>*/
 

@@ -23,23 +23,23 @@ public interface MdmAnswerDao {
 
     Page<MdmAnswerPo> selectPaged(RowBounds rowBounds);
 
-    MdmAnswerPo selectByPrimaryKey(Integer answerId);
+    MdmAnswerPo selectByPrimaryKey(Long answerId);
 
-    Integer deleteByPrimaryKey(Integer answerId);
+    Long deleteByPrimaryKey(Long answerId);
 
-    Integer insert(MdmAnswerPo mdmAnswer);
+    Long insert(MdmAnswerPo mdmAnswer);
 
-    Integer insertSelective(MdmAnswerPo mdmAnswer);
+    Long insertSelective(MdmAnswerPo mdmAnswer);
 
-    Integer insertSelectiveIgnore(MdmAnswerPo mdmAnswer);
+    Long insertSelectiveIgnore(MdmAnswerPo mdmAnswer);
 
-    Integer updateByPrimaryKeySelective(MdmAnswerPo mdmAnswer);
+    Long updateByPrimaryKeySelective(MdmAnswerPo mdmAnswer);
 
-    Integer updateByPrimaryKey(MdmAnswerPo mdmAnswer);
+    Long updateByPrimaryKey(MdmAnswerPo mdmAnswer);
 
-    Integer batchInsert(List<MdmAnswerPo> list);
+    Long batchInsert(List<MdmAnswerPo> list);
 
-    Integer batchUpdate(List<MdmAnswerPo> list);
+    Long batchUpdate(List<MdmAnswerPo> list);
 
     /**
      * 存在即更新
@@ -47,7 +47,7 @@ public interface MdmAnswerDao {
      * @param
      * @return
      */
-    Integer upsert(MdmAnswerPo mdmAnswer);
+    Long upsert(MdmAnswerPo mdmAnswer);
 
     /**
      * 存在即更新，可选择具体属性
@@ -55,13 +55,13 @@ public interface MdmAnswerDao {
      * @param
      * @return
      */
-    Integer upsertSelective(MdmAnswerPo mdmAnswer);
+    Long upsertSelective(MdmAnswerPo mdmAnswer);
 
     List<MdmAnswerPo> query(MdmAnswerPo mdmAnswer);
 
     Long queryTotal();
 
-    Integer deleteBatch(List<Integer> list);
+    Long deleteBatch(List<Long> list);
 
     /*<AUTOGEN--END>*/
 

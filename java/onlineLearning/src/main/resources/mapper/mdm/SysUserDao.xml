@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.cuishizhou.onlineLearning.mdm.dao.MdmAnswerDao">
+<mapper namespace="com.cuishizhou.onlineLearning.mdm.dao.SysUserDao">
 
     <!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.cuishizhou.onlineLearning.mdm.model.po.MdmAnswerPo" id="BaseResultMap">
-        <result property="answerId" column="answer_id"/>
-        <result property="questioinId" column="questioin_id"/>
-        <result property="questioinType" column="questioin_type"/>
-        <result property="answer" column="answer"/>
-        <result property="updateDate" column="update_date"/>
+    <resultMap type="com.cuishizhou.onlineLearning.mdm.model.po.SysUserPo" id="BaseResultMap">
+        <result property="userId" column="user_id"/>
+        <result property="userCode" column="user_code"/>
+        <result property="userName" column="user_name"/>
+        <result property="userType" column="user_type"/>
+        <result property="passwordEncryption" column="password_encryption"/>
+        <result property="description" column="description"/>
+        <result property="email" column="email"/>
+        <result property="qq" column="qq"/>
+        <result property="wechat" column="wechat"/>
+        <result property="phone" column="phone"/>
+        <result property="status" column="status"/>
+        <result property="firstLogin" column="first_login"/>
+        <result property="startActiveDate" column="start_active_date"/>
+        <result property="endActiveData" column="end_active_data"/>
         <result property="createDate" column="create_date"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="lastPasswordUpdateDate" column="last_password_update_date"/>
+        <result property="lastLoginDate" column="last_login_date"/>
         <result property="creationDate" column="creation_date"/>
         <result property="createdBy" column="created_by"/>
         <result property="lastUpdatedBy" column="last_updated_by"/>
@@ -43,23 +55,59 @@
         -->
     <sql id="Base_Insert_Selective">
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="answerId!=null">
-                answer_id,
+            <if test="userId!=null">
+                user_id,
             </if>
-            <if test="questioinId!=null">
-                questioin_id,
+            <if test="userCode!=null">
+                user_code,
             </if>
-            <if test="questioinType!=null">
-                questioin_type,
+            <if test="userName!=null">
+                user_name,
             </if>
-            <if test="answer!=null">
-                answer,
+            <if test="userType!=null">
+                user_type,
+            </if>
+            <if test="passwordEncryption!=null">
+                password_encryption,
+            </if>
+            <if test="description!=null">
+                description,
+            </if>
+            <if test="email!=null">
+                email,
+            </if>
+            <if test="qq!=null">
+                qq,
+            </if>
+            <if test="wechat!=null">
+                wechat,
+            </if>
+            <if test="phone!=null">
+                phone,
+            </if>
+            <if test="status!=null">
+                status,
+            </if>
+            <if test="firstLogin!=null">
+                first_login,
+            </if>
+            <if test="startActiveDate!=null">
+                start_active_date,
+            </if>
+            <if test="endActiveData!=null">
+                end_active_data,
+            </if>
+            <if test="createDate!=null">
+                create_date,
             </if>
             <if test="updateDate!=null">
                 update_date,
             </if>
-            <if test="createDate!=null">
-                create_date,
+            <if test="lastPasswordUpdateDate!=null">
+                last_password_update_date,
+            </if>
+            <if test="lastLoginDate!=null">
+                last_login_date,
             </if>
             <if test="creationDate!=null">
                 creation_date,
@@ -134,54 +182,90 @@
                 attribute14,
             </if>
             <if test="attribute15!=null">
-                attribute15,
+                attribute15
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="answerId!=null">
-                #{answerId,jdbcType=INT},
+            <if test="userId!=null">
+                #{userId,jdbcType=DECIMAL},
             </if>
-            <if test="questioinId!=null">
-                #{questioinId,jdbcType=INT},
+            <if test="userCode!=null">
+                #{userCode,jdbcType=VARCHAR},
             </if>
-            <if test="questioinType!=null">
-                #{questioinType,jdbcType=VARCHAR},
+            <if test="userName!=null">
+                #{userName,jdbcType=VARCHAR},
             </if>
-            <if test="answer!=null">
-                #{answer,jdbcType=VARCHAR},
+            <if test="userType!=null">
+                #{userType,jdbcType=VARCHAR},
             </if>
-            <if test="updateDate!=null">
-                #{updateDate,jdbcType=VARCHAR},
+            <if test="passwordEncryption!=null">
+                #{passwordEncryption,jdbcType=VARCHAR},
+            </if>
+            <if test="description!=null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="email!=null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="qq!=null">
+                #{qq,jdbcType=VARCHAR},
+            </if>
+            <if test="wechat!=null">
+                #{wechat,jdbcType=VARCHAR},
+            </if>
+            <if test="phone!=null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="status!=null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="firstLogin!=null">
+                #{firstLogin,jdbcType=VARCHAR},
+            </if>
+            <if test="startActiveDate!=null">
+                #{startActiveDate,jdbcType=DATE},
+            </if>
+            <if test="endActiveData!=null">
+                #{endActiveData,jdbcType=DATE},
             </if>
             <if test="createDate!=null">
-                #{createDate,jdbcType=VARCHAR},
+                #{createDate,jdbcType=DATE},
+            </if>
+            <if test="updateDate!=null">
+                #{updateDate,jdbcType=DATE},
+            </if>
+            <if test="lastPasswordUpdateDate!=null">
+                #{lastPasswordUpdateDate,jdbcType=DATE},
+            </if>
+            <if test="lastLoginDate!=null">
+                #{lastLoginDate,jdbcType=DATE},
             </if>
             <if test="creationDate!=null">
                 #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                #{createdBy,jdbcType=INT},
+                #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                #{lastUpdatedBy,jdbcType=INT},
+                #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                #{lastUpdateLogin,jdbcType=INT},
+                #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                #{programApplicationId,jdbcType=INT},
+                #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                #{programId,jdbcType=INT},
+                #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                #{requestId,jdbcType=INT},
+                #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 #{attributeCategory,jdbcType=VARCHAR},
@@ -229,7 +313,7 @@
                 #{attribute14,jdbcType=VARCHAR},
             </if>
             <if test="attribute15!=null">
-                #{attribute15,jdbcType=VARCHAR},
+                #{attribute15,jdbcType=VARCHAR}
             </if>
         </trim>
     </sql>
@@ -238,12 +322,24 @@
       数据库表的基本查询列名集合
     -->
     <sql id="Base_Column_List">
-        answer_id,
-        questioin_id,
-        questioin_type,
-        answer,
-        update_date,
+        user_id,
+        user_code,
+        user_name,
+        user_type,
+        password_encryption,
+        description,
+        email,
+        qq,
+        wechat,
+        phone,
+        status,
+        first_login,
+        start_active_date,
+        end_active_data,
         create_date,
+        update_date,
+        last_password_update_date,
+        last_login_date,
         creation_date,
         created_by,
         last_updated_by,
@@ -268,57 +364,93 @@
         attribute12,
         attribute13,
         attribute14,
-        attribute15,
+        attribute15
     </sql>
 
     <!--
         Where子句
       -->
     <sql id="Base_Query_Where">
-        <if test="answerId!=null">
-            #{answerId,jdbcType=INT},
+        <if test="userId!=null">
+            #{userId,jdbcType=DECIMAL},
         </if>
-        <if test="questioinId!=null">
-            #{questioinId,jdbcType=INT},
+        <if test="userCode!=null">
+            #{userCode,jdbcType=VARCHAR},
         </if>
-        <if test="questioinType!=null">
-            #{questioinType,jdbcType=VARCHAR},
+        <if test="userName!=null">
+            #{userName,jdbcType=VARCHAR},
         </if>
-        <if test="answer!=null">
-            #{answer,jdbcType=VARCHAR},
+        <if test="userType!=null">
+            #{userType,jdbcType=VARCHAR},
         </if>
-        <if test="updateDate!=null">
-            #{updateDate,jdbcType=VARCHAR},
+        <if test="passwordEncryption!=null">
+            #{passwordEncryption,jdbcType=VARCHAR},
+        </if>
+        <if test="description!=null">
+            #{description,jdbcType=VARCHAR},
+        </if>
+        <if test="email!=null">
+            #{email,jdbcType=VARCHAR},
+        </if>
+        <if test="qq!=null">
+            #{qq,jdbcType=VARCHAR},
+        </if>
+        <if test="wechat!=null">
+            #{wechat,jdbcType=VARCHAR},
+        </if>
+        <if test="phone!=null">
+            #{phone,jdbcType=VARCHAR},
+        </if>
+        <if test="status!=null">
+            #{status,jdbcType=VARCHAR},
+        </if>
+        <if test="firstLogin!=null">
+            #{firstLogin,jdbcType=VARCHAR},
+        </if>
+        <if test="startActiveDate!=null">
+            #{startActiveDate,jdbcType=DATE},
+        </if>
+        <if test="endActiveData!=null">
+            #{endActiveData,jdbcType=DATE},
         </if>
         <if test="createDate!=null">
-            #{createDate,jdbcType=VARCHAR},
+            #{createDate,jdbcType=DATE},
+        </if>
+        <if test="updateDate!=null">
+            #{updateDate,jdbcType=DATE},
+        </if>
+        <if test="lastPasswordUpdateDate!=null">
+            #{lastPasswordUpdateDate,jdbcType=DATE},
+        </if>
+        <if test="lastLoginDate!=null">
+            #{lastLoginDate,jdbcType=DATE},
         </if>
         <if test="creationDate!=null">
             #{creationDate,jdbcType=DATETIME},
         </if>
         <if test="createdBy!=null">
-            #{createdBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdatedBy!=null">
-            #{lastUpdatedBy,jdbcType=INT},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdateDate!=null">
             #{lastUpdateDate,jdbcType=DATETIME},
         </if>
         <if test="lastUpdateLogin!=null">
-            #{lastUpdateLogin,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
         </if>
         <if test="programApplicationId!=null">
-            #{programApplicationId,jdbcType=INT},
+            #{programApplicationId,jdbcType=DECIMAL},
         </if>
         <if test="programId!=null">
-            #{programId,jdbcType=INT},
+            #{programId,jdbcType=DECIMAL},
         </if>
         <if test="programUpdateDate!=null">
             #{programUpdateDate,jdbcType=DATE},
         </if>
         <if test="requestId!=null">
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
         </if>
         <if test="attributeCategory!=null">
             #{attributeCategory,jdbcType=VARCHAR},
@@ -366,7 +498,7 @@
             #{attribute14,jdbcType=VARCHAR},
         </if>
         <if test="attribute15!=null">
-            #{attribute15,jdbcType=VARCHAR},
+            #{attribute15,jdbcType=VARCHAR}
         </if>
     </sql>
 
@@ -375,50 +507,86 @@
     -->
     <sql id="Base_Update_Column">
         <set>
-            <if test="answerId!=null">
-                #{answerId,jdbcType=INT},
+            <if test="userId!=null">
+                #{userId,jdbcType=DECIMAL},
             </if>
-            <if test="questioinId!=null">
-                #{questioinId,jdbcType=INT},
+            <if test="userCode!=null">
+                #{userCode,jdbcType=VARCHAR},
             </if>
-            <if test="questioinType!=null">
-                #{questioinType,jdbcType=VARCHAR},
+            <if test="userName!=null">
+                #{userName,jdbcType=VARCHAR},
             </if>
-            <if test="answer!=null">
-                #{answer,jdbcType=VARCHAR},
+            <if test="userType!=null">
+                #{userType,jdbcType=VARCHAR},
             </if>
-            <if test="updateDate!=null">
-                #{updateDate,jdbcType=VARCHAR},
+            <if test="passwordEncryption!=null">
+                #{passwordEncryption,jdbcType=VARCHAR},
+            </if>
+            <if test="description!=null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="email!=null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="qq!=null">
+                #{qq,jdbcType=VARCHAR},
+            </if>
+            <if test="wechat!=null">
+                #{wechat,jdbcType=VARCHAR},
+            </if>
+            <if test="phone!=null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="status!=null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="firstLogin!=null">
+                #{firstLogin,jdbcType=VARCHAR},
+            </if>
+            <if test="startActiveDate!=null">
+                #{startActiveDate,jdbcType=DATE},
+            </if>
+            <if test="endActiveData!=null">
+                #{endActiveData,jdbcType=DATE},
             </if>
             <if test="createDate!=null">
-                #{createDate,jdbcType=VARCHAR},
+                #{createDate,jdbcType=DATE},
+            </if>
+            <if test="updateDate!=null">
+                #{updateDate,jdbcType=DATE},
+            </if>
+            <if test="lastPasswordUpdateDate!=null">
+                #{lastPasswordUpdateDate,jdbcType=DATE},
+            </if>
+            <if test="lastLoginDate!=null">
+                #{lastLoginDate,jdbcType=DATE},
             </if>
             <if test="creationDate!=null">
                 #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                #{createdBy,jdbcType=INT},
+                #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                #{lastUpdatedBy,jdbcType=INT},
+                #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                #{lastUpdateLogin,jdbcType=INT},
+                #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                #{programApplicationId,jdbcType=INT},
+                #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                #{programId,jdbcType=INT},
+                #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                #{requestId,jdbcType=INT},
+                #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 #{attributeCategory,jdbcType=VARCHAR},
@@ -466,7 +634,7 @@
                 #{attribute14,jdbcType=VARCHAR},
             </if>
             <if test="attribute15!=null">
-                #{attribute15,jdbcType=VARCHAR},
+                #{attribute15,jdbcType=VARCHAR}
             </if>
         </set>
     </sql>
@@ -477,80 +645,116 @@
     <select id="selectPaged" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from mdm_answer
+        from sys_user
     </select>
 
     <!--
       根据主键查询数据库表
     -->
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from mdm_answer
-        where answer_id = #{answerId,jdbcType=INT}
+        from sys_user
+        where user_id = #{userId,jdbcType=DECIMAL}
     </select>
 
 
     <!--
       根据主键删除数据库表中的记录
     -->
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        delete FROM mdm_answer
-        where answer_id = #{answerId,jdbcType=INT}
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete FROM sys_user
+        where user_id = #{userId,jdbcType=DECIMAL}
     </delete>
 
     <!--
       添加一条记录到数据库表中
     -->
     <insert id="insert" useGeneratedKeys="true" keyProperty="id"
-            parameterType="com.cuishizhou.onlineLearning.mdm.modelnull.MdmAnswerPo">
+            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.SysUserPo">
         insert into cps_lock
         (<include refid="Base_Column_List"/>)
         values (
-        <if test="answerId!=null">
-            #{answerId,jdbcType=INT},
+        <if test="userId!=null">
+            #{userId,jdbcType=DECIMAL},
         </if>
-        <if test="questioinId!=null">
-            #{questioinId,jdbcType=INT},
+        <if test="userCode!=null">
+            #{userCode,jdbcType=VARCHAR},
         </if>
-        <if test="questioinType!=null">
-            #{questioinType,jdbcType=VARCHAR},
+        <if test="userName!=null">
+            #{userName,jdbcType=VARCHAR},
         </if>
-        <if test="answer!=null">
-            #{answer,jdbcType=VARCHAR},
+        <if test="userType!=null">
+            #{userType,jdbcType=VARCHAR},
         </if>
-        <if test="updateDate!=null">
-            #{updateDate,jdbcType=VARCHAR},
+        <if test="passwordEncryption!=null">
+            #{passwordEncryption,jdbcType=VARCHAR},
+        </if>
+        <if test="description!=null">
+            #{description,jdbcType=VARCHAR},
+        </if>
+        <if test="email!=null">
+            #{email,jdbcType=VARCHAR},
+        </if>
+        <if test="qq!=null">
+            #{qq,jdbcType=VARCHAR},
+        </if>
+        <if test="wechat!=null">
+            #{wechat,jdbcType=VARCHAR},
+        </if>
+        <if test="phone!=null">
+            #{phone,jdbcType=VARCHAR},
+        </if>
+        <if test="status!=null">
+            #{status,jdbcType=VARCHAR},
+        </if>
+        <if test="firstLogin!=null">
+            #{firstLogin,jdbcType=VARCHAR},
+        </if>
+        <if test="startActiveDate!=null">
+            #{startActiveDate,jdbcType=DATE},
+        </if>
+        <if test="endActiveData!=null">
+            #{endActiveData,jdbcType=DATE},
         </if>
         <if test="createDate!=null">
-            #{createDate,jdbcType=VARCHAR},
+            #{createDate,jdbcType=DATE},
+        </if>
+        <if test="updateDate!=null">
+            #{updateDate,jdbcType=DATE},
+        </if>
+        <if test="lastPasswordUpdateDate!=null">
+            #{lastPasswordUpdateDate,jdbcType=DATE},
+        </if>
+        <if test="lastLoginDate!=null">
+            #{lastLoginDate,jdbcType=DATE},
         </if>
         <if test="creationDate!=null">
             #{creationDate,jdbcType=DATETIME},
         </if>
         <if test="createdBy!=null">
-            #{createdBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdatedBy!=null">
-            #{lastUpdatedBy,jdbcType=INT},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdateDate!=null">
             #{lastUpdateDate,jdbcType=DATETIME},
         </if>
         <if test="lastUpdateLogin!=null">
-            #{lastUpdateLogin,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
         </if>
         <if test="programApplicationId!=null">
-            #{programApplicationId,jdbcType=INT},
+            #{programApplicationId,jdbcType=DECIMAL},
         </if>
         <if test="programId!=null">
-            #{programId,jdbcType=INT},
+            #{programId,jdbcType=DECIMAL},
         </if>
         <if test="programUpdateDate!=null">
             #{programUpdateDate,jdbcType=DATE},
         </if>
         <if test="requestId!=null">
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
         </if>
         <if test="attributeCategory!=null">
             #{attributeCategory,jdbcType=VARCHAR},
@@ -598,7 +802,7 @@
             #{attribute14,jdbcType=VARCHAR},
         </if>
         <if test="attribute15!=null">
-            #{attribute15,jdbcType=VARCHAR},
+            #{attribute15,jdbcType=VARCHAR}
         </if>
         )
     </insert>
@@ -607,8 +811,8 @@
      有选择的添加一条记录到数据库表中
    -->
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"
-            parameterType="com.cuishizhou.onlineLearning.mdm.modelnull.MdmAnswerPo">
-        insert into mdm_answer
+            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.SysUserPo">
+        insert into sys_user
         <include refid="Base_Insert_Selective"/>
     </insert>
 
@@ -616,71 +820,107 @@
       有选择的可忽略添加一条记录到数据库表中
     -->
     <insert id="insertSelectiveIgnore" useGeneratedKeys="true" keyProperty="id"
-            parameterType="com.cuishizhou.onlineLearning.mdm.modelnull.MdmAnswerPo">
-        insert ignore into mdm_answer
+            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.SysUserPo">
+        insert ignore into sys_user
         <include refid="Base_Insert_Selective"/>
     </insert>
 
     <!--
       根据主键有选择的更新数据库表
     -->
-    <update id="updateByPrimaryKeySelective" parameterType="com.cuishizhou.onlineLearning.mdm.modelnull.MdmAnswerPo">
-        update mdm_answer
+    <update id="updateByPrimaryKeySelective" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.SysUserPo">
+        update sys_user
         <include refid="Base_Update_Column"></include>
-        where answer_id = #{answerId,jdbcType=INT}
+        where user_id = #{userId,jdbcType=DECIMAL}
     </update>
 
 
     <!--
       根据主键更新数据库表
     -->
-    <update id="updateByPrimaryKey" parameterType="com.cuishizhou.onlineLearning.mdm.modelnull.MdmAnswerPo">
-        update mdm_answer
+    <update id="updateByPrimaryKey" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.SysUserPo">
+        update sys_user
         <set>
-            <if test="answerId!=null">
-                answer_id = #{answerId,jdbcType=INT},
+            <if test="userId!=null">
+                user_id = #{userId,jdbcType=DECIMAL},
             </if>
-            <if test="questioinId!=null">
-                questioin_id = #{questioinId,jdbcType=INT},
+            <if test="userCode!=null">
+                user_code = #{userCode,jdbcType=VARCHAR},
             </if>
-            <if test="questioinType!=null">
-                questioin_type = #{questioinType,jdbcType=VARCHAR},
+            <if test="userName!=null">
+                user_name = #{userName,jdbcType=VARCHAR},
             </if>
-            <if test="answer!=null">
-                answer = #{answer,jdbcType=VARCHAR},
+            <if test="userType!=null">
+                user_type = #{userType,jdbcType=VARCHAR},
             </if>
-            <if test="updateDate!=null">
-                update_date = #{updateDate,jdbcType=VARCHAR},
+            <if test="passwordEncryption!=null">
+                password_encryption = #{passwordEncryption,jdbcType=VARCHAR},
+            </if>
+            <if test="description!=null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="email!=null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="qq!=null">
+                qq = #{qq,jdbcType=VARCHAR},
+            </if>
+            <if test="wechat!=null">
+                wechat = #{wechat,jdbcType=VARCHAR},
+            </if>
+            <if test="phone!=null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="status!=null">
+                status = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="firstLogin!=null">
+                first_login = #{firstLogin,jdbcType=VARCHAR},
+            </if>
+            <if test="startActiveDate!=null">
+                start_active_date = #{startActiveDate,jdbcType=DATE},
+            </if>
+            <if test="endActiveData!=null">
+                end_active_data = #{endActiveData,jdbcType=DATE},
             </if>
             <if test="createDate!=null">
-                create_date = #{createDate,jdbcType=VARCHAR},
+                create_date = #{createDate,jdbcType=DATE},
+            </if>
+            <if test="updateDate!=null">
+                update_date = #{updateDate,jdbcType=DATE},
+            </if>
+            <if test="lastPasswordUpdateDate!=null">
+                last_password_update_date = #{lastPasswordUpdateDate,jdbcType=DATE},
+            </if>
+            <if test="lastLoginDate!=null">
+                last_login_date = #{lastLoginDate,jdbcType=DATE},
             </if>
             <if test="creationDate!=null">
                 creation_date = #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                created_by = #{createdBy,jdbcType=INT},
+                created_by = #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                program_application_id = #{programApplicationId,jdbcType=INT},
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                program_id = #{programId,jdbcType=INT},
+                program_id = #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 program_update_date = #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                request_id = #{requestId,jdbcType=INT},
+                request_id = #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR},
@@ -728,24 +968,36 @@
                 attribute14 = #{attribute14,jdbcType=VARCHAR},
             </if>
             <if test="attribute15!=null">
-                attribute15 = #{attribute15,jdbcType=VARCHAR},
+                attribute15 = #{attribute15,jdbcType=VARCHAR}
             </if>
         </set>
-        where answer_id = #{answerId,jdbcType=INT}
+        where user_id = #{userId,jdbcType=DECIMAL}
     </update>
 
     <!--
       批量添加记录到数据库表中
     -->
     <insert id="batchInsert" parameterType="java.util.List">
-        insert into mdm_answer
+        insert into sys_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            answer_id,
-            questioin_id,
-            questioin_type,
-            answer,
-            update_date,
+            user_id,
+            user_code,
+            user_name,
+            user_type,
+            password_encryption,
+            description,
+            email,
+            qq,
+            wechat,
+            phone,
+            status,
+            first_login,
+            start_active_date,
+            end_active_data,
             create_date,
+            update_date,
+            last_password_update_date,
+            last_login_date,
             creation_date,
             created_by,
             last_updated_by,
@@ -770,26 +1022,38 @@
             attribute12,
             attribute13,
             attribute14,
-            attribute15,
+            attribute15
         </trim>
         values
         <foreach collection="list" index="index" item="item" separator=",">
             <trim prefix="(" suffix=")" suffixOverrides=",">
-                #{answerId,jdbcType=INT},
-                #{questioinId,jdbcType=INT},
-                #{questioinType,jdbcType=VARCHAR},
-                #{answer,jdbcType=VARCHAR},
-                #{updateDate,jdbcType=VARCHAR},
-                #{createDate,jdbcType=VARCHAR},
+                #{userId,jdbcType=DECIMAL},
+                #{userCode,jdbcType=VARCHAR},
+                #{userName,jdbcType=VARCHAR},
+                #{userType,jdbcType=VARCHAR},
+                #{passwordEncryption,jdbcType=VARCHAR},
+                #{description,jdbcType=VARCHAR},
+                #{email,jdbcType=VARCHAR},
+                #{qq,jdbcType=VARCHAR},
+                #{wechat,jdbcType=VARCHAR},
+                #{phone,jdbcType=VARCHAR},
+                #{status,jdbcType=VARCHAR},
+                #{firstLogin,jdbcType=VARCHAR},
+                #{startActiveDate,jdbcType=DATE},
+                #{endActiveData,jdbcType=DATE},
+                #{createDate,jdbcType=DATE},
+                #{updateDate,jdbcType=DATE},
+                #{lastPasswordUpdateDate,jdbcType=DATE},
+                #{lastLoginDate,jdbcType=DATE},
                 #{creationDate,jdbcType=DATETIME},
-                #{createdBy,jdbcType=INT},
-                #{lastUpdatedBy,jdbcType=INT},
+                #{createdBy,jdbcType=DECIMAL},
+                #{lastUpdatedBy,jdbcType=DECIMAL},
                 #{lastUpdateDate,jdbcType=DATETIME},
-                #{lastUpdateLogin,jdbcType=INT},
-                #{programApplicationId,jdbcType=INT},
-                #{programId,jdbcType=INT},
+                #{lastUpdateLogin,jdbcType=DECIMAL},
+                #{programApplicationId,jdbcType=DECIMAL},
+                #{programId,jdbcType=DECIMAL},
                 #{programUpdateDate,jdbcType=DATE},
-                #{requestId,jdbcType=INT},
+                #{requestId,jdbcType=DECIMAL},
                 #{attributeCategory,jdbcType=VARCHAR},
                 #{attribute1,jdbcType=VARCHAR},
                 #{attribute2,jdbcType=VARCHAR},
@@ -805,7 +1069,7 @@
                 #{attribute12,jdbcType=VARCHAR},
                 #{attribute13,jdbcType=VARCHAR},
                 #{attribute14,jdbcType=VARCHAR},
-                #{attribute15,jdbcType=VARCHAR},
+                #{attribute15,jdbcType=VARCHAR}
             </trim>
         </foreach>
     </insert>
@@ -815,53 +1079,89 @@
     -->
     <update id="batchUpdate" parameterType="java.util.List">
         <foreach collection="list" index="index" item="item" separator=";">
-            update mdm_answer
+            update sys_user
             <set>
                 <trim suffixOverrides=",">
-                    <if test="item.answerId!=null">
-                        answer_id = #{answerId,jdbcType=INT},
+                    <if test="item.userId!=null">
+                        user_id = #{userId,jdbcType=DECIMAL},
                     </if>
-                    <if test="item.questioinId!=null">
-                        questioin_id = #{questioinId,jdbcType=INT},
+                    <if test="item.userCode!=null">
+                        user_code = #{userCode,jdbcType=VARCHAR},
                     </if>
-                    <if test="item.questioinType!=null">
-                        questioin_type = #{questioinType,jdbcType=VARCHAR},
+                    <if test="item.userName!=null">
+                        user_name = #{userName,jdbcType=VARCHAR},
                     </if>
-                    <if test="item.answer!=null">
-                        answer = #{answer,jdbcType=VARCHAR},
+                    <if test="item.userType!=null">
+                        user_type = #{userType,jdbcType=VARCHAR},
                     </if>
-                    <if test="item.updateDate!=null">
-                        update_date = #{updateDate,jdbcType=VARCHAR},
+                    <if test="item.passwordEncryption!=null">
+                        password_encryption = #{passwordEncryption,jdbcType=VARCHAR},
+                    </if>
+                    <if test="item.description!=null">
+                        description = #{description,jdbcType=VARCHAR},
+                    </if>
+                    <if test="item.email!=null">
+                        email = #{email,jdbcType=VARCHAR},
+                    </if>
+                    <if test="item.qq!=null">
+                        qq = #{qq,jdbcType=VARCHAR},
+                    </if>
+                    <if test="item.wechat!=null">
+                        wechat = #{wechat,jdbcType=VARCHAR},
+                    </if>
+                    <if test="item.phone!=null">
+                        phone = #{phone,jdbcType=VARCHAR},
+                    </if>
+                    <if test="item.status!=null">
+                        status = #{status,jdbcType=VARCHAR},
+                    </if>
+                    <if test="item.firstLogin!=null">
+                        first_login = #{firstLogin,jdbcType=VARCHAR},
+                    </if>
+                    <if test="item.startActiveDate!=null">
+                        start_active_date = #{startActiveDate,jdbcType=DATE},
+                    </if>
+                    <if test="item.endActiveData!=null">
+                        end_active_data = #{endActiveData,jdbcType=DATE},
                     </if>
                     <if test="item.createDate!=null">
-                        create_date = #{createDate,jdbcType=VARCHAR},
+                        create_date = #{createDate,jdbcType=DATE},
+                    </if>
+                    <if test="item.updateDate!=null">
+                        update_date = #{updateDate,jdbcType=DATE},
+                    </if>
+                    <if test="item.lastPasswordUpdateDate!=null">
+                        last_password_update_date = #{lastPasswordUpdateDate,jdbcType=DATE},
+                    </if>
+                    <if test="item.lastLoginDate!=null">
+                        last_login_date = #{lastLoginDate,jdbcType=DATE},
                     </if>
                     <if test="item.creationDate!=null">
                         creation_date = #{creationDate,jdbcType=DATETIME},
                     </if>
                     <if test="item.createdBy!=null">
-                        created_by = #{createdBy,jdbcType=INT},
+                        created_by = #{createdBy,jdbcType=DECIMAL},
                     </if>
                     <if test="item.lastUpdatedBy!=null">
-                        last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                        last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
                     </if>
                     <if test="item.lastUpdateDate!=null">
                         last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
                     </if>
                     <if test="item.lastUpdateLogin!=null">
-                        last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                        last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
                     </if>
                     <if test="item.programApplicationId!=null">
-                        program_application_id = #{programApplicationId,jdbcType=INT},
+                        program_application_id = #{programApplicationId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.programId!=null">
-                        program_id = #{programId,jdbcType=INT},
+                        program_id = #{programId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.programUpdateDate!=null">
                         program_update_date = #{programUpdateDate,jdbcType=DATE},
                     </if>
                     <if test="item.requestId!=null">
-                        request_id = #{requestId,jdbcType=INT},
+                        request_id = #{requestId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.attributeCategory!=null">
                         attribute_category = #{attributeCategory,jdbcType=VARCHAR},
@@ -909,13 +1209,13 @@
                         attribute14 = #{attribute14,jdbcType=VARCHAR},
                     </if>
                     <if test="item.attribute15!=null">
-                        attribute15 = #{attribute15,jdbcType=VARCHAR},
+                        attribute15 = #{attribute15,jdbcType=VARCHAR}
                     </if>
                 </trim>
             </set>
             <where>
                 <trim suffixOverrides=",">
-                    where answer_id = #{answerId,INT}
+                    where user_id = #{userId,DECIMAL}
                 </trim>
             </where>
         </foreach>
@@ -926,50 +1226,86 @@
    -->
     <sql id="Identifiers_Array_Conditions">
         <foreach collection="array" index="index" item="item" separator=" and ">
-            <if test="item == answerId">
-                answer_id = #{answerId,jdbcType=INT}
+            <if test="item == userId">
+                user_id = #{userId,jdbcType=DECIMAL}
             </if>
-            <if test="item == questioinId">
-                questioin_id = #{questioinId,jdbcType=INT}
+            <if test="item == userCode">
+                user_code = #{userCode,jdbcType=VARCHAR}
             </if>
-            <if test="item == questioinType">
-                questioin_type = #{questioinType,jdbcType=VARCHAR}
+            <if test="item == userName">
+                user_name = #{userName,jdbcType=VARCHAR}
             </if>
-            <if test="item == answer">
-                answer = #{answer,jdbcType=VARCHAR}
+            <if test="item == userType">
+                user_type = #{userType,jdbcType=VARCHAR}
             </if>
-            <if test="item == updateDate">
-                update_date = #{updateDate,jdbcType=VARCHAR}
+            <if test="item == passwordEncryption">
+                password_encryption = #{passwordEncryption,jdbcType=VARCHAR}
+            </if>
+            <if test="item == description">
+                description = #{description,jdbcType=VARCHAR}
+            </if>
+            <if test="item == email">
+                email = #{email,jdbcType=VARCHAR}
+            </if>
+            <if test="item == qq">
+                qq = #{qq,jdbcType=VARCHAR}
+            </if>
+            <if test="item == wechat">
+                wechat = #{wechat,jdbcType=VARCHAR}
+            </if>
+            <if test="item == phone">
+                phone = #{phone,jdbcType=VARCHAR}
+            </if>
+            <if test="item == status">
+                status = #{status,jdbcType=VARCHAR}
+            </if>
+            <if test="item == firstLogin">
+                first_login = #{firstLogin,jdbcType=VARCHAR}
+            </if>
+            <if test="item == startActiveDate">
+                start_active_date = #{startActiveDate,jdbcType=DATE}
+            </if>
+            <if test="item == endActiveData">
+                end_active_data = #{endActiveData,jdbcType=DATE}
             </if>
             <if test="item == createDate">
-                create_date = #{createDate,jdbcType=VARCHAR}
+                create_date = #{createDate,jdbcType=DATE}
+            </if>
+            <if test="item == updateDate">
+                update_date = #{updateDate,jdbcType=DATE}
+            </if>
+            <if test="item == lastPasswordUpdateDate">
+                last_password_update_date = #{lastPasswordUpdateDate,jdbcType=DATE}
+            </if>
+            <if test="item == lastLoginDate">
+                last_login_date = #{lastLoginDate,jdbcType=DATE}
             </if>
             <if test="item == creationDate">
                 creation_date = #{creationDate,jdbcType=DATETIME}
             </if>
             <if test="item == createdBy">
-                created_by = #{createdBy,jdbcType=INT}
+                created_by = #{createdBy,jdbcType=DECIMAL}
             </if>
             <if test="item == lastUpdatedBy">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT}
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL}
             </if>
             <if test="item == lastUpdateDate">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME}
             </if>
             <if test="item == lastUpdateLogin">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT}
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL}
             </if>
             <if test="item == programApplicationId">
-                program_application_id = #{programApplicationId,jdbcType=INT}
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL}
             </if>
             <if test="item == programId">
-                program_id = #{programId,jdbcType=INT}
+                program_id = #{programId,jdbcType=DECIMAL}
             </if>
             <if test="item == programUpdateDate">
                 program_update_date = #{programUpdateDate,jdbcType=DATE}
             </if>
             <if test="item == requestId">
-                request_id = #{requestId,jdbcType=INT}
+                request_id = #{requestId,jdbcType=DECIMAL}
             </if>
             <if test="item == attributeCategory">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR}
@@ -1025,15 +1361,27 @@
     <!--
       存在即更新否则插入
     -->
-    <update id="upsert" parameterType="com.cuishizhou.onlineLearning.mdm.modelnull.MdmAnswerPo">
-        insert into mdm_answer
+    <update id="upsert" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.SysUserPo">
+        insert into sys_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            answer_id,
-            questioin_id,
-            questioin_type,
-            answer,
-            update_date,
+            user_id,
+            user_code,
+            user_name,
+            user_type,
+            password_encryption,
+            description,
+            email,
+            qq,
+            wechat,
+            phone,
+            status,
+            first_login,
+            start_active_date,
+            end_active_data,
             create_date,
+            update_date,
+            last_password_update_date,
+            last_login_date,
             creation_date,
             created_by,
             last_updated_by,
@@ -1058,25 +1406,37 @@
             attribute12,
             attribute13,
             attribute14,
-            attribute15,
+            attribute15
         </trim>
         values
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            #{answerId,jdbcType=INT},
-            #{questioinId,jdbcType=INT},
-            #{questioinType,jdbcType=VARCHAR},
-            #{answer,jdbcType=VARCHAR},
-            #{updateDate,jdbcType=VARCHAR},
-            #{createDate,jdbcType=VARCHAR},
+            #{userId,jdbcType=DECIMAL},
+            #{userCode,jdbcType=VARCHAR},
+            #{userName,jdbcType=VARCHAR},
+            #{userType,jdbcType=VARCHAR},
+            #{passwordEncryption,jdbcType=VARCHAR},
+            #{description,jdbcType=VARCHAR},
+            #{email,jdbcType=VARCHAR},
+            #{qq,jdbcType=VARCHAR},
+            #{wechat,jdbcType=VARCHAR},
+            #{phone,jdbcType=VARCHAR},
+            #{status,jdbcType=VARCHAR},
+            #{firstLogin,jdbcType=VARCHAR},
+            #{startActiveDate,jdbcType=DATE},
+            #{endActiveData,jdbcType=DATE},
+            #{createDate,jdbcType=DATE},
+            #{updateDate,jdbcType=DATE},
+            #{lastPasswordUpdateDate,jdbcType=DATE},
+            #{lastLoginDate,jdbcType=DATE},
             #{creationDate,jdbcType=DATETIME},
-            #{createdBy,jdbcType=INT},
-            #{lastUpdatedBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
             #{lastUpdateDate,jdbcType=DATETIME},
-            #{lastUpdateLogin,jdbcType=INT},
-            #{programApplicationId,jdbcType=INT},
-            #{programId,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
+            #{programApplicationId,jdbcType=DECIMAL},
+            #{programId,jdbcType=DECIMAL},
             #{programUpdateDate,jdbcType=DATE},
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
             #{attributeCategory,jdbcType=VARCHAR},
             #{attribute1,jdbcType=VARCHAR},
             #{attribute2,jdbcType=VARCHAR},
@@ -1092,25 +1452,37 @@
             #{attribute12,jdbcType=VARCHAR},
             #{attribute13,jdbcType=VARCHAR},
             #{attribute14,jdbcType=VARCHAR},
-            #{attribute15,jdbcType=VARCHAR},
+            #{attribute15,jdbcType=VARCHAR}
         </trim>
         on duplicate key update
         <trim suffixOverrides=",">
-            #{answerId,jdbcType=INT},
-            #{questioinId,jdbcType=INT},
-            #{questioinType,jdbcType=VARCHAR},
-            #{answer,jdbcType=VARCHAR},
-            #{updateDate,jdbcType=VARCHAR},
-            #{createDate,jdbcType=VARCHAR},
+            #{userId,jdbcType=DECIMAL},
+            #{userCode,jdbcType=VARCHAR},
+            #{userName,jdbcType=VARCHAR},
+            #{userType,jdbcType=VARCHAR},
+            #{passwordEncryption,jdbcType=VARCHAR},
+            #{description,jdbcType=VARCHAR},
+            #{email,jdbcType=VARCHAR},
+            #{qq,jdbcType=VARCHAR},
+            #{wechat,jdbcType=VARCHAR},
+            #{phone,jdbcType=VARCHAR},
+            #{status,jdbcType=VARCHAR},
+            #{firstLogin,jdbcType=VARCHAR},
+            #{startActiveDate,jdbcType=DATE},
+            #{endActiveData,jdbcType=DATE},
+            #{createDate,jdbcType=DATE},
+            #{updateDate,jdbcType=DATE},
+            #{lastPasswordUpdateDate,jdbcType=DATE},
+            #{lastLoginDate,jdbcType=DATE},
             #{creationDate,jdbcType=DATETIME},
-            #{createdBy,jdbcType=INT},
-            #{lastUpdatedBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
             #{lastUpdateDate,jdbcType=DATETIME},
-            #{lastUpdateLogin,jdbcType=INT},
-            #{programApplicationId,jdbcType=INT},
-            #{programId,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
+            #{programApplicationId,jdbcType=DECIMAL},
+            #{programId,jdbcType=DECIMAL},
             #{programUpdateDate,jdbcType=DATE},
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
             #{attributeCategory,jdbcType=VARCHAR},
             #{attribute1,jdbcType=VARCHAR},
             #{attribute2,jdbcType=VARCHAR},
@@ -1126,7 +1498,7 @@
             #{attribute12,jdbcType=VARCHAR},
             #{attribute13,jdbcType=VARCHAR},
             #{attribute14,jdbcType=VARCHAR},
-            #{attribute15,jdbcType=VARCHAR},
+            #{attribute15,jdbcType=VARCHAR}
         </trim>
     </update>
 
@@ -1134,26 +1506,62 @@
     <!--
       带有空值检查的存在即更新否则插入
     -->
-    <update id="upsertSelective" parameterType="com.cuishizhou.onlineLearning.mdm.modelnull.MdmAnswerPo">
-        insert into mdm_answer
+    <update id="upsertSelective" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.SysUserPo">
+        insert into sys_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="answerId!=null">
-                answer_id,
+            <if test="userId!=null">
+                user_id,
             </if>
-            <if test="questioinId!=null">
-                questioin_id,
+            <if test="userCode!=null">
+                user_code,
             </if>
-            <if test="questioinType!=null">
-                questioin_type,
+            <if test="userName!=null">
+                user_name,
             </if>
-            <if test="answer!=null">
-                answer,
+            <if test="userType!=null">
+                user_type,
+            </if>
+            <if test="passwordEncryption!=null">
+                password_encryption,
+            </if>
+            <if test="description!=null">
+                description,
+            </if>
+            <if test="email!=null">
+                email,
+            </if>
+            <if test="qq!=null">
+                qq,
+            </if>
+            <if test="wechat!=null">
+                wechat,
+            </if>
+            <if test="phone!=null">
+                phone,
+            </if>
+            <if test="status!=null">
+                status,
+            </if>
+            <if test="firstLogin!=null">
+                first_login,
+            </if>
+            <if test="startActiveDate!=null">
+                start_active_date,
+            </if>
+            <if test="endActiveData!=null">
+                end_active_data,
+            </if>
+            <if test="createDate!=null">
+                create_date,
             </if>
             <if test="updateDate!=null">
                 update_date,
             </if>
-            <if test="createDate!=null">
-                create_date,
+            <if test="lastPasswordUpdateDate!=null">
+                last_password_update_date,
+            </if>
+            <if test="lastLoginDate!=null">
+                last_login_date,
             </if>
             <if test="creationDate!=null">
                 creation_date,
@@ -1228,55 +1636,91 @@
                 attribute14,
             </if>
             <if test="attribute15!=null">
-                attribute15,
+                attribute15
             </if>
         </trim>
         values
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="answerId!=null">
-                answer_id = #{answerId,jdbcType=INT},
+            <if test="userId!=null">
+                user_id = #{userId,jdbcType=DECIMAL},
             </if>
-            <if test="questioinId!=null">
-                questioin_id = #{questioinId,jdbcType=INT},
+            <if test="userCode!=null">
+                user_code = #{userCode,jdbcType=VARCHAR},
             </if>
-            <if test="questioinType!=null">
-                questioin_type = #{questioinType,jdbcType=VARCHAR},
+            <if test="userName!=null">
+                user_name = #{userName,jdbcType=VARCHAR},
             </if>
-            <if test="answer!=null">
-                answer = #{answer,jdbcType=VARCHAR},
+            <if test="userType!=null">
+                user_type = #{userType,jdbcType=VARCHAR},
             </if>
-            <if test="updateDate!=null">
-                update_date = #{updateDate,jdbcType=VARCHAR},
+            <if test="passwordEncryption!=null">
+                password_encryption = #{passwordEncryption,jdbcType=VARCHAR},
+            </if>
+            <if test="description!=null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="email!=null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="qq!=null">
+                qq = #{qq,jdbcType=VARCHAR},
+            </if>
+            <if test="wechat!=null">
+                wechat = #{wechat,jdbcType=VARCHAR},
+            </if>
+            <if test="phone!=null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="status!=null">
+                status = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="firstLogin!=null">
+                first_login = #{firstLogin,jdbcType=VARCHAR},
+            </if>
+            <if test="startActiveDate!=null">
+                start_active_date = #{startActiveDate,jdbcType=DATE},
+            </if>
+            <if test="endActiveData!=null">
+                end_active_data = #{endActiveData,jdbcType=DATE},
             </if>
             <if test="createDate!=null">
-                create_date = #{createDate,jdbcType=VARCHAR},
+                create_date = #{createDate,jdbcType=DATE},
+            </if>
+            <if test="updateDate!=null">
+                update_date = #{updateDate,jdbcType=DATE},
+            </if>
+            <if test="lastPasswordUpdateDate!=null">
+                last_password_update_date = #{lastPasswordUpdateDate,jdbcType=DATE},
+            </if>
+            <if test="lastLoginDate!=null">
+                last_login_date = #{lastLoginDate,jdbcType=DATE},
             </if>
             <if test="creationDate!=null">
                 creation_date = #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                created_by = #{createdBy,jdbcType=INT},
+                created_by = #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                program_application_id = #{programApplicationId,jdbcType=INT},
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                program_id = #{programId,jdbcType=INT},
+                program_id = #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 program_update_date = #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                request_id = #{requestId,jdbcType=INT},
+                request_id = #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR},
@@ -1324,55 +1768,91 @@
                 attribute14 = #{attribute14,jdbcType=VARCHAR},
             </if>
             <if test="attribute15!=null">
-                attribute15 = #{attribute15,jdbcType=VARCHAR},
+                attribute15 = #{attribute15,jdbcType=VARCHAR}
             </if>
         </trim>
         on duplicate key update
         <trim suffixOverrides=",">
-            <if test="answerId!=null">
-                answer_id = #{answerId,jdbcType=INT},
+            <if test="userId!=null">
+                user_id = #{userId,jdbcType=DECIMAL},
             </if>
-            <if test="questioinId!=null">
-                questioin_id = #{questioinId,jdbcType=INT},
+            <if test="userCode!=null">
+                user_code = #{userCode,jdbcType=VARCHAR},
             </if>
-            <if test="questioinType!=null">
-                questioin_type = #{questioinType,jdbcType=VARCHAR},
+            <if test="userName!=null">
+                user_name = #{userName,jdbcType=VARCHAR},
             </if>
-            <if test="answer!=null">
-                answer = #{answer,jdbcType=VARCHAR},
+            <if test="userType!=null">
+                user_type = #{userType,jdbcType=VARCHAR},
             </if>
-            <if test="updateDate!=null">
-                update_date = #{updateDate,jdbcType=VARCHAR},
+            <if test="passwordEncryption!=null">
+                password_encryption = #{passwordEncryption,jdbcType=VARCHAR},
+            </if>
+            <if test="description!=null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="email!=null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="qq!=null">
+                qq = #{qq,jdbcType=VARCHAR},
+            </if>
+            <if test="wechat!=null">
+                wechat = #{wechat,jdbcType=VARCHAR},
+            </if>
+            <if test="phone!=null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="status!=null">
+                status = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="firstLogin!=null">
+                first_login = #{firstLogin,jdbcType=VARCHAR},
+            </if>
+            <if test="startActiveDate!=null">
+                start_active_date = #{startActiveDate,jdbcType=DATE},
+            </if>
+            <if test="endActiveData!=null">
+                end_active_data = #{endActiveData,jdbcType=DATE},
             </if>
             <if test="createDate!=null">
-                create_date = #{createDate,jdbcType=VARCHAR},
+                create_date = #{createDate,jdbcType=DATE},
+            </if>
+            <if test="updateDate!=null">
+                update_date = #{updateDate,jdbcType=DATE},
+            </if>
+            <if test="lastPasswordUpdateDate!=null">
+                last_password_update_date = #{lastPasswordUpdateDate,jdbcType=DATE},
+            </if>
+            <if test="lastLoginDate!=null">
+                last_login_date = #{lastLoginDate,jdbcType=DATE},
             </if>
             <if test="creationDate!=null">
                 creation_date = #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                created_by = #{createdBy,jdbcType=INT},
+                created_by = #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                program_application_id = #{programApplicationId,jdbcType=INT},
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                program_id = #{programId,jdbcType=INT},
+                program_id = #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 program_update_date = #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                request_id = #{requestId,jdbcType=INT},
+                request_id = #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR},
@@ -1420,30 +1900,29 @@
                 attribute14 = #{attribute14,jdbcType=VARCHAR},
             </if>
             <if test="attribute15!=null">
-                attribute15 = #{attribute15,jdbcType=VARCHAR},
+                attribute15 = #{attribute15,jdbcType=VARCHAR}
             </if>
         </trim>
     </update>
 
-    <select id="query" resultMap="BaseResultMap"
-            parameterType="com.cuishizhou.onlineLearning.mdm.modelnull.MdmAnswerPo">
+    <select id="query" resultMap="BaseResultMap" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.SysUserPo">
         select
         <include refid="Base_Column_List"/>
-        from mdm_answer
+        from sys_user
         <where>
             <include refid="Base_Query_Where"></include>
         </where>
     </select>
 
     <select id="queryTotal" resultType="long">
-        select count(*) from mdm_answer
+        select count(*) from sys_user
     </select>
 
 
     <delete id="deleteBatch">
-        delete from mdm_answer where answer_id in
-        <foreach item="answerId" collection="list" open="(" separator="," close=")">
-            #{answerId}
+        delete from sys_user where user_id in
+        <foreach item="userId" collection="list" open="(" separator="," close=")">
+            #{userId}
         </foreach>
     </delete>
 

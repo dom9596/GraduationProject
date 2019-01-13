@@ -20,23 +20,23 @@ public interface MdmStudentQuestionService {
 
     Page<MdmStudentQuestionPo> selectPaged(RowBounds rowBounds);
 
-    MdmStudentQuestionPo selectByPrimaryKey(Integer studentQuestionId);
+    MdmStudentQuestionPo selectByPrimaryKey(Long studentQuestionId);
 
-    Integer deleteByPrimaryKey(Integer studentQuestionId);
+    Long deleteByPrimaryKey(Long studentQuestionId);
 
-    Integer insert(MdmStudentQuestionPo mdmStudentQuestion);
+    Long insert(MdmStudentQuestionPo mdmStudentQuestion);
 
-    Integer insertSelective(MdmStudentQuestionPo mdmStudentQuestion);
+    Long insertSelective(MdmStudentQuestionPo mdmStudentQuestion);
 
-    Integer insertSelectiveIgnore(MdmStudentQuestionPo mdmStudentQuestion);
+    Long insertSelectiveIgnore(MdmStudentQuestionPo mdmStudentQuestion);
 
-    Integer updateByPrimaryKeySelective(MdmStudentQuestionPo mdmStudentQuestion);
+    Long updateByPrimaryKeySelective(MdmStudentQuestionPo mdmStudentQuestion);
 
-    Integer updateByPrimaryKey(MdmStudentQuestionPo mdmStudentQuestion);
+    Long updateByPrimaryKey(MdmStudentQuestionPo mdmStudentQuestion);
 
-    Integer batchInsert(List<MdmStudentQuestionPo> list);
+    Long batchInsert(List<MdmStudentQuestionPo> list);
 
-    Integer batchUpdate(List<MdmStudentQuestionPo> list);
+    Long batchUpdate(List<MdmStudentQuestionPo> list);
 
     /**
      * 存在即更新
@@ -44,7 +44,7 @@ public interface MdmStudentQuestionService {
      * @param map
      * @return
      */
-    Integer upsert(MdmStudentQuestionPo mdmStudentQuestion);
+    Long upsert(MdmStudentQuestionPo mdmStudentQuestion);
 
     /**
      * 存在即更新，可选择具体属性
@@ -52,13 +52,13 @@ public interface MdmStudentQuestionService {
      * @param map
      * @return
      */
-    Integer upsertSelective(MdmStudentQuestionPo mdmStudentQuestion);
+    Long upsertSelective(MdmStudentQuestionPo mdmStudentQuestion);
 
     List<MdmStudentQuestionPo> query(MdmStudentQuestionPo mdmStudentQuestion);
 
     Long queryTotal();
 
-    Integer deleteBatch(List<Integer> list);
+    Long deleteBatch(List<Long> list);
 
     /*<AUTOGEN--END>*/
 

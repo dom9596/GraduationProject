@@ -33,47 +33,47 @@ public class MdmClassStudentServiceImpl implements MdmClassStudentService {
     }
 
     @Override
-    public MdmClassStudentPo selectByPrimaryKey(Integer classStudentId) {
+    public MdmClassStudentPo selectByPrimaryKey(Long classStudentId) {
         return mdmClassStudentDao.selectByPrimaryKey(classStudentId);
     }
 
     @Override
-    public Integer deleteByPrimaryKey(Integer classStudentId) {
+    public Long deleteByPrimaryKey(Long classStudentId) {
         return mdmClassStudentDao.deleteByPrimaryKey(classStudentId);
     }
 
     @Override
-    public Integer insert(MdmClassStudentPo mdmClassStudent) {
+    public Long insert(MdmClassStudentPo mdmClassStudent) {
         return mdmClassStudentDao.insert(mdmClassStudent);
     }
 
     @Override
-    public Integer insertSelective(MdmClassStudentPo mdmClassStudent) {
+    public Long insertSelective(MdmClassStudentPo mdmClassStudent) {
         return mdmClassStudentDao.insertSelective(mdmClassStudent);
     }
 
     @Override
-    public Integer insertSelectiveIgnore(MdmClassStudentPo mdmClassStudent) {
+    public Long insertSelectiveIgnore(MdmClassStudentPo mdmClassStudent) {
         return mdmClassStudentDao.insertSelectiveIgnore(mdmClassStudent);
     }
 
     @Override
-    public Integer updateByPrimaryKeySelective(MdmClassStudentPo mdmClassStudent) {
+    public Long updateByPrimaryKeySelective(MdmClassStudentPo mdmClassStudent) {
         return mdmClassStudentDao.updateByPrimaryKeySelective(mdmClassStudent);
     }
 
     @Override
-    public Integer updateByPrimaryKey(MdmClassStudentPo mdmClassStudent) {
+    public Long updateByPrimaryKey(MdmClassStudentPo mdmClassStudent) {
         return mdmClassStudentDao.updateByPrimaryKey(mdmClassStudent);
     }
 
     @Override
-    public Integer batchInsert(List<MdmClassStudentPo> list) {
+    public Long batchInsert(List<MdmClassStudentPo> list) {
         return mdmClassStudentDao.batchInsert(list);
     }
 
     @Override
-    public Integer batchUpdate(List<MdmClassStudentPo> list) {
+    public Long batchUpdate(List<MdmClassStudentPo> list) {
         return mdmClassStudentDao.batchUpdate(list);
     }
 
@@ -84,7 +84,7 @@ public class MdmClassStudentServiceImpl implements MdmClassStudentService {
      * @return
      */
     @Override
-    public Integer upsert(MdmClassStudentPo mdmClassStudent) {
+    public Long upsert(MdmClassStudentPo mdmClassStudent) {
         return mdmClassStudentDao.upsert(mdmClassStudent);
     }
 
@@ -95,7 +95,7 @@ public class MdmClassStudentServiceImpl implements MdmClassStudentService {
      * @return
      */
     @Override
-    public Integer upsertSelective(MdmClassStudentPo mdmClassStudent) {
+    public Long upsertSelective(MdmClassStudentPo mdmClassStudent) {
         return mdmClassStudentDao.upsertSelective(mdmClassStudent);
     }
 
@@ -110,7 +110,7 @@ public class MdmClassStudentServiceImpl implements MdmClassStudentService {
     }
 
     @Override
-    public Integer deleteBatch(List<Integer> list) {
+    public Long deleteBatch(List<Long> list) {
         return mdmClassStudentDao.deleteBatch(list);
     }
 

@@ -20,23 +20,23 @@ public interface SysUserService {
 
     Page<SysUserPo> selectPaged(RowBounds rowBounds);
 
-    SysUserPo selectByPrimaryKey(Integer userId);
+    SysUserPo selectByPrimaryKey(Long userId);
 
-    Integer deleteByPrimaryKey(Integer userId);
+    Long deleteByPrimaryKey(Long userId);
 
-    Integer insert(SysUserPo sysUser);
+    Long insert(SysUserPo sysUser);
 
-    Integer insertSelective(SysUserPo sysUser);
+    Long insertSelective(SysUserPo sysUser);
 
-    Integer insertSelectiveIgnore(SysUserPo sysUser);
+    Long insertSelectiveIgnore(SysUserPo sysUser);
 
-    Integer updateByPrimaryKeySelective(SysUserPo sysUser);
+    Long updateByPrimaryKeySelective(SysUserPo sysUser);
 
-    Integer updateByPrimaryKey(SysUserPo sysUser);
+    Long updateByPrimaryKey(SysUserPo sysUser);
 
-    Integer batchInsert(List<SysUserPo> list);
+    Long batchInsert(List<SysUserPo> list);
 
-    Integer batchUpdate(List<SysUserPo> list);
+    Long batchUpdate(List<SysUserPo> list);
 
     /**
      * 存在即更新
@@ -44,7 +44,7 @@ public interface SysUserService {
      * @param map
      * @return
      */
-    Integer upsert(SysUserPo sysUser);
+    Long upsert(SysUserPo sysUser);
 
     /**
      * 存在即更新，可选择具体属性
@@ -52,13 +52,13 @@ public interface SysUserService {
      * @param map
      * @return
      */
-    Integer upsertSelective(SysUserPo sysUser);
+    Long upsertSelective(SysUserPo sysUser);
 
     List<SysUserPo> query(SysUserPo sysUser);
 
     Long queryTotal();
 
-    Integer deleteBatch(List<Integer> list);
+    Long deleteBatch(List<Long> list);
 
     /*<AUTOGEN--END>*/
 

@@ -33,47 +33,47 @@ public class MdmQuestioinImageServiceImpl implements MdmQuestioinImageService {
     }
 
     @Override
-    public MdmQuestioinImagePo selectByPrimaryKey(Integer questioinImageId) {
+    public MdmQuestioinImagePo selectByPrimaryKey(Long questioinImageId) {
         return mdmQuestioinImageDao.selectByPrimaryKey(questioinImageId);
     }
 
     @Override
-    public Integer deleteByPrimaryKey(Integer questioinImageId) {
+    public Long deleteByPrimaryKey(Long questioinImageId) {
         return mdmQuestioinImageDao.deleteByPrimaryKey(questioinImageId);
     }
 
     @Override
-    public Integer insert(MdmQuestioinImagePo mdmQuestioinImage) {
+    public Long insert(MdmQuestioinImagePo mdmQuestioinImage) {
         return mdmQuestioinImageDao.insert(mdmQuestioinImage);
     }
 
     @Override
-    public Integer insertSelective(MdmQuestioinImagePo mdmQuestioinImage) {
+    public Long insertSelective(MdmQuestioinImagePo mdmQuestioinImage) {
         return mdmQuestioinImageDao.insertSelective(mdmQuestioinImage);
     }
 
     @Override
-    public Integer insertSelectiveIgnore(MdmQuestioinImagePo mdmQuestioinImage) {
+    public Long insertSelectiveIgnore(MdmQuestioinImagePo mdmQuestioinImage) {
         return mdmQuestioinImageDao.insertSelectiveIgnore(mdmQuestioinImage);
     }
 
     @Override
-    public Integer updateByPrimaryKeySelective(MdmQuestioinImagePo mdmQuestioinImage) {
+    public Long updateByPrimaryKeySelective(MdmQuestioinImagePo mdmQuestioinImage) {
         return mdmQuestioinImageDao.updateByPrimaryKeySelective(mdmQuestioinImage);
     }
 
     @Override
-    public Integer updateByPrimaryKey(MdmQuestioinImagePo mdmQuestioinImage) {
+    public Long updateByPrimaryKey(MdmQuestioinImagePo mdmQuestioinImage) {
         return mdmQuestioinImageDao.updateByPrimaryKey(mdmQuestioinImage);
     }
 
     @Override
-    public Integer batchInsert(List<MdmQuestioinImagePo> list) {
+    public Long batchInsert(List<MdmQuestioinImagePo> list) {
         return mdmQuestioinImageDao.batchInsert(list);
     }
 
     @Override
-    public Integer batchUpdate(List<MdmQuestioinImagePo> list) {
+    public Long batchUpdate(List<MdmQuestioinImagePo> list) {
         return mdmQuestioinImageDao.batchUpdate(list);
     }
 
@@ -84,7 +84,7 @@ public class MdmQuestioinImageServiceImpl implements MdmQuestioinImageService {
      * @return
      */
     @Override
-    public Integer upsert(MdmQuestioinImagePo mdmQuestioinImage) {
+    public Long upsert(MdmQuestioinImagePo mdmQuestioinImage) {
         return mdmQuestioinImageDao.upsert(mdmQuestioinImage);
     }
 
@@ -95,7 +95,7 @@ public class MdmQuestioinImageServiceImpl implements MdmQuestioinImageService {
      * @return
      */
     @Override
-    public Integer upsertSelective(MdmQuestioinImagePo mdmQuestioinImage) {
+    public Long upsertSelective(MdmQuestioinImagePo mdmQuestioinImage) {
         return mdmQuestioinImageDao.upsertSelective(mdmQuestioinImage);
     }
 
@@ -110,7 +110,7 @@ public class MdmQuestioinImageServiceImpl implements MdmQuestioinImageService {
     }
 
     @Override
-    public Integer deleteBatch(List<Integer> list) {
+    public Long deleteBatch(List<Long> list) {
         return mdmQuestioinImageDao.deleteBatch(list);
     }
 

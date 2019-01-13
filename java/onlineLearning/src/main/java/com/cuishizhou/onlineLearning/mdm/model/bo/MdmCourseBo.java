@@ -22,7 +22,7 @@ public class MdmCourseBo implements Serializable {
     /**
      * 表id
      */
-    private Integer courseId;
+    private Long courseId;
     /**
      * 课程编码
      */
@@ -34,7 +34,7 @@ public class MdmCourseBo implements Serializable {
     /**
      * 教师id
      */
-    private Integer userId;
+    private Long userId;
     /**
      * 课程描述
      */
@@ -50,7 +50,7 @@ public class MdmCourseBo implements Serializable {
     /**
      * 学分
      */
-    private Integer courseCredit;
+    private Long courseCredit;
     /**
      * 更新时间
      */
@@ -66,11 +66,11 @@ public class MdmCourseBo implements Serializable {
     /**
      *
      */
-    private Integer createdBy;
+    private Long createdBy;
     /**
      *
      */
-    private Integer lastUpdatedBy;
+    private Long lastUpdatedBy;
     /**
      *
      */
@@ -78,15 +78,15 @@ public class MdmCourseBo implements Serializable {
     /**
      *
      */
-    private Integer lastUpdateLogin;
+    private Long lastUpdateLogin;
     /**
      *
      */
-    private Integer programApplicationId;
+    private Long programApplicationId;
     /**
      *
      */
-    private Integer programId;
+    private Long programId;
     /**
      *
      */
@@ -94,7 +94,7 @@ public class MdmCourseBo implements Serializable {
     /**
      *
      */
-    private Integer requestId;
+    private Long requestId;
     /**
      *
      */

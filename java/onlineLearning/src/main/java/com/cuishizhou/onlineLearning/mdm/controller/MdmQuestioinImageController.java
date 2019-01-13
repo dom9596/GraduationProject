@@ -45,7 +45,7 @@ public class MdmQuestioinImageController {
      * @return
      */
     @RequestMapping("/select_by_id")
-    public Result<MdmQuestioinImagePo> selectByPrimaryKey(Integer questioinImageId) {
+    public Result<MdmQuestioinImagePo> selectByPrimaryKey(Long questioinImageId) {
         Result<MdmQuestioinImagePo> result = new Result<>();
         MdmQuestioinImagePo po = mdmQuestioinImageService.selectByPrimaryKey(questioinImageId);
         result.setData(po);
@@ -58,9 +58,9 @@ public class MdmQuestioinImageController {
      * @return
      */
     @RequestMapping("/delete_by_id")
-    public Result<Integer> deleteByPrimaryKey(Integer questioinImageId) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmQuestioinImageService.deleteByPrimaryKey(questioinImageId);
+    public Result<Long> deleteByPrimaryKey(Long questioinImageId) {
+        Result<Long> result = new Result<>();
+        Long num = mdmQuestioinImageService.deleteByPrimaryKey(questioinImageId);
         result.setData(num);
         return result;
     }
@@ -71,9 +71,9 @@ public class MdmQuestioinImageController {
      * @return
      */
     @RequestMapping("/save_mdmQuestioinImage")
-    public Result<Integer> insert(MdmQuestioinImagePo mdmQuestioinImage) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmQuestioinImageService.insertSelective(mdmQuestioinImage);
+    public Result<Long> insert(MdmQuestioinImagePo mdmQuestioinImage) {
+        Result<Long> result = new Result<>();
+        Long num = mdmQuestioinImageService.insertSelective(mdmQuestioinImage);
         result.setData(num);
         return result;
     }
@@ -84,9 +84,9 @@ public class MdmQuestioinImageController {
      * @return
      */
     @RequestMapping("/update_mdmQuestioinImage")
-    public Result<Integer> updateByPrimaryKeySelective(MdmQuestioinImagePo mdmQuestioinImage) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmQuestioinImageService.updateByPrimaryKeySelective(mdmQuestioinImage);
+    public Result<Long> updateByPrimaryKeySelective(MdmQuestioinImagePo mdmQuestioinImage) {
+        Result<Long> result = new Result<>();
+        Long num = mdmQuestioinImageService.updateByPrimaryKeySelective(mdmQuestioinImage);
         result.setData(num);
         return result;
     }

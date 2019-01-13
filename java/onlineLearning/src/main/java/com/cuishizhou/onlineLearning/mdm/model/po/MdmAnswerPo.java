@@ -17,11 +17,11 @@ public class MdmAnswerPo implements Serializable {
     /**
      * 表id
      */
-    private Integer answerId;
+    private Long answerId;
     /**
      * 题目id
      */
-    private Integer questioinId;
+    private Long questioinId;
     /**
      * 题目类型
      */
@@ -45,11 +45,11 @@ public class MdmAnswerPo implements Serializable {
     /**
      *
      */
-    private Integer createdBy;
+    private Long createdBy;
     /**
      *
      */
-    private Integer lastUpdatedBy;
+    private Long lastUpdatedBy;
     /**
      *
      */
@@ -57,15 +57,15 @@ public class MdmAnswerPo implements Serializable {
     /**
      *
      */
-    private Integer lastUpdateLogin;
+    private Long lastUpdateLogin;
     /**
      *
      */
-    private Integer programApplicationId;
+    private Long programApplicationId;
     /**
      *
      */
-    private Integer programId;
+    private Long programId;
     /**
      *
      */
@@ -73,7 +73,7 @@ public class MdmAnswerPo implements Serializable {
     /**
      *
      */
-    private Integer requestId;
+    private Long requestId;
     /**
      *
      */
@@ -142,28 +142,28 @@ public class MdmAnswerPo implements Serializable {
     /**
      * 表id
      */
-    public void setAnswerId(Integer answerId) {
+    public void setAnswerId(Long answerId) {
         this.answerId = answerId;
     }
 
     /**
      * 表id
      */
-    public Integer getAnswerId() {
+    public Long getAnswerId() {
         return answerId;
     }
 
     /**
      * 题目id
      */
-    public void setQuestioinId(Integer questioinId) {
+    public void setQuestioinId(Long questioinId) {
         this.questioinId = questioinId;
     }
 
     /**
      * 题目id
      */
-    public Integer getQuestioinId() {
+    public Long getQuestioinId() {
         return questioinId;
     }
 
@@ -240,28 +240,28 @@ public class MdmAnswerPo implements Serializable {
     /**
      *
      */
-    public void setCreatedBy(Integer createdBy) {
+    public void setCreatedBy(Long createdBy) {
         this.createdBy = createdBy;
     }
 
     /**
      *
      */
-    public Integer getCreatedBy() {
+    public Long getCreatedBy() {
         return createdBy;
     }
 
     /**
      *
      */
-    public void setLastUpdatedBy(Integer lastUpdatedBy) {
+    public void setLastUpdatedBy(Long lastUpdatedBy) {
         this.lastUpdatedBy = lastUpdatedBy;
     }
 
     /**
      *
      */
-    public Integer getLastUpdatedBy() {
+    public Long getLastUpdatedBy() {
         return lastUpdatedBy;
     }
 
@@ -282,42 +282,42 @@ public class MdmAnswerPo implements Serializable {
     /**
      *
      */
-    public void setLastUpdateLogin(Integer lastUpdateLogin) {
+    public void setLastUpdateLogin(Long lastUpdateLogin) {
         this.lastUpdateLogin = lastUpdateLogin;
     }
 
     /**
      *
      */
-    public Integer getLastUpdateLogin() {
+    public Long getLastUpdateLogin() {
         return lastUpdateLogin;
     }
 
     /**
      *
      */
-    public void setProgramApplicationId(Integer programApplicationId) {
+    public void setProgramApplicationId(Long programApplicationId) {
         this.programApplicationId = programApplicationId;
     }
 
     /**
      *
      */
-    public Integer getProgramApplicationId() {
+    public Long getProgramApplicationId() {
         return programApplicationId;
     }
 
     /**
      *
      */
-    public void setProgramId(Integer programId) {
+    public void setProgramId(Long programId) {
         this.programId = programId;
     }
 
     /**
      *
      */
-    public Integer getProgramId() {
+    public Long getProgramId() {
         return programId;
     }
 
@@ -338,14 +338,14 @@ public class MdmAnswerPo implements Serializable {
     /**
      *
      */
-    public void setRequestId(Integer requestId) {
+    public void setRequestId(Long requestId) {
         this.requestId = requestId;
     }
 
     /**
      *
      */
-    public Integer getRequestId() {
+    public Long getRequestId() {
         return requestId;
     }
 

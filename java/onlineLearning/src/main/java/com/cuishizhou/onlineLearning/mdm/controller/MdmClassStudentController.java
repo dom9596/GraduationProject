@@ -45,7 +45,7 @@ public class MdmClassStudentController {
      * @return
      */
     @RequestMapping("/select_by_id")
-    public Result<MdmClassStudentPo> selectByPrimaryKey(Integer classStudentId) {
+    public Result<MdmClassStudentPo> selectByPrimaryKey(Long classStudentId) {
         Result<MdmClassStudentPo> result = new Result<>();
         MdmClassStudentPo po = mdmClassStudentService.selectByPrimaryKey(classStudentId);
         result.setData(po);
@@ -58,9 +58,9 @@ public class MdmClassStudentController {
      * @return
      */
     @RequestMapping("/delete_by_id")
-    public Result<Integer> deleteByPrimaryKey(Integer classStudentId) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmClassStudentService.deleteByPrimaryKey(classStudentId);
+    public Result<Long> deleteByPrimaryKey(Long classStudentId) {
+        Result<Long> result = new Result<>();
+        Long num = mdmClassStudentService.deleteByPrimaryKey(classStudentId);
         result.setData(num);
         return result;
     }
@@ -71,9 +71,9 @@ public class MdmClassStudentController {
      * @return
      */
     @RequestMapping("/save_mdmClassStudent")
-    public Result<Integer> insert(MdmClassStudentPo mdmClassStudent) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmClassStudentService.insertSelective(mdmClassStudent);
+    public Result<Long> insert(MdmClassStudentPo mdmClassStudent) {
+        Result<Long> result = new Result<>();
+        Long num = mdmClassStudentService.insertSelective(mdmClassStudent);
         result.setData(num);
         return result;
     }
@@ -84,9 +84,9 @@ public class MdmClassStudentController {
      * @return
      */
     @RequestMapping("/update_mdmClassStudent")
-    public Result<Integer> updateByPrimaryKeySelective(MdmClassStudentPo mdmClassStudent) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmClassStudentService.updateByPrimaryKeySelective(mdmClassStudent);
+    public Result<Long> updateByPrimaryKeySelective(MdmClassStudentPo mdmClassStudent) {
+        Result<Long> result = new Result<>();
+        Long num = mdmClassStudentService.updateByPrimaryKeySelective(mdmClassStudent);
         result.setData(num);
         return result;
     }

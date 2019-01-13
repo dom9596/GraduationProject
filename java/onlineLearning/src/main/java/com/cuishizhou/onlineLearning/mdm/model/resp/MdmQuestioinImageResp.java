@@ -22,11 +22,11 @@ public class MdmQuestioinImageResp implements Serializable {
     /**
      * 表id
      */
-    private Integer questioinImageId;
+    private Long questioinImageId;
     /**
      * 题目id
      */
-    private Integer questionId;
+    private Long questionId;
     /**
      * 图片
      */
@@ -50,11 +50,11 @@ public class MdmQuestioinImageResp implements Serializable {
     /**
      *
      */
-    private Integer createdBy;
+    private Long createdBy;
     /**
      *
      */
-    private Integer lastUpdatedBy;
+    private Long lastUpdatedBy;
     /**
      *
      */
@@ -62,15 +62,15 @@ public class MdmQuestioinImageResp implements Serializable {
     /**
      *
      */
-    private Integer lastUpdateLogin;
+    private Long lastUpdateLogin;
     /**
      *
      */
-    private Integer programApplicationId;
+    private Long programApplicationId;
     /**
      *
      */
-    private Integer programId;
+    private Long programId;
     /**
      *
      */
@@ -78,7 +78,7 @@ public class MdmQuestioinImageResp implements Serializable {
     /**
      *
      */
-    private Integer requestId;
+    private Long requestId;
     /**
      *
      */

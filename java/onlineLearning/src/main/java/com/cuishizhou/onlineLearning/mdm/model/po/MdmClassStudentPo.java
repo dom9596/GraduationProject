@@ -17,15 +17,15 @@ public class MdmClassStudentPo implements Serializable {
     /**
      * 表id
      */
-    private Integer classStudentId;
+    private Long classStudentId;
     /**
      * 班级id
      */
-    private Integer classId;
+    private Long classId;
     /**
      * 学生id
      */
-    private Integer userId;
+    private Long userId;
     /**
      * 更新时间
      */
@@ -41,11 +41,11 @@ public class MdmClassStudentPo implements Serializable {
     /**
      *
      */
-    private Integer createdBy;
+    private Long createdBy;
     /**
      *
      */
-    private Integer lastUpdatedBy;
+    private Long lastUpdatedBy;
     /**
      *
      */
@@ -53,15 +53,15 @@ public class MdmClassStudentPo implements Serializable {
     /**
      *
      */
-    private Integer lastUpdateLogin;
+    private Long lastUpdateLogin;
     /**
      *
      */
-    private Integer programApplicationId;
+    private Long programApplicationId;
     /**
      *
      */
-    private Integer programId;
+    private Long programId;
     /**
      *
      */
@@ -69,7 +69,7 @@ public class MdmClassStudentPo implements Serializable {
     /**
      *
      */
-    private Integer requestId;
+    private Long requestId;
     /**
      *
      */
@@ -138,42 +138,42 @@ public class MdmClassStudentPo implements Serializable {
     /**
      * 表id
      */
-    public void setClassStudentId(Integer classStudentId) {
+    public void setClassStudentId(Long classStudentId) {
         this.classStudentId = classStudentId;
     }
 
     /**
      * 表id
      */
-    public Integer getClassStudentId() {
+    public Long getClassStudentId() {
         return classStudentId;
     }
 
     /**
      * 班级id
      */
-    public void setClassId(Integer classId) {
+    public void setClassId(Long classId) {
         this.classId = classId;
     }
 
     /**
      * 班级id
      */
-    public Integer getClassId() {
+    public Long getClassId() {
         return classId;
     }
 
     /**
      * 学生id
      */
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
     /**
      * 学生id
      */
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
@@ -222,28 +222,28 @@ public class MdmClassStudentPo implements Serializable {
     /**
      *
      */
-    public void setCreatedBy(Integer createdBy) {
+    public void setCreatedBy(Long createdBy) {
         this.createdBy = createdBy;
     }
 
     /**
      *
      */
-    public Integer getCreatedBy() {
+    public Long getCreatedBy() {
         return createdBy;
     }
 
     /**
      *
      */
-    public void setLastUpdatedBy(Integer lastUpdatedBy) {
+    public void setLastUpdatedBy(Long lastUpdatedBy) {
         this.lastUpdatedBy = lastUpdatedBy;
     }
 
     /**
      *
      */
-    public Integer getLastUpdatedBy() {
+    public Long getLastUpdatedBy() {
         return lastUpdatedBy;
     }
 
@@ -264,42 +264,42 @@ public class MdmClassStudentPo implements Serializable {
     /**
      *
      */
-    public void setLastUpdateLogin(Integer lastUpdateLogin) {
+    public void setLastUpdateLogin(Long lastUpdateLogin) {
         this.lastUpdateLogin = lastUpdateLogin;
     }
 
     /**
      *
      */
-    public Integer getLastUpdateLogin() {
+    public Long getLastUpdateLogin() {
         return lastUpdateLogin;
     }
 
     /**
      *
      */
-    public void setProgramApplicationId(Integer programApplicationId) {
+    public void setProgramApplicationId(Long programApplicationId) {
         this.programApplicationId = programApplicationId;
     }
 
     /**
      *
      */
-    public Integer getProgramApplicationId() {
+    public Long getProgramApplicationId() {
         return programApplicationId;
     }
 
     /**
      *
      */
-    public void setProgramId(Integer programId) {
+    public void setProgramId(Long programId) {
         this.programId = programId;
     }
 
     /**
      *
      */
-    public Integer getProgramId() {
+    public Long getProgramId() {
         return programId;
     }
 
@@ -320,14 +320,14 @@ public class MdmClassStudentPo implements Serializable {
     /**
      *
      */
-    public void setRequestId(Integer requestId) {
+    public void setRequestId(Long requestId) {
         this.requestId = requestId;
     }
 
     /**
      *
      */
-    public Integer getRequestId() {
+    public Long getRequestId() {
         return requestId;
     }
 

@@ -45,7 +45,7 @@ public class MdmQuestioinController {
      * @return
      */
     @RequestMapping("/select_by_id")
-    public Result<MdmQuestioinPo> selectByPrimaryKey(Integer questioinId) {
+    public Result<MdmQuestioinPo> selectByPrimaryKey(Long questioinId) {
         Result<MdmQuestioinPo> result = new Result<>();
         MdmQuestioinPo po = mdmQuestioinService.selectByPrimaryKey(questioinId);
         result.setData(po);
@@ -58,9 +58,9 @@ public class MdmQuestioinController {
      * @return
      */
     @RequestMapping("/delete_by_id")
-    public Result<Integer> deleteByPrimaryKey(Integer questioinId) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmQuestioinService.deleteByPrimaryKey(questioinId);
+    public Result<Long> deleteByPrimaryKey(Long questioinId) {
+        Result<Long> result = new Result<>();
+        Long num = mdmQuestioinService.deleteByPrimaryKey(questioinId);
         result.setData(num);
         return result;
     }
@@ -71,9 +71,9 @@ public class MdmQuestioinController {
      * @return
      */
     @RequestMapping("/save_mdmQuestioin")
-    public Result<Integer> insert(MdmQuestioinPo mdmQuestioin) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmQuestioinService.insertSelective(mdmQuestioin);
+    public Result<Long> insert(MdmQuestioinPo mdmQuestioin) {
+        Result<Long> result = new Result<>();
+        Long num = mdmQuestioinService.insertSelective(mdmQuestioin);
         result.setData(num);
         return result;
     }
@@ -84,9 +84,9 @@ public class MdmQuestioinController {
      * @return
      */
     @RequestMapping("/update_mdmQuestioin")
-    public Result<Integer> updateByPrimaryKeySelective(MdmQuestioinPo mdmQuestioin) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmQuestioinService.updateByPrimaryKeySelective(mdmQuestioin);
+    public Result<Long> updateByPrimaryKeySelective(MdmQuestioinPo mdmQuestioin) {
+        Result<Long> result = new Result<>();
+        Long num = mdmQuestioinService.updateByPrimaryKeySelective(mdmQuestioin);
         result.setData(num);
         return result;
     }

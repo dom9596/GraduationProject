@@ -12,7 +12,7 @@ public class Result<T> implements Serializable {
 
     private static final long serialVersionUID = 2120267584344923858L;
 
-    private Integer status = 0;
+    private Long status = 0L;
 
     private String message = null;
 
@@ -22,17 +22,17 @@ public class Result<T> implements Serializable {
 
     }
 
-    public Result(Integer status, String message, T data) {
+    public Result(Long status, String message, T data) {
         this.status = status;
         this.message = message;
         this.data = data;
     }
 
-    public Integer getStatus() {
+    public Long getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(Long status) {
         this.status = status;
     }
 

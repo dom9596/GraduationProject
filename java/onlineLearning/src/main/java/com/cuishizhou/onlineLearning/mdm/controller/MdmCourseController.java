@@ -45,7 +45,7 @@ public class MdmCourseController {
      * @return
      */
     @RequestMapping("/select_by_id")
-    public Result<MdmCoursePo> selectByPrimaryKey(Integer courseId) {
+    public Result<MdmCoursePo> selectByPrimaryKey(Long courseId) {
         Result<MdmCoursePo> result = new Result<>();
         MdmCoursePo po = mdmCourseService.selectByPrimaryKey(courseId);
         result.setData(po);
@@ -58,9 +58,9 @@ public class MdmCourseController {
      * @return
      */
     @RequestMapping("/delete_by_id")
-    public Result<Integer> deleteByPrimaryKey(Integer courseId) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmCourseService.deleteByPrimaryKey(courseId);
+    public Result<Long> deleteByPrimaryKey(Long courseId) {
+        Result<Long> result = new Result<>();
+        Long num = mdmCourseService.deleteByPrimaryKey(courseId);
         result.setData(num);
         return result;
     }
@@ -71,9 +71,9 @@ public class MdmCourseController {
      * @return
      */
     @RequestMapping("/save_mdmCourse")
-    public Result<Integer> insert(MdmCoursePo mdmCourse) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmCourseService.insertSelective(mdmCourse);
+    public Result<Long> insert(MdmCoursePo mdmCourse) {
+        Result<Long> result = new Result<>();
+        Long num = mdmCourseService.insertSelective(mdmCourse);
         result.setData(num);
         return result;
     }
@@ -84,9 +84,9 @@ public class MdmCourseController {
      * @return
      */
     @RequestMapping("/update_mdmCourse")
-    public Result<Integer> updateByPrimaryKeySelective(MdmCoursePo mdmCourse) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmCourseService.updateByPrimaryKeySelective(mdmCourse);
+    public Result<Long> updateByPrimaryKeySelective(MdmCoursePo mdmCourse) {
+        Result<Long> result = new Result<>();
+        Long num = mdmCourseService.updateByPrimaryKeySelective(mdmCourse);
         result.setData(num);
         return result;
     }

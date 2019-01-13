@@ -45,7 +45,7 @@ public class SysUserController {
      * @return
      */
     @RequestMapping("/select_by_id")
-    public Result<SysUserPo> selectByPrimaryKey(Integer userId) {
+    public Result<SysUserPo> selectByPrimaryKey(Long userId) {
         Result<SysUserPo> result = new Result<>();
         SysUserPo po = sysUserService.selectByPrimaryKey(userId);
         result.setData(po);
@@ -58,9 +58,9 @@ public class SysUserController {
      * @return
      */
     @RequestMapping("/delete_by_id")
-    public Result<Integer> deleteByPrimaryKey(Integer userId) {
-        Result<Integer> result = new Result<>();
-        Integer num = sysUserService.deleteByPrimaryKey(userId);
+    public Result<Long> deleteByPrimaryKey(Long userId) {
+        Result<Long> result = new Result<>();
+        Long num = sysUserService.deleteByPrimaryKey(userId);
         result.setData(num);
         return result;
     }
@@ -71,9 +71,9 @@ public class SysUserController {
      * @return
      */
     @RequestMapping("/save_sysUser")
-    public Result<Integer> insert(SysUserPo sysUser) {
-        Result<Integer> result = new Result<>();
-        Integer num = sysUserService.insertSelective(sysUser);
+    public Result<Long> insert(SysUserPo sysUser) {
+        Result<Long> result = new Result<>();
+        Long num = sysUserService.insertSelective(sysUser);
         result.setData(num);
         return result;
     }
@@ -84,9 +84,9 @@ public class SysUserController {
      * @return
      */
     @RequestMapping("/update_sysUser")
-    public Result<Integer> updateByPrimaryKeySelective(SysUserPo sysUser) {
-        Result<Integer> result = new Result<>();
-        Integer num = sysUserService.updateByPrimaryKeySelective(sysUser);
+    public Result<Long> updateByPrimaryKeySelective(SysUserPo sysUser) {
+        Result<Long> result = new Result<>();
+        Long num = sysUserService.updateByPrimaryKeySelective(sysUser);
         result.setData(num);
         return result;
     }
@@ -103,6 +103,12 @@ public class SysUserController {
         List<SysUserPo> list = sysUserService.query(sysUser);
         result.setData(list);
         return result;
+    }
+
+
+    @RequestMapping("/query_total")
+    public Long queryTotal() {
+        return sysUserService.queryTotal();
     }
 
 }

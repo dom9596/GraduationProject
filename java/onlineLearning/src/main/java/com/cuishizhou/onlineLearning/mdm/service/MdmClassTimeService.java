@@ -20,23 +20,23 @@ public interface MdmClassTimeService {
 
     Page<MdmClassTimePo> selectPaged(RowBounds rowBounds);
 
-    MdmClassTimePo selectByPrimaryKey(Integer classTimeId);
+    MdmClassTimePo selectByPrimaryKey(Long classTimeId);
 
-    Integer deleteByPrimaryKey(Integer classTimeId);
+    Long deleteByPrimaryKey(Long classTimeId);
 
-    Integer insert(MdmClassTimePo mdmClassTime);
+    Long insert(MdmClassTimePo mdmClassTime);
 
-    Integer insertSelective(MdmClassTimePo mdmClassTime);
+    Long insertSelective(MdmClassTimePo mdmClassTime);
 
-    Integer insertSelectiveIgnore(MdmClassTimePo mdmClassTime);
+    Long insertSelectiveIgnore(MdmClassTimePo mdmClassTime);
 
-    Integer updateByPrimaryKeySelective(MdmClassTimePo mdmClassTime);
+    Long updateByPrimaryKeySelective(MdmClassTimePo mdmClassTime);
 
-    Integer updateByPrimaryKey(MdmClassTimePo mdmClassTime);
+    Long updateByPrimaryKey(MdmClassTimePo mdmClassTime);
 
-    Integer batchInsert(List<MdmClassTimePo> list);
+    Long batchInsert(List<MdmClassTimePo> list);
 
-    Integer batchUpdate(List<MdmClassTimePo> list);
+    Long batchUpdate(List<MdmClassTimePo> list);
 
     /**
      * 存在即更新
@@ -44,7 +44,7 @@ public interface MdmClassTimeService {
      * @param map
      * @return
      */
-    Integer upsert(MdmClassTimePo mdmClassTime);
+    Long upsert(MdmClassTimePo mdmClassTime);
 
     /**
      * 存在即更新，可选择具体属性
@@ -52,13 +52,13 @@ public interface MdmClassTimeService {
      * @param map
      * @return
      */
-    Integer upsertSelective(MdmClassTimePo mdmClassTime);
+    Long upsertSelective(MdmClassTimePo mdmClassTime);
 
     List<MdmClassTimePo> query(MdmClassTimePo mdmClassTime);
 
     Long queryTotal();
 
-    Integer deleteBatch(List<Integer> list);
+    Long deleteBatch(List<Long> list);
 
     /*<AUTOGEN--END>*/
 

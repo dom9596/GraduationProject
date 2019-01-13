@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.cuishizhou.onlineLearning.mdm.dao.MdmQuestioinImageDao">
+<mapper namespace="com.cuishizhou.onlineLearning.mdm.dao.MdmClassDao">
 
     <!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.cuishizhou.onlineLearning.mdm.model.po.MdmQuestioinImagePo" id="BaseResultMap">
-        <result property="questioinImageId" column="questioin_image_id"/>
-        <result property="questionId" column="question_id"/>
-        <result property="imageUrl" column="image_url"/>
-        <result property="sequence" column="sequence"/>
+    <resultMap type="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassPo" id="BaseResultMap">
+        <result property="classId" column="class_id"/>
+        <result property="classCode" column="class_code"/>
+        <result property="className" column="class_name"/>
+        <result property="courseId" column="course_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="classDescription" column="class_description"/>
         <result property="updateDate" column="update_date"/>
         <result property="createDate" column="create_date"/>
         <result property="creationDate" column="creation_date"/>
@@ -43,17 +45,23 @@
         -->
     <sql id="Base_Insert_Selective">
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="questioinImageId!=null">
-                questioin_image_id,
+            <if test="classId!=null">
+                class_id,
             </if>
-            <if test="questionId!=null">
-                question_id,
+            <if test="classCode!=null">
+                class_code,
             </if>
-            <if test="imageUrl!=null">
-                image_url,
+            <if test="className!=null">
+                class_name,
             </if>
-            <if test="sequence!=null">
-                sequence,
+            <if test="courseId!=null">
+                course_id,
+            </if>
+            <if test="userId!=null">
+                user_id,
+            </if>
+            <if test="classDescription!=null">
+                class_description,
             </if>
             <if test="updateDate!=null">
                 update_date,
@@ -138,17 +146,23 @@
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="questioinImageId!=null">
-                #{questioinImageId,jdbcType=INT},
+            <if test="classId!=null">
+                #{classId,jdbcType=DECIMAL},
             </if>
-            <if test="questionId!=null">
-                #{questionId,jdbcType=INT},
+            <if test="classCode!=null">
+                #{classCode,jdbcType=VARCHAR},
             </if>
-            <if test="imageUrl!=null">
-                #{imageUrl,jdbcType=VARCHAR},
+            <if test="className!=null">
+                #{className,jdbcType=VARCHAR},
             </if>
-            <if test="sequence!=null">
-                #{sequence,jdbcType=VARCHAR},
+            <if test="courseId!=null">
+                #{courseId,jdbcType=DECIMAL},
+            </if>
+            <if test="userId!=null">
+                #{userId,jdbcType=DECIMAL},
+            </if>
+            <if test="classDescription!=null">
+                #{classDescription,jdbcType=VARCHAR},
             </if>
             <if test="updateDate!=null">
                 #{updateDate,jdbcType=VARCHAR},
@@ -160,28 +174,28 @@
                 #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                #{createdBy,jdbcType=INT},
+                #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                #{lastUpdatedBy,jdbcType=INT},
+                #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                #{lastUpdateLogin,jdbcType=INT},
+                #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                #{programApplicationId,jdbcType=INT},
+                #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                #{programId,jdbcType=INT},
+                #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                #{requestId,jdbcType=INT},
+                #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 #{attributeCategory,jdbcType=VARCHAR},
@@ -238,10 +252,12 @@
       数据库表的基本查询列名集合
     -->
     <sql id="Base_Column_List">
-        questioin_image_id,
-        question_id,
-        image_url,
-        sequence,
+        class_id,
+        class_code,
+        class_name,
+        course_id,
+        user_id,
+        class_description,
         update_date,
         create_date,
         creation_date,
@@ -275,17 +291,23 @@
         Where子句
       -->
     <sql id="Base_Query_Where">
-        <if test="questioinImageId!=null">
-            #{questioinImageId,jdbcType=INT},
+        <if test="classId!=null">
+            #{classId,jdbcType=DECIMAL},
         </if>
-        <if test="questionId!=null">
-            #{questionId,jdbcType=INT},
+        <if test="classCode!=null">
+            #{classCode,jdbcType=VARCHAR},
         </if>
-        <if test="imageUrl!=null">
-            #{imageUrl,jdbcType=VARCHAR},
+        <if test="className!=null">
+            #{className,jdbcType=VARCHAR},
         </if>
-        <if test="sequence!=null">
-            #{sequence,jdbcType=VARCHAR},
+        <if test="courseId!=null">
+            #{courseId,jdbcType=DECIMAL},
+        </if>
+        <if test="userId!=null">
+            #{userId,jdbcType=DECIMAL},
+        </if>
+        <if test="classDescription!=null">
+            #{classDescription,jdbcType=VARCHAR},
         </if>
         <if test="updateDate!=null">
             #{updateDate,jdbcType=VARCHAR},
@@ -297,28 +319,28 @@
             #{creationDate,jdbcType=DATETIME},
         </if>
         <if test="createdBy!=null">
-            #{createdBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdatedBy!=null">
-            #{lastUpdatedBy,jdbcType=INT},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdateDate!=null">
             #{lastUpdateDate,jdbcType=DATETIME},
         </if>
         <if test="lastUpdateLogin!=null">
-            #{lastUpdateLogin,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
         </if>
         <if test="programApplicationId!=null">
-            #{programApplicationId,jdbcType=INT},
+            #{programApplicationId,jdbcType=DECIMAL},
         </if>
         <if test="programId!=null">
-            #{programId,jdbcType=INT},
+            #{programId,jdbcType=DECIMAL},
         </if>
         <if test="programUpdateDate!=null">
             #{programUpdateDate,jdbcType=DATE},
         </if>
         <if test="requestId!=null">
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
         </if>
         <if test="attributeCategory!=null">
             #{attributeCategory,jdbcType=VARCHAR},
@@ -375,17 +397,23 @@
     -->
     <sql id="Base_Update_Column">
         <set>
-            <if test="questioinImageId!=null">
-                #{questioinImageId,jdbcType=INT},
+            <if test="classId!=null">
+                #{classId,jdbcType=DECIMAL},
             </if>
-            <if test="questionId!=null">
-                #{questionId,jdbcType=INT},
+            <if test="classCode!=null">
+                #{classCode,jdbcType=VARCHAR},
             </if>
-            <if test="imageUrl!=null">
-                #{imageUrl,jdbcType=VARCHAR},
+            <if test="className!=null">
+                #{className,jdbcType=VARCHAR},
             </if>
-            <if test="sequence!=null">
-                #{sequence,jdbcType=VARCHAR},
+            <if test="courseId!=null">
+                #{courseId,jdbcType=DECIMAL},
+            </if>
+            <if test="userId!=null">
+                #{userId,jdbcType=DECIMAL},
+            </if>
+            <if test="classDescription!=null">
+                #{classDescription,jdbcType=VARCHAR},
             </if>
             <if test="updateDate!=null">
                 #{updateDate,jdbcType=VARCHAR},
@@ -397,28 +425,28 @@
                 #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                #{createdBy,jdbcType=INT},
+                #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                #{lastUpdatedBy,jdbcType=INT},
+                #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                #{lastUpdateLogin,jdbcType=INT},
+                #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                #{programApplicationId,jdbcType=INT},
+                #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                #{programId,jdbcType=INT},
+                #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                #{requestId,jdbcType=INT},
+                #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 #{attributeCategory,jdbcType=VARCHAR},
@@ -477,47 +505,53 @@
     <select id="selectPaged" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from mdm_questioin_image
+        from mdm_class
     </select>
 
     <!--
       根据主键查询数据库表
     -->
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from mdm_questioin_image
-        where questioin_image_id = #{questioinImageId,jdbcType=INT}
+        from mdm_class
+        where class_id = #{classId,jdbcType=DECIMAL}
     </select>
 
 
     <!--
       根据主键删除数据库表中的记录
     -->
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        delete FROM mdm_questioin_image
-        where questioin_image_id = #{questioinImageId,jdbcType=INT}
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete FROM mdm_class
+        where class_id = #{classId,jdbcType=DECIMAL}
     </delete>
 
     <!--
       添加一条记录到数据库表中
     -->
     <insert id="insert" useGeneratedKeys="true" keyProperty="id"
-            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmQuestioinImagePo">
+            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassPo">
         insert into cps_lock
         (<include refid="Base_Column_List"/>)
         values (
-        <if test="questioinImageId!=null">
-            #{questioinImageId,jdbcType=INT},
+        <if test="classId!=null">
+            #{classId,jdbcType=DECIMAL},
         </if>
-        <if test="questionId!=null">
-            #{questionId,jdbcType=INT},
+        <if test="classCode!=null">
+            #{classCode,jdbcType=VARCHAR},
         </if>
-        <if test="imageUrl!=null">
-            #{imageUrl,jdbcType=VARCHAR},
+        <if test="className!=null">
+            #{className,jdbcType=VARCHAR},
         </if>
-        <if test="sequence!=null">
-            #{sequence,jdbcType=VARCHAR},
+        <if test="courseId!=null">
+            #{courseId,jdbcType=DECIMAL},
+        </if>
+        <if test="userId!=null">
+            #{userId,jdbcType=DECIMAL},
+        </if>
+        <if test="classDescription!=null">
+            #{classDescription,jdbcType=VARCHAR},
         </if>
         <if test="updateDate!=null">
             #{updateDate,jdbcType=VARCHAR},
@@ -529,28 +563,28 @@
             #{creationDate,jdbcType=DATETIME},
         </if>
         <if test="createdBy!=null">
-            #{createdBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdatedBy!=null">
-            #{lastUpdatedBy,jdbcType=INT},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdateDate!=null">
             #{lastUpdateDate,jdbcType=DATETIME},
         </if>
         <if test="lastUpdateLogin!=null">
-            #{lastUpdateLogin,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
         </if>
         <if test="programApplicationId!=null">
-            #{programApplicationId,jdbcType=INT},
+            #{programApplicationId,jdbcType=DECIMAL},
         </if>
         <if test="programId!=null">
-            #{programId,jdbcType=INT},
+            #{programId,jdbcType=DECIMAL},
         </if>
         <if test="programUpdateDate!=null">
             #{programUpdateDate,jdbcType=DATE},
         </if>
         <if test="requestId!=null">
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
         </if>
         <if test="attributeCategory!=null">
             #{attributeCategory,jdbcType=VARCHAR},
@@ -607,8 +641,8 @@
      有选择的添加一条记录到数据库表中
    -->
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"
-            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmQuestioinImagePo">
-        insert into mdm_questioin_image
+            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassPo">
+        insert into mdm_class
         <include refid="Base_Insert_Selective"/>
     </insert>
 
@@ -616,39 +650,44 @@
       有选择的可忽略添加一条记录到数据库表中
     -->
     <insert id="insertSelectiveIgnore" useGeneratedKeys="true" keyProperty="id"
-            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmQuestioinImagePo">
-        insert ignore into mdm_questioin_image
+            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassPo">
+        insert ignore into mdm_class
         <include refid="Base_Insert_Selective"/>
     </insert>
 
     <!--
       根据主键有选择的更新数据库表
     -->
-    <update id="updateByPrimaryKeySelective"
-            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmQuestioinImagePo">
-        update mdm_questioin_image
+    <update id="updateByPrimaryKeySelective" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassPo">
+        update mdm_class
         <include refid="Base_Update_Column"></include>
-        where questioin_image_id = #{questioinImageId,jdbcType=INT}
+        where class_id = #{classId,jdbcType=DECIMAL}
     </update>
 
 
     <!--
       根据主键更新数据库表
     -->
-    <update id="updateByPrimaryKey" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmQuestioinImagePo">
-        update mdm_questioin_image
+    <update id="updateByPrimaryKey" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassPo">
+        update mdm_class
         <set>
-            <if test="questioinImageId!=null">
-                questioin_image_id = #{questioinImageId,jdbcType=INT},
+            <if test="classId!=null">
+                class_id = #{classId,jdbcType=DECIMAL},
             </if>
-            <if test="questionId!=null">
-                question_id = #{questionId,jdbcType=INT},
+            <if test="classCode!=null">
+                class_code = #{classCode,jdbcType=VARCHAR},
             </if>
-            <if test="imageUrl!=null">
-                image_url = #{imageUrl,jdbcType=VARCHAR},
+            <if test="className!=null">
+                class_name = #{className,jdbcType=VARCHAR},
             </if>
-            <if test="sequence!=null">
-                sequence = #{sequence,jdbcType=VARCHAR},
+            <if test="courseId!=null">
+                course_id = #{courseId,jdbcType=DECIMAL},
+            </if>
+            <if test="userId!=null">
+                user_id = #{userId,jdbcType=DECIMAL},
+            </if>
+            <if test="classDescription!=null">
+                class_description = #{classDescription,jdbcType=VARCHAR},
             </if>
             <if test="updateDate!=null">
                 update_date = #{updateDate,jdbcType=VARCHAR},
@@ -660,28 +699,28 @@
                 creation_date = #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                created_by = #{createdBy,jdbcType=INT},
+                created_by = #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                program_application_id = #{programApplicationId,jdbcType=INT},
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                program_id = #{programId,jdbcType=INT},
+                program_id = #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 program_update_date = #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                request_id = #{requestId,jdbcType=INT},
+                request_id = #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR},
@@ -732,19 +771,21 @@
                 attribute15 = #{attribute15,jdbcType=VARCHAR},
             </if>
         </set>
-        where questioin_image_id = #{questioinImageId,jdbcType=INT}
+        where class_id = #{classId,jdbcType=DECIMAL}
     </update>
 
     <!--
       批量添加记录到数据库表中
     -->
     <insert id="batchInsert" parameterType="java.util.List">
-        insert into mdm_questioin_image
+        insert into mdm_class
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            questioin_image_id,
-            question_id,
-            image_url,
-            sequence,
+            class_id,
+            class_code,
+            class_name,
+            course_id,
+            user_id,
+            class_description,
             update_date,
             create_date,
             creation_date,
@@ -776,21 +817,23 @@
         values
         <foreach collection="list" index="index" item="item" separator=",">
             <trim prefix="(" suffix=")" suffixOverrides=",">
-                #{questioinImageId,jdbcType=INT},
-                #{questionId,jdbcType=INT},
-                #{imageUrl,jdbcType=VARCHAR},
-                #{sequence,jdbcType=VARCHAR},
+                #{classId,jdbcType=DECIMAL},
+                #{classCode,jdbcType=VARCHAR},
+                #{className,jdbcType=VARCHAR},
+                #{courseId,jdbcType=DECIMAL},
+                #{userId,jdbcType=DECIMAL},
+                #{classDescription,jdbcType=VARCHAR},
                 #{updateDate,jdbcType=VARCHAR},
                 #{createDate,jdbcType=VARCHAR},
                 #{creationDate,jdbcType=DATETIME},
-                #{createdBy,jdbcType=INT},
-                #{lastUpdatedBy,jdbcType=INT},
+                #{createdBy,jdbcType=DECIMAL},
+                #{lastUpdatedBy,jdbcType=DECIMAL},
                 #{lastUpdateDate,jdbcType=DATETIME},
-                #{lastUpdateLogin,jdbcType=INT},
-                #{programApplicationId,jdbcType=INT},
-                #{programId,jdbcType=INT},
+                #{lastUpdateLogin,jdbcType=DECIMAL},
+                #{programApplicationId,jdbcType=DECIMAL},
+                #{programId,jdbcType=DECIMAL},
                 #{programUpdateDate,jdbcType=DATE},
-                #{requestId,jdbcType=INT},
+                #{requestId,jdbcType=DECIMAL},
                 #{attributeCategory,jdbcType=VARCHAR},
                 #{attribute1,jdbcType=VARCHAR},
                 #{attribute2,jdbcType=VARCHAR},
@@ -816,20 +859,26 @@
     -->
     <update id="batchUpdate" parameterType="java.util.List">
         <foreach collection="list" index="index" item="item" separator=";">
-            update mdm_questioin_image
+            update mdm_class
             <set>
                 <trim suffixOverrides=",">
-                    <if test="item.questioinImageId!=null">
-                        questioin_image_id = #{questioinImageId,jdbcType=INT},
+                    <if test="item.classId!=null">
+                        class_id = #{classId,jdbcType=DECIMAL},
                     </if>
-                    <if test="item.questionId!=null">
-                        question_id = #{questionId,jdbcType=INT},
+                    <if test="item.classCode!=null">
+                        class_code = #{classCode,jdbcType=VARCHAR},
                     </if>
-                    <if test="item.imageUrl!=null">
-                        image_url = #{imageUrl,jdbcType=VARCHAR},
+                    <if test="item.className!=null">
+                        class_name = #{className,jdbcType=VARCHAR},
                     </if>
-                    <if test="item.sequence!=null">
-                        sequence = #{sequence,jdbcType=VARCHAR},
+                    <if test="item.courseId!=null">
+                        course_id = #{courseId,jdbcType=DECIMAL},
+                    </if>
+                    <if test="item.userId!=null">
+                        user_id = #{userId,jdbcType=DECIMAL},
+                    </if>
+                    <if test="item.classDescription!=null">
+                        class_description = #{classDescription,jdbcType=VARCHAR},
                     </if>
                     <if test="item.updateDate!=null">
                         update_date = #{updateDate,jdbcType=VARCHAR},
@@ -841,28 +890,28 @@
                         creation_date = #{creationDate,jdbcType=DATETIME},
                     </if>
                     <if test="item.createdBy!=null">
-                        created_by = #{createdBy,jdbcType=INT},
+                        created_by = #{createdBy,jdbcType=DECIMAL},
                     </if>
                     <if test="item.lastUpdatedBy!=null">
-                        last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                        last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
                     </if>
                     <if test="item.lastUpdateDate!=null">
                         last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
                     </if>
                     <if test="item.lastUpdateLogin!=null">
-                        last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                        last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
                     </if>
                     <if test="item.programApplicationId!=null">
-                        program_application_id = #{programApplicationId,jdbcType=INT},
+                        program_application_id = #{programApplicationId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.programId!=null">
-                        program_id = #{programId,jdbcType=INT},
+                        program_id = #{programId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.programUpdateDate!=null">
                         program_update_date = #{programUpdateDate,jdbcType=DATE},
                     </if>
                     <if test="item.requestId!=null">
-                        request_id = #{requestId,jdbcType=INT},
+                        request_id = #{requestId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.attributeCategory!=null">
                         attribute_category = #{attributeCategory,jdbcType=VARCHAR},
@@ -916,7 +965,7 @@
             </set>
             <where>
                 <trim suffixOverrides=",">
-                    where questioin_image_id = #{questioinImageId,INT}
+                    where class_id = #{classId,DECIMAL}
                 </trim>
             </where>
         </foreach>
@@ -927,17 +976,23 @@
    -->
     <sql id="Identifiers_Array_Conditions">
         <foreach collection="array" index="index" item="item" separator=" and ">
-            <if test="item == questioinImageId">
-                questioin_image_id = #{questioinImageId,jdbcType=INT}
+            <if test="item == classId">
+                class_id = #{classId,jdbcType=DECIMAL}
             </if>
-            <if test="item == questionId">
-                question_id = #{questionId,jdbcType=INT}
+            <if test="item == classCode">
+                class_code = #{classCode,jdbcType=VARCHAR}
             </if>
-            <if test="item == imageUrl">
-                image_url = #{imageUrl,jdbcType=VARCHAR}
+            <if test="item == className">
+                class_name = #{className,jdbcType=VARCHAR}
             </if>
-            <if test="item == sequence">
-                sequence = #{sequence,jdbcType=VARCHAR}
+            <if test="item == courseId">
+                course_id = #{courseId,jdbcType=DECIMAL}
+            </if>
+            <if test="item == userId">
+                user_id = #{userId,jdbcType=DECIMAL}
+            </if>
+            <if test="item == classDescription">
+                class_description = #{classDescription,jdbcType=VARCHAR}
             </if>
             <if test="item == updateDate">
                 update_date = #{updateDate,jdbcType=VARCHAR}
@@ -949,28 +1004,28 @@
                 creation_date = #{creationDate,jdbcType=DATETIME}
             </if>
             <if test="item == createdBy">
-                created_by = #{createdBy,jdbcType=INT}
+                created_by = #{createdBy,jdbcType=DECIMAL}
             </if>
             <if test="item == lastUpdatedBy">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT}
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL}
             </if>
             <if test="item == lastUpdateDate">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME}
             </if>
             <if test="item == lastUpdateLogin">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT}
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL}
             </if>
             <if test="item == programApplicationId">
-                program_application_id = #{programApplicationId,jdbcType=INT}
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL}
             </if>
             <if test="item == programId">
-                program_id = #{programId,jdbcType=INT}
+                program_id = #{programId,jdbcType=DECIMAL}
             </if>
             <if test="item == programUpdateDate">
                 program_update_date = #{programUpdateDate,jdbcType=DATE}
             </if>
             <if test="item == requestId">
-                request_id = #{requestId,jdbcType=INT}
+                request_id = #{requestId,jdbcType=DECIMAL}
             </if>
             <if test="item == attributeCategory">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR}
@@ -1026,13 +1081,15 @@
     <!--
       存在即更新否则插入
     -->
-    <update id="upsert" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmQuestioinImagePo">
-        insert into mdm_questioin_image
+    <update id="upsert" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassPo">
+        insert into mdm_class
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            questioin_image_id,
-            question_id,
-            image_url,
-            sequence,
+            class_id,
+            class_code,
+            class_name,
+            course_id,
+            user_id,
+            class_description,
             update_date,
             create_date,
             creation_date,
@@ -1063,21 +1120,23 @@
         </trim>
         values
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            #{questioinImageId,jdbcType=INT},
-            #{questionId,jdbcType=INT},
-            #{imageUrl,jdbcType=VARCHAR},
-            #{sequence,jdbcType=VARCHAR},
+            #{classId,jdbcType=DECIMAL},
+            #{classCode,jdbcType=VARCHAR},
+            #{className,jdbcType=VARCHAR},
+            #{courseId,jdbcType=DECIMAL},
+            #{userId,jdbcType=DECIMAL},
+            #{classDescription,jdbcType=VARCHAR},
             #{updateDate,jdbcType=VARCHAR},
             #{createDate,jdbcType=VARCHAR},
             #{creationDate,jdbcType=DATETIME},
-            #{createdBy,jdbcType=INT},
-            #{lastUpdatedBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
             #{lastUpdateDate,jdbcType=DATETIME},
-            #{lastUpdateLogin,jdbcType=INT},
-            #{programApplicationId,jdbcType=INT},
-            #{programId,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
+            #{programApplicationId,jdbcType=DECIMAL},
+            #{programId,jdbcType=DECIMAL},
             #{programUpdateDate,jdbcType=DATE},
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
             #{attributeCategory,jdbcType=VARCHAR},
             #{attribute1,jdbcType=VARCHAR},
             #{attribute2,jdbcType=VARCHAR},
@@ -1097,21 +1156,23 @@
         </trim>
         on duplicate key update
         <trim suffixOverrides=",">
-            #{questioinImageId,jdbcType=INT},
-            #{questionId,jdbcType=INT},
-            #{imageUrl,jdbcType=VARCHAR},
-            #{sequence,jdbcType=VARCHAR},
+            #{classId,jdbcType=DECIMAL},
+            #{classCode,jdbcType=VARCHAR},
+            #{className,jdbcType=VARCHAR},
+            #{courseId,jdbcType=DECIMAL},
+            #{userId,jdbcType=DECIMAL},
+            #{classDescription,jdbcType=VARCHAR},
             #{updateDate,jdbcType=VARCHAR},
             #{createDate,jdbcType=VARCHAR},
             #{creationDate,jdbcType=DATETIME},
-            #{createdBy,jdbcType=INT},
-            #{lastUpdatedBy,jdbcType=INT},
+            #{createdBy,jdbcType=DECIMAL},
+            #{lastUpdatedBy,jdbcType=DECIMAL},
             #{lastUpdateDate,jdbcType=DATETIME},
-            #{lastUpdateLogin,jdbcType=INT},
-            #{programApplicationId,jdbcType=INT},
-            #{programId,jdbcType=INT},
+            #{lastUpdateLogin,jdbcType=DECIMAL},
+            #{programApplicationId,jdbcType=DECIMAL},
+            #{programId,jdbcType=DECIMAL},
             #{programUpdateDate,jdbcType=DATE},
-            #{requestId,jdbcType=INT},
+            #{requestId,jdbcType=DECIMAL},
             #{attributeCategory,jdbcType=VARCHAR},
             #{attribute1,jdbcType=VARCHAR},
             #{attribute2,jdbcType=VARCHAR},
@@ -1135,20 +1196,26 @@
     <!--
       带有空值检查的存在即更新否则插入
     -->
-    <update id="upsertSelective" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmQuestioinImagePo">
-        insert into mdm_questioin_image
+    <update id="upsertSelective" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassPo">
+        insert into mdm_class
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="questioinImageId!=null">
-                questioin_image_id,
+            <if test="classId!=null">
+                class_id,
             </if>
-            <if test="questionId!=null">
-                question_id,
+            <if test="classCode!=null">
+                class_code,
             </if>
-            <if test="imageUrl!=null">
-                image_url,
+            <if test="className!=null">
+                class_name,
             </if>
-            <if test="sequence!=null">
-                sequence,
+            <if test="courseId!=null">
+                course_id,
+            </if>
+            <if test="userId!=null">
+                user_id,
+            </if>
+            <if test="classDescription!=null">
+                class_description,
             </if>
             <if test="updateDate!=null">
                 update_date,
@@ -1234,17 +1301,23 @@
         </trim>
         values
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="questioinImageId!=null">
-                questioin_image_id = #{questioinImageId,jdbcType=INT},
+            <if test="classId!=null">
+                class_id = #{classId,jdbcType=DECIMAL},
             </if>
-            <if test="questionId!=null">
-                question_id = #{questionId,jdbcType=INT},
+            <if test="classCode!=null">
+                class_code = #{classCode,jdbcType=VARCHAR},
             </if>
-            <if test="imageUrl!=null">
-                image_url = #{imageUrl,jdbcType=VARCHAR},
+            <if test="className!=null">
+                class_name = #{className,jdbcType=VARCHAR},
             </if>
-            <if test="sequence!=null">
-                sequence = #{sequence,jdbcType=VARCHAR},
+            <if test="courseId!=null">
+                course_id = #{courseId,jdbcType=DECIMAL},
+            </if>
+            <if test="userId!=null">
+                user_id = #{userId,jdbcType=DECIMAL},
+            </if>
+            <if test="classDescription!=null">
+                class_description = #{classDescription,jdbcType=VARCHAR},
             </if>
             <if test="updateDate!=null">
                 update_date = #{updateDate,jdbcType=VARCHAR},
@@ -1256,28 +1329,28 @@
                 creation_date = #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                created_by = #{createdBy,jdbcType=INT},
+                created_by = #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                program_application_id = #{programApplicationId,jdbcType=INT},
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                program_id = #{programId,jdbcType=INT},
+                program_id = #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 program_update_date = #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                request_id = #{requestId,jdbcType=INT},
+                request_id = #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR},
@@ -1330,17 +1403,23 @@
         </trim>
         on duplicate key update
         <trim suffixOverrides=",">
-            <if test="questioinImageId!=null">
-                questioin_image_id = #{questioinImageId,jdbcType=INT},
+            <if test="classId!=null">
+                class_id = #{classId,jdbcType=DECIMAL},
             </if>
-            <if test="questionId!=null">
-                question_id = #{questionId,jdbcType=INT},
+            <if test="classCode!=null">
+                class_code = #{classCode,jdbcType=VARCHAR},
             </if>
-            <if test="imageUrl!=null">
-                image_url = #{imageUrl,jdbcType=VARCHAR},
+            <if test="className!=null">
+                class_name = #{className,jdbcType=VARCHAR},
             </if>
-            <if test="sequence!=null">
-                sequence = #{sequence,jdbcType=VARCHAR},
+            <if test="courseId!=null">
+                course_id = #{courseId,jdbcType=DECIMAL},
+            </if>
+            <if test="userId!=null">
+                user_id = #{userId,jdbcType=DECIMAL},
+            </if>
+            <if test="classDescription!=null">
+                class_description = #{classDescription,jdbcType=VARCHAR},
             </if>
             <if test="updateDate!=null">
                 update_date = #{updateDate,jdbcType=VARCHAR},
@@ -1352,28 +1431,28 @@
                 creation_date = #{creationDate,jdbcType=DATETIME},
             </if>
             <if test="createdBy!=null">
-                created_by = #{createdBy,jdbcType=INT},
+                created_by = #{createdBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdatedBy!=null">
-                last_updated_by = #{lastUpdatedBy,jdbcType=INT},
+                last_updated_by = #{lastUpdatedBy,jdbcType=DECIMAL},
             </if>
             <if test="lastUpdateDate!=null">
                 last_update_date = #{lastUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="lastUpdateLogin!=null">
-                last_update_login = #{lastUpdateLogin,jdbcType=INT},
+                last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL},
             </if>
             <if test="programApplicationId!=null">
-                program_application_id = #{programApplicationId,jdbcType=INT},
+                program_application_id = #{programApplicationId,jdbcType=DECIMAL},
             </if>
             <if test="programId!=null">
-                program_id = #{programId,jdbcType=INT},
+                program_id = #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
                 program_update_date = #{programUpdateDate,jdbcType=DATE},
             </if>
             <if test="requestId!=null">
-                request_id = #{requestId,jdbcType=INT},
+                request_id = #{requestId,jdbcType=DECIMAL},
             </if>
             <if test="attributeCategory!=null">
                 attribute_category = #{attributeCategory,jdbcType=VARCHAR},
@@ -1426,25 +1505,24 @@
         </trim>
     </update>
 
-    <select id="query" resultMap="BaseResultMap"
-            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmQuestioinImagePo">
+    <select id="query" resultMap="BaseResultMap" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmClassPo">
         select
         <include refid="Base_Column_List"/>
-        from mdm_questioin_image
+        from mdm_class
         <where>
             <include refid="Base_Query_Where"></include>
         </where>
     </select>
 
     <select id="queryTotal" resultType="long">
-        select count(*) from mdm_questioin_image
+        select count(*) from mdm_class
     </select>
 
 
     <delete id="deleteBatch">
-        delete from mdm_questioin_image where questioin_image_id in
-        <foreach item="questioinImageId" collection="list" open="(" separator="," close=")">
-            #{questioinImageId}
+        delete from mdm_class where class_id in
+        <foreach item="classId" collection="list" open="(" separator="," close=")">
+            #{classId}
         </foreach>
     </delete>
 

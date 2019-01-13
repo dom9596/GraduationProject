@@ -22,15 +22,15 @@ public class SysUserRoleBo implements Serializable {
     /**
      * 表id
      */
-    private Integer surId;
+    private Long surId;
     /**
      * 编码(学号/工号)
      */
-    private Integer userId;
+    private Long userId;
     /**
      *
      */
-    private Integer roleId;
+    private Long roleId;
     /**
      * 更新时间
      */
@@ -46,11 +46,11 @@ public class SysUserRoleBo implements Serializable {
     /**
      *
      */
-    private Integer createdBy;
+    private Long createdBy;
     /**
      *
      */
-    private Integer lastUpdatedBy;
+    private Long lastUpdatedBy;
     /**
      *
      */
@@ -58,15 +58,15 @@ public class SysUserRoleBo implements Serializable {
     /**
      *
      */
-    private Integer lastUpdateLogin;
+    private Long lastUpdateLogin;
     /**
      *
      */
-    private Integer programApplicationId;
+    private Long programApplicationId;
     /**
      *
      */
-    private Integer programId;
+    private Long programId;
     /**
      *
      */
@@ -74,7 +74,7 @@ public class SysUserRoleBo implements Serializable {
     /**
      *
      */
-    private Integer requestId;
+    private Long requestId;
     /**
      *
      */

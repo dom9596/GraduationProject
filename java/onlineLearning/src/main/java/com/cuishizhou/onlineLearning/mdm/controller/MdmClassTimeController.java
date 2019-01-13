@@ -45,7 +45,7 @@ public class MdmClassTimeController {
      * @return
      */
     @RequestMapping("/select_by_id")
-    public Result<MdmClassTimePo> selectByPrimaryKey(Integer classTimeId) {
+    public Result<MdmClassTimePo> selectByPrimaryKey(Long classTimeId) {
         Result<MdmClassTimePo> result = new Result<>();
         MdmClassTimePo po = mdmClassTimeService.selectByPrimaryKey(classTimeId);
         result.setData(po);
@@ -58,9 +58,9 @@ public class MdmClassTimeController {
      * @return
      */
     @RequestMapping("/delete_by_id")
-    public Result<Integer> deleteByPrimaryKey(Integer classTimeId) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmClassTimeService.deleteByPrimaryKey(classTimeId);
+    public Result<Long> deleteByPrimaryKey(Long classTimeId) {
+        Result<Long> result = new Result<>();
+        Long num = mdmClassTimeService.deleteByPrimaryKey(classTimeId);
         result.setData(num);
         return result;
     }
@@ -71,9 +71,9 @@ public class MdmClassTimeController {
      * @return
      */
     @RequestMapping("/save_mdmClassTime")
-    public Result<Integer> insert(MdmClassTimePo mdmClassTime) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmClassTimeService.insertSelective(mdmClassTime);
+    public Result<Long> insert(MdmClassTimePo mdmClassTime) {
+        Result<Long> result = new Result<>();
+        Long num = mdmClassTimeService.insertSelective(mdmClassTime);
         result.setData(num);
         return result;
     }
@@ -84,9 +84,9 @@ public class MdmClassTimeController {
      * @return
      */
     @RequestMapping("/update_mdmClassTime")
-    public Result<Integer> updateByPrimaryKeySelective(MdmClassTimePo mdmClassTime) {
-        Result<Integer> result = new Result<>();
-        Integer num = mdmClassTimeService.updateByPrimaryKeySelective(mdmClassTime);
+    public Result<Long> updateByPrimaryKeySelective(MdmClassTimePo mdmClassTime) {
+        Result<Long> result = new Result<>();
+        Long num = mdmClassTimeService.updateByPrimaryKeySelective(mdmClassTime);
         result.setData(num);
         return result;
     }
