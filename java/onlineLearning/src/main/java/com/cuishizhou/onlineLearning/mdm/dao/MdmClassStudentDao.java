@@ -10,8 +10,8 @@ import java.util.List;
 /**
  * 班级学生表的dao层
  *
- * @author itar
- * @email wuhandzy@gmail.com
+ * @author 崔世宙
+ * @mail 1101133246@qq.com
  * @date 2019-01-13 05:54:31
  * @since jdk1.8
  */

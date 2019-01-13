@@ -3,8 +3,8 @@ package com.cuishizhou.onlineLearning.mdm.model;
 import java.io.Serializable; /**
  * 返回基类
  *
- * @author itar
- * @email wuhandzy@gmail.com
+ * @author 崔世宙
+ * @mail 1101133246@qq.com
  * @date 2019-01-13 05:54:25
  * @since jdk 1.8
  */
