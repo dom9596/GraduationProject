@@ -4,7 +4,6 @@ import com.cuishizhou.onlineLearning.mdm.model.Result;
 import com.cuishizhou.onlineLearning.mdm.model.po.MdmAnswerPo;
 import com.cuishizhou.onlineLearning.mdm.service.MdmAnswerService;
 import com.github.pagehelper.Page;
-import io.swagger.annotations.Api;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,12 +17,11 @@ import java.util.List;
  *
  * @author 崔世宙
  * @mail 1101133246@qq.com
- * @date 2019-01-13 05:54:25
+ * @date 2019-01-13 15:21:35
  * @since jdk 1.8
  */
 @RestController
 @RequestMapping("/mdmanswer")
-@Api(value = "答案表", description = "")
 public class MdmAnswerController {
     @Autowired
     private MdmAnswerService mdmAnswerService;

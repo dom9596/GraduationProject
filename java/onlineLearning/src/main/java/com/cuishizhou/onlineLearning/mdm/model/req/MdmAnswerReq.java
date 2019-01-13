@@ -10,8 +10,8 @@ import java.util.Date;
  * 答案表
  *
  * @author 崔世宙
- * @mail 1101133246@qq.comm
- * @date 2019-01-13 05:54:25
+ * @mail 1101133246@qq.com
+ * @date 2019-01-13 15:21:35
  * @since jdk1.8
  */
 @Setter
@@ -38,11 +38,11 @@ public class MdmAnswerReq implements Serializable {
     /**
      * 更新时间
      */
-    private String updateDate;
+    private Date updateDate;
     /**
      * 创建时间
      */
-    private String createDate;
+    private Date createDate;
     /**
      *
      */

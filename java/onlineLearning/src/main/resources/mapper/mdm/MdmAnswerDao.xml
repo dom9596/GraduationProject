@@ -151,10 +151,10 @@
                 #{answer,jdbcType=VARCHAR},
             </if>
             <if test="updateDate!=null">
-                #{updateDate,jdbcType=VARCHAR},
+                #{updateDate,jdbcType=DATETIME},
             </if>
             <if test="createDate!=null">
-                #{createDate,jdbcType=VARCHAR},
+                #{createDate,jdbcType=DATETIME},
             </if>
             <if test="creationDate!=null">
                 #{creationDate,jdbcType=DATETIME},
@@ -178,7 +178,7 @@
                 #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
-                #{programUpdateDate,jdbcType=DATE},
+                #{programUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="requestId!=null">
                 #{requestId,jdbcType=DECIMAL},
@@ -268,7 +268,7 @@
         attribute12,
         attribute13,
         attribute14,
-        attribute15,
+        attribute15
     </sql>
 
     <!--
@@ -288,10 +288,10 @@
             #{answer,jdbcType=VARCHAR},
         </if>
         <if test="updateDate!=null">
-            #{updateDate,jdbcType=VARCHAR},
+            #{updateDate,jdbcType=DATETIME},
         </if>
         <if test="createDate!=null">
-            #{createDate,jdbcType=VARCHAR},
+            #{createDate,jdbcType=DATETIME},
         </if>
         <if test="creationDate!=null">
             #{creationDate,jdbcType=DATETIME},
@@ -300,7 +300,7 @@
             #{createdBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdatedBy!=null">
-            #{lastUpdatedBy,jdbcType=DECIMAL },
+            #{lastUpdatedBy,jdbcType=DECIMAL},
         </if>
         <if test="lastUpdateDate!=null">
             #{lastUpdateDate,jdbcType=DATETIME},
@@ -312,10 +312,10 @@
             #{programApplicationId,jdbcType=DECIMAL},
         </if>
         <if test="programId!=null">
-            #{programId,jdbcType=DECIMAL },
+            #{programId,jdbcType=DECIMAL},
         </if>
         <if test="programUpdateDate!=null">
-            #{programUpdateDate,jdbcType=DATE},
+            #{programUpdateDate,jdbcType=DATETIME},
         </if>
         <if test="requestId!=null">
             #{requestId,jdbcType=DECIMAL},
@@ -388,10 +388,10 @@
                 #{answer,jdbcType=VARCHAR},
             </if>
             <if test="updateDate!=null">
-                #{updateDate,jdbcType=VARCHAR},
+                #{updateDate,jdbcType=DATETIME},
             </if>
             <if test="createDate!=null">
-                #{createDate,jdbcType=VARCHAR},
+                #{createDate,jdbcType=DATETIME},
             </if>
             <if test="creationDate!=null">
                 #{creationDate,jdbcType=DATETIME},
@@ -415,7 +415,7 @@
                 #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
-                #{programUpdateDate,jdbcType=DATE},
+                #{programUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="requestId!=null">
                 #{requestId,jdbcType=DECIMAL},
@@ -483,7 +483,7 @@
     <!--
       根据主键查询数据库表
     -->
-    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from mdm_answer
@@ -494,7 +494,7 @@
     <!--
       根据主键删除数据库表中的记录
     -->
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete FROM mdm_answer
         where answer_id = #{answerId,jdbcType=DECIMAL}
     </delete>
@@ -520,10 +520,10 @@
             #{answer,jdbcType=VARCHAR},
         </if>
         <if test="updateDate!=null">
-            #{updateDate,jdbcType=VARCHAR},
+            #{updateDate,jdbcType=DATETIME},
         </if>
         <if test="createDate!=null">
-            #{createDate,jdbcType=VARCHAR},
+            #{createDate,jdbcType=DATETIME},
         </if>
         <if test="creationDate!=null">
             #{creationDate,jdbcType=DATETIME},
@@ -547,7 +547,7 @@
             #{programId,jdbcType=DECIMAL},
         </if>
         <if test="programUpdateDate!=null">
-            #{programUpdateDate,jdbcType=DATE},
+            #{programUpdateDate,jdbcType=DATETIME},
         </if>
         <if test="requestId!=null">
             #{requestId,jdbcType=DECIMAL},
@@ -650,10 +650,10 @@
                 answer = #{answer,jdbcType=VARCHAR},
             </if>
             <if test="updateDate!=null">
-                update_date = #{updateDate,jdbcType=VARCHAR},
+                update_date = #{updateDate,jdbcType=DATETIME},
             </if>
             <if test="createDate!=null">
-                create_date = #{createDate,jdbcType=VARCHAR},
+                create_date = #{createDate,jdbcType=DATETIME},
             </if>
             <if test="creationDate!=null">
                 creation_date = #{creationDate,jdbcType=DATETIME},
@@ -677,7 +677,7 @@
                 program_id = #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
-                program_update_date = #{programUpdateDate,jdbcType=DATE},
+                program_update_date = #{programUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="requestId!=null">
                 request_id = #{requestId,jdbcType=DECIMAL},
@@ -779,8 +779,8 @@
                 #{questioinId,jdbcType=DECIMAL},
                 #{questioinType,jdbcType=VARCHAR},
                 #{answer,jdbcType=VARCHAR},
-                #{updateDate,jdbcType=VARCHAR},
-                #{createDate,jdbcType=VARCHAR},
+                #{updateDate,jdbcType=DATETIME},
+                #{createDate,jdbcType=DATETIME},
                 #{creationDate,jdbcType=DATETIME},
                 #{createdBy,jdbcType=DECIMAL},
                 #{lastUpdatedBy,jdbcType=DECIMAL},
@@ -788,7 +788,7 @@
                 #{lastUpdateLogin,jdbcType=DECIMAL},
                 #{programApplicationId,jdbcType=DECIMAL},
                 #{programId,jdbcType=DECIMAL},
-                #{programUpdateDate,jdbcType=DATE},
+                #{programUpdateDate,jdbcType=DATETIME},
                 #{requestId,jdbcType=DECIMAL},
                 #{attributeCategory,jdbcType=VARCHAR},
                 #{attribute1,jdbcType=VARCHAR},
@@ -831,10 +831,10 @@
                         answer = #{answer,jdbcType=VARCHAR},
                     </if>
                     <if test="item.updateDate!=null">
-                        update_date = #{updateDate,jdbcType=VARCHAR},
+                        update_date = #{updateDate,jdbcType=DATETIME},
                     </if>
                     <if test="item.createDate!=null">
-                        create_date = #{createDate,jdbcType=VARCHAR},
+                        create_date = #{createDate,jdbcType=DATETIME},
                     </if>
                     <if test="item.creationDate!=null">
                         creation_date = #{creationDate,jdbcType=DATETIME},
@@ -858,7 +858,7 @@
                         program_id = #{programId,jdbcType=DECIMAL},
                     </if>
                     <if test="item.programUpdateDate!=null">
-                        program_update_date = #{programUpdateDate,jdbcType=DATE},
+                        program_update_date = #{programUpdateDate,jdbcType=DATETIME},
                     </if>
                     <if test="item.requestId!=null">
                         request_id = #{requestId,jdbcType=DECIMAL},
@@ -939,10 +939,10 @@
                 answer = #{answer,jdbcType=VARCHAR}
             </if>
             <if test="item == updateDate">
-                update_date = #{updateDate,jdbcType=VARCHAR}
+                update_date = #{updateDate,jdbcType=DATETIME}
             </if>
             <if test="item == createDate">
-                create_date = #{createDate,jdbcType=VARCHAR}
+                create_date = #{createDate,jdbcType=DATETIME}
             </if>
             <if test="item == creationDate">
                 creation_date = #{creationDate,jdbcType=DATETIME}
@@ -966,7 +966,7 @@
                 program_id = #{programId,jdbcType=DECIMAL}
             </if>
             <if test="item == programUpdateDate">
-                program_update_date = #{programUpdateDate,jdbcType=DATE}
+                program_update_date = #{programUpdateDate,jdbcType=DATETIME}
             </if>
             <if test="item == requestId">
                 request_id = #{requestId,jdbcType=DECIMAL}
@@ -1066,8 +1066,8 @@
             #{questioinId,jdbcType=DECIMAL},
             #{questioinType,jdbcType=VARCHAR},
             #{answer,jdbcType=VARCHAR},
-            #{updateDate,jdbcType=VARCHAR},
-            #{createDate,jdbcType=VARCHAR},
+            #{updateDate,jdbcType=DATETIME},
+            #{createDate,jdbcType=DATETIME},
             #{creationDate,jdbcType=DATETIME},
             #{createdBy,jdbcType=DECIMAL},
             #{lastUpdatedBy,jdbcType=DECIMAL},
@@ -1075,7 +1075,7 @@
             #{lastUpdateLogin,jdbcType=DECIMAL},
             #{programApplicationId,jdbcType=DECIMAL},
             #{programId,jdbcType=DECIMAL},
-            #{programUpdateDate,jdbcType=DATE},
+            #{programUpdateDate,jdbcType=DATETIME},
             #{requestId,jdbcType=DECIMAL},
             #{attributeCategory,jdbcType=VARCHAR},
             #{attribute1,jdbcType=VARCHAR},
@@ -1100,8 +1100,8 @@
             #{questioinId,jdbcType=DECIMAL},
             #{questioinType,jdbcType=VARCHAR},
             #{answer,jdbcType=VARCHAR},
-            #{updateDate,jdbcType=VARCHAR},
-            #{createDate,jdbcType=VARCHAR},
+            #{updateDate,jdbcType=DATETIME},
+            #{createDate,jdbcType=DATETIME},
             #{creationDate,jdbcType=DATETIME},
             #{createdBy,jdbcType=DECIMAL},
             #{lastUpdatedBy,jdbcType=DECIMAL},
@@ -1109,7 +1109,7 @@
             #{lastUpdateLogin,jdbcType=DECIMAL},
             #{programApplicationId,jdbcType=DECIMAL},
             #{programId,jdbcType=DECIMAL},
-            #{programUpdateDate,jdbcType=DATE},
+            #{programUpdateDate,jdbcType=DATETIME},
             #{requestId,jdbcType=DECIMAL},
             #{attributeCategory,jdbcType=VARCHAR},
             #{attribute1,jdbcType=VARCHAR},
@@ -1246,10 +1246,10 @@
                 answer = #{answer,jdbcType=VARCHAR},
             </if>
             <if test="updateDate!=null">
-                update_date = #{updateDate,jdbcType=VARCHAR},
+                update_date = #{updateDate,jdbcType=DATETIME},
             </if>
             <if test="createDate!=null">
-                create_date = #{createDate,jdbcType=VARCHAR},
+                create_date = #{createDate,jdbcType=DATETIME},
             </if>
             <if test="creationDate!=null">
                 creation_date = #{creationDate,jdbcType=DATETIME},
@@ -1273,7 +1273,7 @@
                 program_id = #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
-                program_update_date = #{programUpdateDate,jdbcType=DATE},
+                program_update_date = #{programUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="requestId!=null">
                 request_id = #{requestId,jdbcType=DECIMAL},
@@ -1342,10 +1342,10 @@
                 answer = #{answer,jdbcType=VARCHAR},
             </if>
             <if test="updateDate!=null">
-                update_date = #{updateDate,jdbcType=VARCHAR},
+                update_date = #{updateDate,jdbcType=DATETIME},
             </if>
             <if test="createDate!=null">
-                create_date = #{createDate,jdbcType=VARCHAR},
+                create_date = #{createDate,jdbcType=DATETIME},
             </if>
             <if test="creationDate!=null">
                 creation_date = #{creationDate,jdbcType=DATETIME},
@@ -1369,7 +1369,7 @@
                 program_id = #{programId,jdbcType=DECIMAL},
             </if>
             <if test="programUpdateDate!=null">
-                program_update_date = #{programUpdateDate,jdbcType=DATE},
+                program_update_date = #{programUpdateDate,jdbcType=DATETIME},
             </if>
             <if test="requestId!=null">
                 request_id = #{requestId,jdbcType=DECIMAL},
@@ -1425,8 +1425,7 @@
         </trim>
     </update>
 
-    <select id="query" resultMap="BaseResultMap"
-            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmAnswerPo">
+    <select id="query" resultMap="BaseResultMap" parameterType="com.cuishizhou.onlineLearning.mdm.model.po.MdmAnswerPo">
         select
         <include refid="Base_Column_List"/>
         from mdm_answer

@@ -1,6 +1,5 @@
 package com.cuishizhou.onlineLearning.mdm.dao;
 
-
 import com.cuishizhou.onlineLearning.mdm.model.po.MdmAnswerPo;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Mapper;
@@ -13,7 +12,7 @@ import java.util.List;
  *
  * @author 崔世宙
  * @mail 1101133246@qq.com
- * @date 2019-01-13 05:54:25
+ * @date 2019-01-13 15:21:35
  * @since jdk1.8
  */
 @Mapper
@@ -44,7 +43,7 @@ public interface MdmAnswerDao {
     /**
      * 存在即更新
      *
-     * @param
+     * @param map
      * @return
      */
     Long upsert(MdmAnswerPo mdmAnswer);
@@ -52,7 +51,7 @@ public interface MdmAnswerDao {
     /**
      * 存在即更新，可选择具体属性
      *
-     * @param
+     * @param map
      * @return
      */
     Long upsertSelective(MdmAnswerPo mdmAnswer);
