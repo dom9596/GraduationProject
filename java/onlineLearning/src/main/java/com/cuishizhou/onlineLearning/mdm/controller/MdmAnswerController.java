@@ -4,6 +4,7 @@ import com.cuishizhou.onlineLearning.mdm.model.Result;
 import com.cuishizhou.onlineLearning.mdm.model.po.MdmAnswerPo;
 import com.cuishizhou.onlineLearning.mdm.service.MdmAnswerService;
 import com.github.pagehelper.Page;
+import io.swagger.annotations.Api;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/mdmanswer")
+@Api(value = "答案表")
 public class MdmAnswerController {
     @Autowired
     private MdmAnswerService mdmAnswerService;
