@@ -1,10 +1,12 @@
 <template>
   <div class="hello">
-    <!--<h1>{{ msg }}</h1>-->
+  cuishizhou
+    {{msg}}
     <ul>
       <router-link id="Home" to="/Home">Home</router-link>
       <router-link id="FirstPage" to="/FirstPage">FirstPage</router-link>
       <router-link id="SecondPage" to="/SecondPage">SecondPage</router-link>
+      <router-link id="LoginIndex" to="/LoginIndex">LoginIndex</router-link>
     </ul>
 
   </div>
