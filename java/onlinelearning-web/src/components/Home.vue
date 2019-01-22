@@ -4,6 +4,10 @@
 <template>
   <div id="home">
     <v-header></v-header>
+    <!--------------------Element-ui练习------------begin------------------------>
+    <el-button @click="visible=true">Button</el-button>
+
+    <!--------------------Element-ui练习-----------end------------------------->
     <div>普通绑定： {{message}}</div>
     <!--绑定属性-->
     <div v-bind:title="title">绑定属性，鼠标喵上去看一下</div>
