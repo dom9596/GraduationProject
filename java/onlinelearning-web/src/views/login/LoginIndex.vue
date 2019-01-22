@@ -1,32 +1,30 @@
 <template>
-  <div id="vue_det">
-    <h2>xxxs</h2>
-    <h1>site:{{site}}</h1>
-    <h2>url:{{url}}</h2>
-    <h2>{{datails}}</h2>
+  <div id="login">
+    <table>
+      <tr>
+        <td>
+          用户名
+        </td>
+        <td>
+          <input type="text" v-model='user'/></td>
+      </tr>
+      <tr>
+        <td>
+          密码
+        </td>
+        <td>
+          <input type="password" v-model='password'/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button @click="login()"> 登陆</button>
+        </td>
+      </tr>
+    </table>
   </div>
 </template>
-<script>
-  import Vue from 'vue'
-  var vm=new Vue({
-    el: '#vue_det',
-    data: {
-      site: "csz",
-      url: 'www.baidu.com'
-    },
-    methods: {
-      details: function () {
-        return this.site + "blalbalalbl";
-      }
-    }
-  })
-  export default {
-    data: {
-      message: 'Hello Vue!'
-    },
-    name: "LoginIndex"
-  }
-</script>
+<script src="./login-index.js"/>
 
 <style scoped>
 
