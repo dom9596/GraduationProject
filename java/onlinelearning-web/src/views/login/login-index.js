@@ -2,16 +2,19 @@
 export default {
   data() {
     return {
+      role: '1',
       name: '',
       password: '',
       formLogin: {
         name: '',
+        code: '',
         password: '',
       },
       formRegister: {
         name: '',
+        code: '',
         password: '',
-        role: ''
+        role: '1001',
       },
       visible: true
     }
@@ -31,6 +34,9 @@ export default {
     changePass(value) {
       this.visible = !(value === 'show');
     },   //判断渲染，true:暗文显示，false:明文显示
+    testRole() {
+      alert(this.formRegister.role);
+    }
   },
   name: "LoginIndex",
 
