@@ -39,7 +39,7 @@
                 <el-radio v-model="formRegister.role" label="1002" border>教师</el-radio>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" @click="testRole()">注册</el-button>
+                <el-button type="primary" @click="RegisterIn()">注册</el-button>
                 <el-button @click="">重置</el-button>
               </el-form-item>
             </el-form>

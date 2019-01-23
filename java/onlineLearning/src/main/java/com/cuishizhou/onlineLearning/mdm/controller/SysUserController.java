@@ -4,7 +4,6 @@ import com.cuishizhou.onlineLearning.mdm.model.Result;
 import com.cuishizhou.onlineLearning.mdm.model.po.SysUserPo;
 import com.cuishizhou.onlineLearning.mdm.service.SysUserService;
 import com.github.pagehelper.Page;
-import io.swagger.annotations.Api;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,17 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 
+
 /**
  * 用户表
  *
- * @author 崔世宙
- * @mail 1101133246@qq.com
- * @date 2019-01-13 05:54:44
+ * @author itar
+ * @email wuhandzy@gmail.com
+ * @date 2019-01-23 15:32:14
  * @since jdk 1.8
  */
 @RestController
 @RequestMapping("/sysuser")
-@Api(value = "用户表", description = "")
 public class SysUserController {
     @Autowired
     private SysUserService sysUserService;
@@ -103,12 +102,6 @@ public class SysUserController {
         List<SysUserPo> list = sysUserService.query(sysUser);
         result.setData(list);
         return result;
-    }
-
-
-    @RequestMapping("/query_total")
-    public Long queryTotal() {
-        return sysUserService.queryTotal();
     }
 
 }

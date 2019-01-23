@@ -14,9 +14,9 @@ import java.util.List;
 /**
  * 角色表
  *
- * @author 崔世宙
- * @mail 1101133246@qq.com
- * @date 2019-01-13 05:54:42
+ * @author itar
+ * @email wuhandzy@gmail.com
+ * @date 2019-01-23 15:32:09
  * @since jdk 1.8
  */
 @Service("sysRoleService")

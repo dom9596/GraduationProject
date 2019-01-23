@@ -1,5 +1,6 @@
 // 不用<script>标签
 export default {
+
   data() {
     return {
       role: '1',
@@ -29,6 +30,21 @@ export default {
       // }, (response) => {
       //   this.error = response.error_code
       // })
+    },
+    RegisterIn() {
+      var api = this.GLOBAL.serverHost;
+      this.$axios({
+          methods: 'get',
+          url: api + '/register/in',
+          data: {
+            'userInfo':"1540129127",
+          },
+        }
+      ).then((response) => {
+        console.log(JSON.stringify(response.data))
+      }, (response) => {
+        this.error = response.error_code
+      })
     },
     //注册
     changePass(value) {

@@ -9,9 +9,9 @@ import java.util.Date;
 /**
  * 用户表
  *
- * @author 崔世宙
- * @mail 1101133246@qq.com
- * @date 2019-01-13 05:54:44
+ * @author itar
+ * @mail wuhandzy@gmail.com
+ * @date 2019-01-23 15:32:14
  * @since jdk1.8
  */
 @Setter
@@ -43,6 +43,10 @@ public class SysUserResp implements Serializable {
      * 描述
      */
     private String description;
+    /**
+     * 学校
+     */
+    private String school;
     /**
      * 邮箱
      */

@@ -6,9 +6,9 @@ import java.util.Date;
 /**
  * 角色表
  *
- * @author 崔世宙
- * @mail 1101133246@qq.com
- * @date 2019-01-13 05:54:42
+ * @author itar
+ * @mail wuhandzy@gmail.com
+ * @date 2019-01-23 15:32:09
  * @since jdk1.8
  */
 public class SysRolePo implements Serializable {
@@ -45,11 +45,11 @@ public class SysRolePo implements Serializable {
     /**
      * 更新时间
      */
-    private String updateDate;
+    private Date updateDate;
     /**
      * 创建时间
      */
-    private String createDate;
+    private Date createDate;
     /**
      *
      */
@@ -252,28 +252,28 @@ public class SysRolePo implements Serializable {
     /**
      * 更新时间
      */
-    public void setUpdateDate(String updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 
     /**
      * 更新时间
      */
-    public String getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
     /**
      * 创建时间
      */
-    public void setCreateDate(String createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
     /**
      * 创建时间
      */
-    public String getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 

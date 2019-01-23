@@ -4,7 +4,6 @@ import com.cuishizhou.onlineLearning.mdm.model.Result;
 import com.cuishizhou.onlineLearning.mdm.model.po.SysRolePo;
 import com.cuishizhou.onlineLearning.mdm.service.SysRoleService;
 import com.github.pagehelper.Page;
-import io.swagger.annotations.Api;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,14 +15,13 @@ import java.util.List;
 /**
  * 角色表
  *
- * @author 崔世宙
- * @mail 1101133246@qq.com
- * @date 2019-01-13 05:54:42
+ * @author itar
+ * @email wuhandzy@gmail.com
+ * @date 2019-01-23 15:32:09
  * @since jdk 1.8
  */
 @RestController
 @RequestMapping("/sysrole")
-@Api(value = "角色表", description = "")
 public class SysRoleController {
     @Autowired
     private SysRoleService sysRoleService;

@@ -9,9 +9,9 @@ import java.util.Date;
 /**
  * 角色表
  *
- * @author 崔世宙
- * @mail 1101133246@qq.com
- * @date 2019-01-13 05:54:42
+ * @author itar
+ * @mail wuhandzy@gmail.com
+ * @date 2019-01-23 15:32:09
  * @since jdk1.8
  */
 @Setter
@@ -50,11 +50,11 @@ public class SysRoleResp implements Serializable {
     /**
      * 更新时间
      */
-    private String updateDate;
+    private Date updateDate;
     /**
      * 创建时间
      */
-    private String createDate;
+    private Date createDate;
     /**
      *
      */

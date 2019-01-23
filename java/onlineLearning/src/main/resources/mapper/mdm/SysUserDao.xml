@@ -11,6 +11,7 @@
         <result property="userType" column="user_type"/>
         <result property="passwordEncryption" column="password_encryption"/>
         <result property="description" column="description"/>
+        <result property="school" column="school"/>
         <result property="email" column="email"/>
         <result property="qq" column="qq"/>
         <result property="wechat" column="wechat"/>
@@ -72,6 +73,9 @@
             </if>
             <if test="description!=null">
                 description,
+            </if>
+            <if test="school!=null">
+                school,
             </if>
             <if test="email!=null">
                 email,
@@ -182,7 +186,7 @@
                 attribute14,
             </if>
             <if test="attribute15!=null">
-                attribute15
+                attribute15,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -203,6 +207,9 @@
             </if>
             <if test="description!=null">
                 #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="school!=null">
+                #{school,jdbcType=VARCHAR},
             </if>
             <if test="email!=null">
                 #{email,jdbcType=VARCHAR},
@@ -313,7 +320,7 @@
                 #{attribute14,jdbcType=VARCHAR},
             </if>
             <if test="attribute15!=null">
-                #{attribute15,jdbcType=VARCHAR}
+                #{attribute15,jdbcType=VARCHAR},
             </if>
         </trim>
     </sql>
@@ -328,6 +335,7 @@
         user_type,
         password_encryption,
         description,
+        school,
         email,
         qq,
         wechat,
@@ -364,7 +372,7 @@
         attribute12,
         attribute13,
         attribute14,
-        attribute15
+        attribute15,
     </sql>
 
     <!--
@@ -388,6 +396,9 @@
         </if>
         <if test="description!=null">
             #{description,jdbcType=VARCHAR},
+        </if>
+        <if test="school!=null">
+            #{school,jdbcType=VARCHAR},
         </if>
         <if test="email!=null">
             #{email,jdbcType=VARCHAR},
@@ -498,7 +509,7 @@
             #{attribute14,jdbcType=VARCHAR},
         </if>
         <if test="attribute15!=null">
-            #{attribute15,jdbcType=VARCHAR}
+            #{attribute15,jdbcType=VARCHAR},
         </if>
     </sql>
 
@@ -524,6 +535,9 @@
             </if>
             <if test="description!=null">
                 #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="school!=null">
+                #{school,jdbcType=VARCHAR},
             </if>
             <if test="email!=null">
                 #{email,jdbcType=VARCHAR},
@@ -634,7 +648,7 @@
                 #{attribute14,jdbcType=VARCHAR},
             </if>
             <if test="attribute15!=null">
-                #{attribute15,jdbcType=VARCHAR}
+                #{attribute15,jdbcType=VARCHAR},
             </if>
         </set>
     </sql>
@@ -651,7 +665,7 @@
     <!--
       根据主键查询数据库表
     -->
-    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from sys_user
@@ -662,7 +676,7 @@
     <!--
       根据主键删除数据库表中的记录
     -->
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete FROM sys_user
         where user_id = #{userId,jdbcType=DECIMAL}
     </delete>
@@ -692,6 +706,9 @@
         </if>
         <if test="description!=null">
             #{description,jdbcType=VARCHAR},
+        </if>
+        <if test="school!=null">
+            #{school,jdbcType=VARCHAR},
         </if>
         <if test="email!=null">
             #{email,jdbcType=VARCHAR},
@@ -802,7 +819,7 @@
             #{attribute14,jdbcType=VARCHAR},
         </if>
         <if test="attribute15!=null">
-            #{attribute15,jdbcType=VARCHAR}
+            #{attribute15,jdbcType=VARCHAR},
         </if>
         )
     </insert>
@@ -858,6 +875,9 @@
             </if>
             <if test="description!=null">
                 description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="school!=null">
+                school = #{school,jdbcType=VARCHAR},
             </if>
             <if test="email!=null">
                 email = #{email,jdbcType=VARCHAR},
@@ -968,7 +988,7 @@
                 attribute14 = #{attribute14,jdbcType=VARCHAR},
             </if>
             <if test="attribute15!=null">
-                attribute15 = #{attribute15,jdbcType=VARCHAR}
+                attribute15 = #{attribute15,jdbcType=VARCHAR},
             </if>
         </set>
         where user_id = #{userId,jdbcType=DECIMAL}
@@ -986,6 +1006,7 @@
             user_type,
             password_encryption,
             description,
+            school,
             email,
             qq,
             wechat,
@@ -1022,7 +1043,7 @@
             attribute12,
             attribute13,
             attribute14,
-            attribute15
+            attribute15,
         </trim>
         values
         <foreach collection="list" index="index" item="item" separator=",">
@@ -1033,6 +1054,7 @@
                 #{userType,jdbcType=VARCHAR},
                 #{passwordEncryption,jdbcType=VARCHAR},
                 #{description,jdbcType=VARCHAR},
+                #{school,jdbcType=VARCHAR},
                 #{email,jdbcType=VARCHAR},
                 #{qq,jdbcType=VARCHAR},
                 #{wechat,jdbcType=VARCHAR},
@@ -1069,7 +1091,7 @@
                 #{attribute12,jdbcType=VARCHAR},
                 #{attribute13,jdbcType=VARCHAR},
                 #{attribute14,jdbcType=VARCHAR},
-                #{attribute15,jdbcType=VARCHAR}
+                #{attribute15,jdbcType=VARCHAR},
             </trim>
         </foreach>
     </insert>
@@ -1099,6 +1121,9 @@
                     </if>
                     <if test="item.description!=null">
                         description = #{description,jdbcType=VARCHAR},
+                    </if>
+                    <if test="item.school!=null">
+                        school = #{school,jdbcType=VARCHAR},
                     </if>
                     <if test="item.email!=null">
                         email = #{email,jdbcType=VARCHAR},
@@ -1209,13 +1234,13 @@
                         attribute14 = #{attribute14,jdbcType=VARCHAR},
                     </if>
                     <if test="item.attribute15!=null">
-                        attribute15 = #{attribute15,jdbcType=VARCHAR}
+                        attribute15 = #{attribute15,jdbcType=VARCHAR},
                     </if>
                 </trim>
             </set>
             <where>
                 <trim suffixOverrides=",">
-                    where user_id = #{userId,DECIMAL}
+                    where user_id = #{userId,INT}
                 </trim>
             </where>
         </foreach>
@@ -1243,6 +1268,9 @@
             </if>
             <if test="item == description">
                 description = #{description,jdbcType=VARCHAR}
+            </if>
+            <if test="item == school">
+                school = #{school,jdbcType=VARCHAR}
             </if>
             <if test="item == email">
                 email = #{email,jdbcType=VARCHAR}
@@ -1370,6 +1398,7 @@
             user_type,
             password_encryption,
             description,
+            school,
             email,
             qq,
             wechat,
@@ -1406,7 +1435,7 @@
             attribute12,
             attribute13,
             attribute14,
-            attribute15
+            attribute15,
         </trim>
         values
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -1416,6 +1445,7 @@
             #{userType,jdbcType=VARCHAR},
             #{passwordEncryption,jdbcType=VARCHAR},
             #{description,jdbcType=VARCHAR},
+            #{school,jdbcType=VARCHAR},
             #{email,jdbcType=VARCHAR},
             #{qq,jdbcType=VARCHAR},
             #{wechat,jdbcType=VARCHAR},
@@ -1452,7 +1482,7 @@
             #{attribute12,jdbcType=VARCHAR},
             #{attribute13,jdbcType=VARCHAR},
             #{attribute14,jdbcType=VARCHAR},
-            #{attribute15,jdbcType=VARCHAR}
+            #{attribute15,jdbcType=VARCHAR},
         </trim>
         on duplicate key update
         <trim suffixOverrides=",">
@@ -1462,6 +1492,7 @@
             #{userType,jdbcType=VARCHAR},
             #{passwordEncryption,jdbcType=VARCHAR},
             #{description,jdbcType=VARCHAR},
+            #{school,jdbcType=VARCHAR},
             #{email,jdbcType=VARCHAR},
             #{qq,jdbcType=VARCHAR},
             #{wechat,jdbcType=VARCHAR},
@@ -1498,7 +1529,7 @@
             #{attribute12,jdbcType=VARCHAR},
             #{attribute13,jdbcType=VARCHAR},
             #{attribute14,jdbcType=VARCHAR},
-            #{attribute15,jdbcType=VARCHAR}
+            #{attribute15,jdbcType=VARCHAR},
         </trim>
     </update>
 
@@ -1526,6 +1557,9 @@
             </if>
             <if test="description!=null">
                 description,
+            </if>
+            <if test="school!=null">
+                school,
             </if>
             <if test="email!=null">
                 email,
@@ -1636,7 +1670,7 @@
                 attribute14,
             </if>
             <if test="attribute15!=null">
-                attribute15
+                attribute15,
             </if>
         </trim>
         values
@@ -1659,6 +1693,9 @@
             <if test="description!=null">
                 description = #{description,jdbcType=VARCHAR},
             </if>
+            <if test="school!=null">
+                school = #{school,jdbcType=VARCHAR},
+            </if>
             <if test="email!=null">
                 email = #{email,jdbcType=VARCHAR},
             </if>
@@ -1768,7 +1805,7 @@
                 attribute14 = #{attribute14,jdbcType=VARCHAR},
             </if>
             <if test="attribute15!=null">
-                attribute15 = #{attribute15,jdbcType=VARCHAR}
+                attribute15 = #{attribute15,jdbcType=VARCHAR},
             </if>
         </trim>
         on duplicate key update
@@ -1791,6 +1828,9 @@
             <if test="description!=null">
                 description = #{description,jdbcType=VARCHAR},
             </if>
+            <if test="school!=null">
+                school = #{school,jdbcType=VARCHAR},
+            </if>
             <if test="email!=null">
                 email = #{email,jdbcType=VARCHAR},
             </if>
@@ -1900,7 +1940,7 @@
                 attribute14 = #{attribute14,jdbcType=VARCHAR},
             </if>
             <if test="attribute15!=null">
-                attribute15 = #{attribute15,jdbcType=VARCHAR}
+                attribute15 = #{attribute15,jdbcType=VARCHAR},
             </if>
         </trim>
     </update>

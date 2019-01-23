@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
+Vue.prototype.$axios = axios
 
 /*@Description: 全局变量 @Author: shizhou.cui @Date: 2019/1/29 */
 import global_ from './components/Global'//引用文件

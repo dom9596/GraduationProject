@@ -6,9 +6,9 @@ import java.util.Date;
 /**
  * 用户表
  *
- * @author 崔世宙
- * @mail 1101133246@qq.com
- * @date 2019-01-13 05:54:44
+ * @author itar
+ * @mail wuhandzy@gmail.com
+ * @date 2019-01-23 15:32:14
  * @since jdk1.8
  */
 public class SysUserPo implements Serializable {
@@ -38,6 +38,10 @@ public class SysUserPo implements Serializable {
      * 描述
      */
     private String description;
+    /**
+     * 学校
+     */
+    private String school;
     /**
      * 邮箱
      */
@@ -269,6 +273,20 @@ public class SysUserPo implements Serializable {
      */
     public String getDescription() {
         return description;
+    }
+
+    /**
+     * 学校
+     */
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    /**
+     * 学校
+     */
+    public String getSchool() {
+        return school;
     }
 
     /**

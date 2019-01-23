@@ -172,10 +172,10 @@
                 #{enableFlag,jdbcType=VARCHAR},
             </if>
             <if test="updateDate!=null">
-                #{updateDate,jdbcType=VARCHAR},
+                #{updateDate,jdbcType=DATETIME},
             </if>
             <if test="createDate!=null">
-                #{createDate,jdbcType=VARCHAR},
+                #{createDate,jdbcType=DATETIME},
             </if>
             <if test="creationDate!=null">
                 #{creationDate,jdbcType=DATETIME},
@@ -292,7 +292,7 @@
         attribute12,
         attribute13,
         attribute14,
-        attribute15
+        attribute15,
     </sql>
 
     <!--
@@ -321,10 +321,10 @@
             #{enableFlag,jdbcType=VARCHAR},
         </if>
         <if test="updateDate!=null">
-            #{updateDate,jdbcType=VARCHAR},
+            #{updateDate,jdbcType=DATETIME},
         </if>
         <if test="createDate!=null">
-            #{createDate,jdbcType=VARCHAR},
+            #{createDate,jdbcType=DATETIME},
         </if>
         <if test="creationDate!=null">
             #{creationDate,jdbcType=DATETIME},
@@ -430,10 +430,10 @@
                 #{enableFlag,jdbcType=VARCHAR},
             </if>
             <if test="updateDate!=null">
-                #{updateDate,jdbcType=VARCHAR},
+                #{updateDate,jdbcType=DATETIME},
             </if>
             <if test="createDate!=null">
-                #{createDate,jdbcType=VARCHAR},
+                #{createDate,jdbcType=DATETIME},
             </if>
             <if test="creationDate!=null">
                 #{creationDate,jdbcType=DATETIME},
@@ -525,7 +525,7 @@
     <!--
       根据主键查询数据库表
     -->
-    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from sys_role
@@ -536,7 +536,7 @@
     <!--
       根据主键删除数据库表中的记录
     -->
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete FROM sys_role
         where role_id = #{roleId,jdbcType=DECIMAL}
     </delete>
@@ -571,10 +571,10 @@
             #{enableFlag,jdbcType=VARCHAR},
         </if>
         <if test="updateDate!=null">
-            #{updateDate,jdbcType=VARCHAR},
+            #{updateDate,jdbcType=DATETIME},
         </if>
         <if test="createDate!=null">
-            #{createDate,jdbcType=VARCHAR},
+            #{createDate,jdbcType=DATETIME},
         </if>
         <if test="creationDate!=null">
             #{creationDate,jdbcType=DATETIME},
@@ -710,10 +710,10 @@
                 enable_flag = #{enableFlag,jdbcType=VARCHAR},
             </if>
             <if test="updateDate!=null">
-                update_date = #{updateDate,jdbcType=VARCHAR},
+                update_date = #{updateDate,jdbcType=DATETIME},
             </if>
             <if test="createDate!=null">
-                create_date = #{createDate,jdbcType=VARCHAR},
+                create_date = #{createDate,jdbcType=DATETIME},
             </if>
             <if test="creationDate!=null">
                 creation_date = #{creationDate,jdbcType=DATETIME},
@@ -845,8 +845,8 @@
                 #{rstartActiveDate,jdbcType=DATE},
                 #{endActivieDate,jdbcType=DATE},
                 #{enableFlag,jdbcType=VARCHAR},
-                #{updateDate,jdbcType=VARCHAR},
-                #{createDate,jdbcType=VARCHAR},
+                #{updateDate,jdbcType=DATETIME},
+                #{createDate,jdbcType=DATETIME},
                 #{creationDate,jdbcType=DATETIME},
                 #{createdBy,jdbcType=DECIMAL},
                 #{lastUpdatedBy,jdbcType=DECIMAL},
@@ -906,10 +906,10 @@
                         enable_flag = #{enableFlag,jdbcType=VARCHAR},
                     </if>
                     <if test="item.updateDate!=null">
-                        update_date = #{updateDate,jdbcType=VARCHAR},
+                        update_date = #{updateDate,jdbcType=DATETIME},
                     </if>
                     <if test="item.createDate!=null">
-                        create_date = #{createDate,jdbcType=VARCHAR},
+                        create_date = #{createDate,jdbcType=DATETIME},
                     </if>
                     <if test="item.creationDate!=null">
                         creation_date = #{creationDate,jdbcType=DATETIME},
@@ -990,7 +990,7 @@
             </set>
             <where>
                 <trim suffixOverrides=",">
-                    where role_id = #{roleId,DECIMAL}
+                    where role_id = #{roleId,INT}
                 </trim>
             </where>
         </foreach>
@@ -1023,10 +1023,10 @@
                 enable_flag = #{enableFlag,jdbcType=VARCHAR}
             </if>
             <if test="item == updateDate">
-                update_date = #{updateDate,jdbcType=VARCHAR}
+                update_date = #{updateDate,jdbcType=DATETIME}
             </if>
             <if test="item == createDate">
-                create_date = #{createDate,jdbcType=VARCHAR}
+                create_date = #{createDate,jdbcType=DATETIME}
             </if>
             <if test="item == creationDate">
                 creation_date = #{creationDate,jdbcType=DATETIME}
@@ -1156,8 +1156,8 @@
             #{rstartActiveDate,jdbcType=DATE},
             #{endActivieDate,jdbcType=DATE},
             #{enableFlag,jdbcType=VARCHAR},
-            #{updateDate,jdbcType=VARCHAR},
-            #{createDate,jdbcType=VARCHAR},
+            #{updateDate,jdbcType=DATETIME},
+            #{createDate,jdbcType=DATETIME},
             #{creationDate,jdbcType=DATETIME},
             #{createdBy,jdbcType=DECIMAL},
             #{lastUpdatedBy,jdbcType=DECIMAL},
@@ -1193,8 +1193,8 @@
             #{rstartActiveDate,jdbcType=DATE},
             #{endActivieDate,jdbcType=DATE},
             #{enableFlag,jdbcType=VARCHAR},
-            #{updateDate,jdbcType=VARCHAR},
-            #{createDate,jdbcType=VARCHAR},
+            #{updateDate,jdbcType=DATETIME},
+            #{createDate,jdbcType=DATETIME},
             #{creationDate,jdbcType=DATETIME},
             #{createdBy,jdbcType=DECIMAL},
             #{lastUpdatedBy,jdbcType=DECIMAL},
@@ -1357,10 +1357,10 @@
                 enable_flag = #{enableFlag,jdbcType=VARCHAR},
             </if>
             <if test="updateDate!=null">
-                update_date = #{updateDate,jdbcType=VARCHAR},
+                update_date = #{updateDate,jdbcType=DATETIME},
             </if>
             <if test="createDate!=null">
-                create_date = #{createDate,jdbcType=VARCHAR},
+                create_date = #{createDate,jdbcType=DATETIME},
             </if>
             <if test="creationDate!=null">
                 creation_date = #{creationDate,jdbcType=DATETIME},
@@ -1462,10 +1462,10 @@
                 enable_flag = #{enableFlag,jdbcType=VARCHAR},
             </if>
             <if test="updateDate!=null">
-                update_date = #{updateDate,jdbcType=VARCHAR},
+                update_date = #{updateDate,jdbcType=DATETIME},
             </if>
             <if test="createDate!=null">
-                create_date = #{createDate,jdbcType=VARCHAR},
+                create_date = #{createDate,jdbcType=DATETIME},
             </if>
             <if test="creationDate!=null">
                 creation_date = #{creationDate,jdbcType=DATETIME},
