@@ -12,36 +12,28 @@ export default {
         password: '',
       },
       formRegister: {
-        name: '',
-        code: '',
-        password: '',
-        role: '1001',
+        userName: '',
+        userCode: '',
+        passwordEncryption: '',
+        userType: '1001',
       },
       visible: true
     }
   },
   methods: {
-    //登陆
-    login() {
-      var api = this.GLOBAL.serverHost;
-      console.log(api)
-      // axios.post('http://localhost:8081/hello/list?name=cuishizhou').then((response) => {
-      //   console.log(JSON.stringify(response.data))
-      // }, (response) => {
-      //   this.error = response.error_code
-      // })
-    },
+    //登录
     RegisterIn() {
       var api = this.GLOBAL.serverHost;
-      this.$axios({
-          methods: 'get',
-          url: api + '/register/in',
-          data: {
-            'userInfo':"1540129127",
-          },
+      alert(JSON.stringify(this.formRegister))
+      this.$axios.post(api + '/register/in', JSON.stringify(this.formRegister), {
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8'  //这里加上头部信息
         }
-      ).then((response) => {
-        console.log(JSON.stringify(response.data))
+      }).then((response) => {
+        this.$router.push({
+          path: '/Homeindex'
+        });
+        console.log(JSON.stringify(response))
       }, (response) => {
         this.error = response.error_code
       })
@@ -51,7 +43,7 @@ export default {
       this.visible = !(value === 'show');
     },   //判断渲染，true:暗文显示，false:明文显示
     testRole() {
-      alert(this.formRegister.role);
+      alert(this.formRegister.userType);
     }
   },
   name: "LoginIndex",

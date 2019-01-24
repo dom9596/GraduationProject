@@ -1,10 +1,12 @@
 package com.cuishizhou.onlineLearning.login.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.cuishizhou.onlineLearning.login.service.IRegisterService;
+import com.cuishizhou.onlineLearning.mdm.model.Result;
+import com.cuishizhou.onlineLearning.mdm.model.po.SysUserPo;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 注册控制类
@@ -22,20 +24,13 @@ public class RegisterController {
     @Autowired
     private IRegisterService iRegisterService;
 
-    @RequestMapping("/testRegister")
-    public void testRegister() {
-        System.out.print("注册成功。//" + iRegisterService.registerUser() + "lvlalal");
-    }
-
     /**
      * 用户注册账号
      */
-    @RequestMapping("/in")
-    public String RegisterIn() {
+    @RequestMapping(value = "/in")
+    public String RegisterIn(@RequestBody(required = false) SysUserPo userInfo) {
 
-        System.out.print("我要注册。。。");
-//        return "已经收到你的注册请求啦...." + "code:" + code + "password:" + password + "role:" + role;
-        return "已经收到你的注册请求啦....";
+        return "已经收到你的注册请求啦...."+   iRegisterService.RegisterIn(userInfo);
     }
 
     /**
@@ -44,6 +39,11 @@ public class RegisterController {
     @RequestMapping("/out")
     public void RegisterOut() {
         System.out.print("你已经注销");
+    }
+
+    @RequestMapping("/testRegister")
+    public void testRegister() {
+        System.out.print("注册成功。//" + iRegisterService.registerUser() + "lvlalal");
     }
 
 }

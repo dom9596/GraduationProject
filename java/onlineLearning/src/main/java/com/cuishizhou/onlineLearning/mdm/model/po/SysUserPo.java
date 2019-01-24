@@ -806,4 +806,54 @@ public class SysUserPo implements Serializable {
     public String getAttribute15() {
         return attribute15;
     }
+
+    @Override
+    public String toString() {
+        return "SysUserPo{" +
+                "userId=" + userId +
+                ", userCode='" + userCode + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userType='" + userType + '\'' +
+                ", passwordEncryption='" + passwordEncryption + '\'' +
+                ", description='" + description + '\'' +
+                ", school='" + school + '\'' +
+                ", email='" + email + '\'' +
+                ", qq='" + qq + '\'' +
+                ", wechat='" + wechat + '\'' +
+                ", phone='" + phone + '\'' +
+                ", status='" + status + '\'' +
+                ", firstLogin='" + firstLogin + '\'' +
+                ", startActiveDate=" + startActiveDate +
+                ", endActiveData=" + endActiveData +
+                ", createDate=" + createDate +
+                ", updateDate=" + updateDate +
+                ", lastPasswordUpdateDate=" + lastPasswordUpdateDate +
+                ", lastLoginDate=" + lastLoginDate +
+                ", creationDate=" + creationDate +
+                ", createdBy=" + createdBy +
+                ", lastUpdatedBy=" + lastUpdatedBy +
+                ", lastUpdateDate=" + lastUpdateDate +
+                ", lastUpdateLogin=" + lastUpdateLogin +
+                ", programApplicationId=" + programApplicationId +
+                ", programId=" + programId +
+                ", programUpdateDate=" + programUpdateDate +
+                ", requestId=" + requestId +
+                ", attributeCategory='" + attributeCategory + '\'' +
+                ", attribute1='" + attribute1 + '\'' +
+                ", attribute2='" + attribute2 + '\'' +
+                ", attribute3='" + attribute3 + '\'' +
+                ", attribute4='" + attribute4 + '\'' +
+                ", attribute5='" + attribute5 + '\'' +
+                ", attribute6='" + attribute6 + '\'' +
+                ", attribute7='" + attribute7 + '\'' +
+                ", attribute8='" + attribute8 + '\'' +
+                ", attribute9='" + attribute9 + '\'' +
+                ", attribute10='" + attribute10 + '\'' +
+                ", attribute11='" + attribute11 + '\'' +
+                ", attribute12='" + attribute12 + '\'' +
+                ", attribute13='" + attribute13 + '\'' +
+                ", attribute14='" + attribute14 + '\'' +
+                ", attribute15='" + attribute15 + '\'' +
+                '}';
+    }
 }

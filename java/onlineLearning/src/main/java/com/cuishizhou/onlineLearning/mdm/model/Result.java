@@ -1,6 +1,8 @@
 package com.cuishizhou.onlineLearning.mdm.model;
 
-import java.io.Serializable; /**
+import java.io.Serializable;
+
+/**
  * 返回基类
  *
  * @author 崔世宙
