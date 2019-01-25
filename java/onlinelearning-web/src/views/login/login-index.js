@@ -26,10 +26,10 @@ export default {
       alert(JSON.stringify(this.formLogin))
       this.$axios.post(api + '/login/in', JSON.stringify(this.formLogin), {
         headers: {
-          'Content-Type': 'application/json;charset=UTF-8'  //这里加上头部信息
+          'Content-Type': 'application/json;charset=UTF-8' , //这里加上头部信息
         }
       }).then((response) => {
-       //  token本地存储
+        //  token本地存储
         localStorage.setItem("token", response.data.token);
         this.$router.push({
           path: '/'
@@ -45,7 +45,7 @@ export default {
       alert(JSON.stringify(this.formRegister))
       this.$axios.post(api + '/register/in', JSON.stringify(this.formRegister), {
         headers: {
-          'Content-Type': 'application/json;charset=UTF-8'  //这里加上头部信息
+          'Content-Type': 'application/json;charset=UTF-8', //这里加上头部信息
         }
       }).then((response) => {
         // token本地存储
