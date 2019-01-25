@@ -2,6 +2,7 @@ package com.cuishizhou.onlineLearning.login.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.cuishizhou.onlineLearning.login.service.IRegisterService;
+import com.cuishizhou.onlineLearning.mdm.model.ResponseData;
 import com.cuishizhou.onlineLearning.mdm.model.Result;
 import com.cuishizhou.onlineLearning.mdm.model.po.SysUserPo;
 import io.swagger.annotations.Api;
@@ -28,9 +29,12 @@ public class RegisterController {
      * 用户注册账号
      */
     @RequestMapping(value = "/in")
-    public String RegisterIn(@RequestBody(required = false) SysUserPo userInfo) {
-
-        return "已经收到你的注册请求啦...."+   iRegisterService.RegisterIn(userInfo);
+    public ResponseData RegisterIn(@RequestBody(required = false) SysUserPo userInfo) {
+        ResponseData responseData = new ResponseData();
+        String token = iRegisterService.RegisterIn(userInfo);
+        responseData.setToken(token);
+        responseData.setMessage("已经收到你的注册请求啦");
+        return responseData;
     }
 
     /**

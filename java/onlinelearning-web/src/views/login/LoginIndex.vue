@@ -10,13 +10,13 @@
             <span slot="label"><i class="el-icon-date"></i>登录</span>
             <el-form ref="form" :model="formLogin" class="" label-width="80px">
               <el-form-item label="学号">
-                <el-input name="name" v-model="formLogin.code" clearable></el-input>
+                <el-input name="name" v-model="formLogin.userCode" clearable></el-input>
               </el-form-item>
               <el-form-item label="密码">
-                <el-input type="password" name="password" v-model="formLogin.password" clearable></el-input>
+                <el-input type="password" name="password" v-model="formLogin.passwordEncryption" clearable></el-input>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" @click="">登录</el-button>
+                <el-button type="primary" @click="LoginIn()">登录</el-button>
                 <el-button @click="">重置</el-button>
               </el-form-item>
             </el-form>

@@ -379,138 +379,140 @@
         Where子句
       -->
     <sql id="Base_Query_Where">
+        1=1
         <if test="userId!=null">
-            #{userId,jdbcType=DECIMAL},
+            and user_id= #{userId,jdbcType=DECIMAL}
         </if>
         <if test="userCode!=null">
-            #{userCode,jdbcType=VARCHAR},
+            and user_code= #{userCode,jdbcType=VARCHAR}
         </if>
         <if test="userName!=null">
-            #{userName,jdbcType=VARCHAR},
+            and user_name= #{userName,jdbcType=VARCHAR}
         </if>
         <if test="userType!=null">
-            #{userType,jdbcType=VARCHAR},
+            and user_type= #{userType,jdbcType=VARCHAR}
         </if>
         <if test="passwordEncryption!=null">
-            #{passwordEncryption,jdbcType=VARCHAR},
+            and password_encryption= #{passwordEncryption,jdbcType=VARCHAR}
         </if>
         <if test="description!=null">
-            #{description,jdbcType=VARCHAR},
+            and description= #{description,jdbcType=VARCHAR}
         </if>
         <if test="school!=null">
-            #{school,jdbcType=VARCHAR},
+            and school = #{school,jdbcType=VARCHAR}
         </if>
         <if test="email!=null">
-            #{email,jdbcType=VARCHAR},
+            and email= #{email,jdbcType=VARCHAR}
         </if>
         <if test="qq!=null">
-            #{qq,jdbcType=VARCHAR},
+            and qq= #{qq,jdbcType=VARCHAR}
         </if>
         <if test="wechat!=null">
-            #{wechat,jdbcType=VARCHAR},
+            and wechat= #{wechat,jdbcType=VARCHAR}
         </if>
         <if test="phone!=null">
-            #{phone,jdbcType=VARCHAR},
+            and phone= #{phone,jdbcType=VARCHAR}
         </if>
         <if test="status!=null">
-            #{status,jdbcType=VARCHAR},
+            and status= #{status,jdbcType=VARCHAR}
         </if>
         <if test="firstLogin!=null">
-            #{firstLogin,jdbcType=VARCHAR},
+            and first_login= #{firstLogin,jdbcType=VARCHAR}
         </if>
         <if test="startActiveDate!=null">
-            #{startActiveDate,jdbcType=DATE},
+            and start_active_date= #{startActiveDate,jdbcType=DATE}
         </if>
         <if test="endActiveData!=null">
-            #{endActiveData,jdbcType=DATE},
+            and end_active_data= #{endActiveData,jdbcType=DATE}
         </if>
         <if test="createDate!=null">
-            #{createDate,jdbcType=DATE},
+            and create_date= #{createDate,jdbcType=DATE}
         </if>
         <if test="updateDate!=null">
-            #{updateDate,jdbcType=DATE},
+            and update_date= #{updateDate,jdbcType=DATE}
         </if>
         <if test="lastPasswordUpdateDate!=null">
-            #{lastPasswordUpdateDate,jdbcType=DATE},
+            and last_password_update_date = #{lastPasswordUpdateDate,jdbcType=DATE}
         </if>
         <if test="lastLoginDate!=null">
-            #{lastLoginDate,jdbcType=DATE},
+            and last_login_date= #{lastLoginDate,jdbcType=DATE}
         </if>
         <if test="creationDate!=null">
-            #{creationDate,jdbcType=DATETIME},
+            and creation_date= #{creationDate,jdbcType=DATETIME}
         </if>
         <if test="createdBy!=null">
-            #{createdBy,jdbcType=DECIMAL},
+            and created_by= #{createdBy,jdbcType=DECIMAL}
         </if>
         <if test="lastUpdatedBy!=null">
-            #{lastUpdatedBy,jdbcType=DECIMAL},
+            and last_updated_by= #{lastUpdatedBy,jdbcType=DECIMAL}
         </if>
         <if test="lastUpdateDate!=null">
-            #{lastUpdateDate,jdbcType=DATETIME},
+            and last_update_date= #{lastUpdateDate,jdbcType=DATETIME}
         </if>
         <if test="lastUpdateLogin!=null">
-            #{lastUpdateLogin,jdbcType=DECIMAL},
+            and last_update_login = #{lastUpdateLogin,jdbcType=DECIMAL}
         </if>
         <if test="programApplicationId!=null">
-            #{programApplicationId,jdbcType=DECIMAL},
+            and program_application_id= #{programApplicationId,jdbcType=DECIMAL}
         </if>
         <if test="programId!=null">
-            #{programId,jdbcType=DECIMAL},
+            and program_id= #{programId,jdbcType=DECIMAL}
         </if>
         <if test="programUpdateDate!=null">
-            #{programUpdateDate,jdbcType=DATE},
+            and program_update_date= #{programUpdateDate,jdbcType=DATE}
         </if>
         <if test="requestId!=null">
-            #{requestId,jdbcType=DECIMAL},
+            and request_id= #{requestId,jdbcType=DECIMAL}
         </if>
         <if test="attributeCategory!=null">
-            #{attributeCategory,jdbcType=VARCHAR},
+            and attribute_category= #{attributeCategory,jdbcType=VARCHAR}
         </if>
         <if test="attribute1!=null">
-            #{attribute1,jdbcType=VARCHAR},
+            and attribute1= #{attribute1,jdbcType=VARCHAR}
         </if>
         <if test="attribute2!=null">
-            #{attribute2,jdbcType=VARCHAR},
+            and attribute2= #{attribute2,jdbcType=VARCHAR}
         </if>
         <if test="attribute3!=null">
-            #{attribute3,jdbcType=VARCHAR},
+            and attribute3 = #{attribute3,jdbcType=VARCHAR}
         </if>
         <if test="attribute4!=null">
-            #{attribute4,jdbcType=VARCHAR},
+            and attribute4 = #{attribute4,jdbcType=VARCHAR}
         </if>
         <if test="attribute5!=null">
-            #{attribute5,jdbcType=VARCHAR},
+            and attribute5 = #{attribute5,jdbcType=VARCHAR}
         </if>
         <if test="attribute6!=null">
-            #{attribute6,jdbcType=VARCHAR},
+            and attribute6 = #{attribute6,jdbcType=VARCHAR}
         </if>
         <if test="attribute7!=null">
-            #{attribute7,jdbcType=VARCHAR},
+            and attribute7 = #{attribute7,jdbcType=VARCHAR}
         </if>
         <if test="attribute8!=null">
-            #{attribute8,jdbcType=VARCHAR},
+            and attribute8 = #{attribute8,jdbcType=VARCHAR}
         </if>
         <if test="attribute9!=null">
-            #{attribute9,jdbcType=VARCHAR},
+            and attribute9 = #{attribute9,jdbcType=VARCHAR}
         </if>
         <if test="attribute10!=null">
-            #{attribute10,jdbcType=VARCHAR},
+            and attribute10 = #{attribute10,jdbcType=VARCHAR}
         </if>
         <if test="attribute11!=null">
-            #{attribute11,jdbcType=VARCHAR},
+            and attribute11 = #{attribute11,jdbcType=VARCHAR}
         </if>
         <if test="attribute12!=null">
-            #{attribute12,jdbcType=VARCHAR},
+            and attribute12 = #{attribute12,jdbcType=VARCHAR}
         </if>
         <if test="attribute13!=null">
-            #{attribute13,jdbcType=VARCHAR},
+            and attribute13 = #{attribute13,jdbcType=VARCHAR}
         </if>
         <if test="attribute14!=null">
-            #{attribute14,jdbcType=VARCHAR},
+            and attribute14 = #{attribute14,jdbcType=VARCHAR}
         </if>
         <if test="attribute15!=null">
-            #{attribute15,jdbcType=VARCHAR}
+            and attribute15 = #{attribute15,jdbcType=VARCHAR}
         </if>
+
     </sql>
 
     <!--
@@ -665,7 +667,7 @@
     <!--
       根据主键查询数据库表
     -->
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from sys_user
@@ -676,7 +678,7 @@
     <!--
       根据主键删除数据库表中的记录
     -->
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete FROM sys_user
         where user_id = #{userId,jdbcType=DECIMAL}
     </delete>

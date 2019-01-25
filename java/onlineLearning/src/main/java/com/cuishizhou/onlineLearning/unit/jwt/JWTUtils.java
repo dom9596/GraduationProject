@@ -1,5 +1,6 @@
 package com.cuishizhou.onlineLearning.unit.jwt;
 
+import com.cuishizhou.onlineLearning.mdm.model.po.SysUserPo;
 import com.google.gson.Gson;
 import io.jsonwebtoken.*;
 import org.junit.jupiter.api.Test;
@@ -16,10 +17,13 @@ public class JWTUtils {
     /**
      * 前三个参数为自己用户token的一些信息比如id，权限，名称等。不要将隐私信息放入（大家都可以获取到）
      *
-     * @param map
+     * @param
      * @return
      */
-    public static String createJWT(Map<String, Object> map) {
+    public static String createJWT(SysUserPo sysUserPo) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("userCode", sysUserPo.getUserCode());
+        map.put("userType", sysUserPo.getUserType());
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
         //添加构成JWT的参数
         JwtBuilder builder = Jwts.builder().setHeaderParam("typ", "JWT")
@@ -70,16 +74,19 @@ public class JWTUtils {
     @Test
 //    public void test() {
     public static void main(String[] args) {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("province", "898765");
-        map.put("city", "中国");
+        SysUserPo sysUserPo = new SysUserPo();
+        sysUserPo.setUserCode("123343");
+        sysUserPo.setUserType("教师");
+//        Map<String, Object> map = new HashMap<String, Object>();
+//        map.put("province", "898765");
+//        map.put("city", "中国");
         // map.put("timestamp", new Date().getTime());
         //密钥
-        String token = JWTUtils.createJWT(map);
+        String token = JWTUtils.createJWT(sysUserPo);
         System.out.println("JWT加密的结果：" + token);
         System.out.println("JWT解密的结果：" + parseJWT(token));
         Claims a = parseJWT(token);
-        String astring = a.get("city", String.class);
+        String astring = a.get("userCode", String.class);
         System.out.println(astring);
         JWTResult jwtResult = JWTUtils.checkToken(token);
         System.out.println(jwtResult.toString());

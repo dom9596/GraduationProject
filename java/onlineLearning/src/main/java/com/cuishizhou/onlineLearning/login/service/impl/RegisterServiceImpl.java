@@ -46,10 +46,7 @@ public class RegisterServiceImpl implements IRegisterService {
         sysUserDao.insertSelective(sysUserPo);
         logger.debug(sysUserPo.toString());
         //生成Token
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("userCode", sysUserPo.getUserCode());
-        map.put("userType", sysUserPo.getUserType());
-        String token = JWTUtils.createJWT(map);
+        String token = JWTUtils.createJWT(sysUserPo);
         return token;
     }
 }

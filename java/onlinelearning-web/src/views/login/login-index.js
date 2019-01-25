@@ -7,9 +7,8 @@ export default {
       name: '',
       password: '',
       formLogin: {
-        name: '',
-        code: '',
-        password: '',
+        userCode: '',
+        passwordEncryption: '',
       },
       formRegister: {
         userName: '',
@@ -22,6 +21,25 @@ export default {
   },
   methods: {
     //登录
+    LoginIn() {
+      var api = this.GLOBAL.serverHost;
+      alert(JSON.stringify(this.formLogin))
+      this.$axios.post(api + '/login/in', JSON.stringify(this.formLogin), {
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8'  //这里加上头部信息
+        }
+      }).then((response) => {
+       //  token本地存储
+        localStorage.setItem("token", response.data.token);
+        this.$router.push({
+          path: '/'
+        });
+        console.log(JSON.stringify(response))
+      }, (response) => {
+        this.error = response.error_code
+      })
+    },
+    //注册
     RegisterIn() {
       var api = this.GLOBAL.serverHost;
       alert(JSON.stringify(this.formRegister))
@@ -30,21 +48,24 @@ export default {
           'Content-Type': 'application/json;charset=UTF-8'  //这里加上头部信息
         }
       }).then((response) => {
+        // token本地存储
+        //localStorage.setItem("token", response.data.token);
         this.$router.push({
-          path: '/Homeindex'
+          path: '/'
         });
         console.log(JSON.stringify(response))
       }, (response) => {
         this.error = response.error_code
       })
     },
-    //注册
+
     changePass(value) {
       this.visible = !(value === 'show');
     },   //判断渲染，true:暗文显示，false:明文显示
     testRole() {
       alert(this.formRegister.userType);
-    }
+    },
+
   },
   name: "LoginIndex",
 

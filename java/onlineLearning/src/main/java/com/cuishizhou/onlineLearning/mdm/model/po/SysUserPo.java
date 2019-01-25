@@ -1,5 +1,7 @@
 package com.cuishizhou.onlineLearning.mdm.model.po;
 
+import org.springframework.context.annotation.Conditional;
+
 import java.io.Serializable;
 import java.util.Date;
 
