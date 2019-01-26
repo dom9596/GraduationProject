@@ -1968,4 +1968,11 @@
         </foreach>
     </delete>
 
+    <!--自定义sql-->
+
+    <!--根据用户编码和用户密码查询用户（登录)-->
+    <select id="queryByUserCode" resultMap="BaseResultMap"
+            parameterType="com.cuishizhou.onlineLearning.mdm.model.po.SysUserPo">
+        select * from sys_user where user_code=#{userCode,jdbcType=VARCHAR} and    password_encryption = #{passwordEncryption,jdbcType=VARCHAR}
+    </select>
 </mapper>

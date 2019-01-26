@@ -43,7 +43,7 @@ public interface SysUserDao {
     /**
      * 存在即更新
      *
-     * @param map
+     * @param
      * @return
      */
     Long upsert(SysUserPo sysUser);
@@ -51,7 +51,7 @@ public interface SysUserDao {
     /**
      * 存在即更新，可选择具体属性
      *
-     * @param map
+     * @param
      * @return
      */
     Long upsertSelective(SysUserPo sysUser);
@@ -63,5 +63,8 @@ public interface SysUserDao {
     Long deleteBatch(List<Long> list);
 
     /*<AUTOGEN--END>*/
+
+    /*********************** 自定义 ****************************/
+    List<SysUserPo> queryByUserCode(SysUserPo sysUserPo);
 
 }

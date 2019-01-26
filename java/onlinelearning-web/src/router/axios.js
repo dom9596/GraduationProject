@@ -26,16 +26,6 @@ service.interceptors.request.use(
     return Promise.reject(error)
   })
 
-// response拦截器
-// service.interceptors.response.use(response => {
-//   if (response.data && response.data.code === 401) { // 401, token失效
-//     Vue.cookie.delete('token')
-//     router.push({name: 'login'})
-//   }
-//   return response
-// }, error => {
-//   return Promise.reject(error)
-// })
 
 // http response 拦截器
 service.interceptors.response.use(
