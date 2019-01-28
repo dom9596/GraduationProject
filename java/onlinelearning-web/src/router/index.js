@@ -9,6 +9,11 @@ import SecondPage from '@/components/SecondPage'
 import LoginIndex from '@/views/login/LoginIndex'
 /***********************************************************首页模块***********************************************************/
 import HomeIndex from '@/views/home/HomeIndex'
+import elc from '@/views/home/elc'
+/***********************************************************课程模块***********************************************************/
+import CourseIndex from '@/views/course/CourseIndex'
+/***********************************************************班级模块***********************************************************/
+import ClassIndex from '@/views/class/ClassIndex'
 
 Vue.use(Router)
 
@@ -23,7 +28,12 @@ const router = new Router({
     /***********************************************************登陆模块***********************************************************/
     {path: '/LoginIndex', name: 'LoginIndex', component: LoginIndex, meta: {auth: true, keepAlive: true},},
     /***********************************************************首页模块***********************************************************/
-    {path: '/', name: 'HomeIndex', component: HomeIndex, meta: {auth: true, keepAlive: true},},
+    {path: '/', name: 'HomeIndex', component: HomeIndex, meta: {auth: true, keepAlive: true},children:[{path:'elc/:id',component:elc,name:'elc'}]},
+    /***********************************************************课程模块***********************************************************/
+    {path: '/CourseIndex', name: 'CourseIndex', component: CourseIndex, meta: {auth: true, keepAlive: true},},
+    /***********************************************************班级模块***********************************************************/
+    {path: '/ClassIndex', name: 'ClassIndex', component: ClassIndex, meta: {auth: true, keepAlive: true},},
+
   ],
 
 })
