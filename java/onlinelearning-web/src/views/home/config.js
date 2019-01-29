@@ -1,220 +1,256 @@
+/**
+ * 教师  1001
+ *学生  1002
+ *普通管理员  1003
+ * @type {{entity: null, childs: *[]}}
+ */
+
 let config = {
   "entity": null,
   "childs": [
+    /*******************教师(id:1-20)*******************/
     {
       "entity": {
         "id": 1,
         "parentMenuId": 0,
-        "name": "系统管理",
-        "icon": "el-icon-message\r\n",
-        "alias": "系统管理",
+        "name": "教师课程管理",
+        "icon": "el-icon-bell",
+        "alias": "课程管理",
         "state": "ENABLE",
         "sort": 0,
-        "value": null,
-        "type": "NONE",
-        "createUserId": 1
+        "value": "/system/auth",
+        "type": "LINK",
+        "createUserId": 1,
+        "role": 1001
       },
-      "childs": [
-        {
-          "entity": {
-            "id": 3,
-            "parentMenuId": 1,
-            "name": "权限管理",
-            "icon": "el-icon-loading",
-            "alias": "权限管理",
-            "state": "ENABLE",
-            "sort": 0,
-            "value": "/system/auth",
-            "type": "LINK",
-            "createUserId": 1
-          },
-          "childs": null
-        },
-        {
-          "entity": {
-            "id": 4,
-            "parentMenuId": 1,
-            "name": "角色管理",
-            "icon": "el-icon-bell",
-            "alias": "角色管理",
-            "state": "ENABLE",
-            "sort": 1,
-            "value": "/system/role",
-            "type": "LINK",
-            "createUserId": 1
-          },
-          "childs": null
-        },
-        {
-          "entity": {
-            "id": 2,
-            "parentMenuId": 1,
-            "name": "菜单管理",
-            "icon": "el-icon-edit",
-            "alias": "菜单管理",
-            "state": "ENABLE",
-            "sort": 2,
-            "value": "/system/menu",
-            "type": "LINK",
-            "createUserId": 1
-          },
-          "childs": null
-        },
-        {
-          "entity": {
-            "id": 5,
-            "parentMenuId": 1,
-            "name": "分组管理",
-            "icon": "el-icon-mobile-phone\r\n",
-            "alias": "分组管理",
-            "state": "ENABLE",
-            "sort": 3,
-            "value": "/system/group",
-            "type": "LINK",
-            "createUserId": 1
-          },
-          "childs": null
-        }
-      ]
+      "childs": null
+    },
+    {
+      "entity": {
+        "id": 2,
+        "parentMenuId": 0,
+        "name": "教师题目管理",
+        "icon": "el-icon-bell",
+        "alias": "题目管理",
+        "state": "ENABLE",
+        "sort": 1,
+        "value": "/system/role",
+        "type": "LINK",
+        "createUserId": 1,
+        "role": 1001
+      },
+      "childs": null
+    },
+    {
+      "entity": {
+        "id": 3,
+        "parentMenuId": 0,
+        "name": "教师班级管理",
+        "icon": "el-icon-edit",
+        "alias": "班级管理",
+        "state": "ENABLE",
+        "sort": 2,
+        "value": "/system/menu",
+        "type": "LINK",
+        "createUserId": 1,
+        "role": 1001
+      },
+      "childs": null
+    },
+    {
+      "entity": {
+        "id": 4,
+        "parentMenuId": 0,
+        "name": "教师学生管理",
+        "icon": "el-icon-mobile-phone\r\n",
+        "alias": "学生管理",
+        "state": "ENABLE",
+        "sort": 3,
+        "value": "/system/group",
+        "type": "LINK",
+        "createUserId": 1,
+        "role": 1001
+      },
+      "childs": null
+    },
+    {
+      "entity": {
+        "id": 5,
+        "parentMenuId": 0,
+        "name": "教师公告管理",
+        "icon": "el-icon-bell\r\n",
+        "alias": "公告管理",
+        "state": "ENABLE",
+        "sort": 3,
+        "value": "/system/group",
+        "type": "LINK",
+        "createUserId": 1,
+        "role": 1001
+      },
+      "childs": null
     },
     {
       "entity": {
         "id": 6,
         "parentMenuId": 0,
-        "name": "用户管理",
-        "icon": "el-icon-news",
-        "alias": "用户管理",
+        "name": "教师个人信息",
+        "icon": "el-icon-bell\r\n",
+        "alias": "个人信息",
         "state": "ENABLE",
-        "sort": 1,
-        "value": null,
-        "type": "NONE",
-        "createUserId": 1
+        "sort": 3,
+        "value": "/system/group",
+        "type": "LINK",
+        "createUserId": 1,
+        "role": 1001
       },
-      "childs": [
-        {
-          "entity": {
-            "id": 7,
-            "parentMenuId": 6,
-            "name": "帐号管理",
-            "icon": "el-icon-phone-outline\r\n",
-            "alias": "帐号管理",
-            "state": "ENABLE",
-            "sort": 0,
-            "value": "",
-            "type": "NONE",
-            "createUserId": 1
-          },
-          "childs": [
-            {
-              "entity": {
-                "id": 14,
-                "parentMenuId": 7,
-                "name": "邮箱管理",
-                "icon": "el-icon-sold-out\r\n",
-                "alias": "邮箱管理",
-                "state": "ENABLE",
-                "sort": 0,
-                "value": "/content/email",
-                "type": "LINK",
-                "createUserId": 1
-              },
-              "childs": null
-            },
-            {
-              "entity": {
-                "id": 13,
-                "parentMenuId": 7,
-                "name": "密码管理",
-                "icon": "el-icon-service\r\n",
-                "alias": "密码管理",
-                "state": "ENABLE",
-                "sort": 1,
-                "value": "/content/pass",
-                "type": "LINK",
-                "createUserId": 1
-              },
-              "childs": null
-            }
-          ]
-        },
-        {
-          "entity": {
-            "id": 8,
-            "parentMenuId": 6,
-            "name": "积分管理",
-            "icon": "el-icon-picture",
-            "alias": "积分管理",
-            "state": "ENABLE",
-            "sort": 1,
-            "value": "/user/integral",
-            "type": "LINK",
-            "createUserId": 1
-          },
-          "childs": null
-        }
-      ]
+      "childs": null
+    },
+    /*******************学生(id:21-40)*******************/
+    {
+      "entity": {
+        "id": 21,
+        "parentMenuId": 0,
+        "name": "学生班级管理",
+        "icon": "el-icon-bell\r\n",
+        "alias": "班级管理",
+        "state": "ENABLE",
+        "sort": 3,
+        "value": "/system/group",
+        "type": "LINK",
+        "createUserId": 1,
+        "role": 1002
+      },
+      "childs": null
     },
     {
       "entity": {
-        "id": 9,
+        "id": 22,
         "parentMenuId": 0,
-        "name": "内容管理",
-        "icon": "el-icon-rank",
-        "alias": "内容管理",
+        "name": "学生公告管理",
+        "icon": "el-icon-bell\r\n",
+        "alias": "公告管理",
         "state": "ENABLE",
-        "sort": 2,
-        "value": null,
-        "type": "NONE",
-        "createUserId": 1
+        "sort": 3,
+        "value": "/system/group",
+        "type": "LINK",
+        "createUserId": 1,
+        "role": 1002
       },
-      "childs": [
-        {
-          "entity": {
-            "id": 10,
-            "parentMenuId": 9,
-            "name": "分类管理",
-            "icon": "el-icon-printer",
-            "alias": "分类管理",
-            "state": "ENABLE",
-            "sort": 0,
-            "value": "/content/classify",
-            "type": "LINK",
-            "createUserId": 1
-          },
-          "childs": null
-        },
-        {
-          "entity": {
-            "id": 11,
-            "parentMenuId": 9,
-            "name": "文章管理",
-            "icon": "el-icon-star-on",
-            "alias": "文章管理",
-            "state": "ENABLE",
-            "sort": 1,
-            "value": "/content/article",
-            "type": "LINK",
-            "createUserId": 1
-          },
-          "childs": null
-        },
-        {
-          "entity": {
-            "id": 12,
-            "parentMenuId": 9,
-            "name": "评论管理",
-            "icon": "el-icon-share",
-            "alias": "评论管理",
-            "state": "ENABLE",
-            "sort": 2,
-            "value": "/content/comment",
-            "type": "LINK",
-            "createUserId": 1
-          },
-          "childs": null
-        }
-      ]
-    }
+      "childs": null
+    },
+    {
+      "entity": {
+        "id": 23,
+        "parentMenuId": 0,
+        "name": "学生个人信息",
+        "icon": "el-icon-bell\r\n",
+        "alias": "个人信息",
+        "state": "ENABLE",
+        "sort": 3,
+        "value": "/system/group",
+        "type": "LINK",
+        "createUserId": 1,
+        "role": 1002
+      },
+      "childs": null
+    },
+    /*******************管理员(id:41-60)*******************/
+    {
+      "entity": {
+        "id": 41,
+        "parentMenuId": 0,
+        "name": "管理员课程信息",
+        "icon": "el-icon-bell\r\n",
+        "alias": "课程信息",
+        "state": "ENABLE",
+        "sort": 3,
+        "value": "/system/group",
+        "type": "LINK",
+        "createUserId": 1,
+        "role": 1003
+      },
+      "childs": null
+    },
+    {
+      "entity": {
+        "id": 42,
+        "parentMenuId": 0,
+        "name": "管理员班级管理",
+        "icon": "el-icon-bell\r\n",
+        "alias": "班级信息",
+        "state": "ENABLE",
+        "sort": 3,
+        "value": "/system/group",
+        "type": "LINK",
+        "createUserId": 1,
+        "role": 1003
+      },
+      "childs": null
+    },
+    {
+      "entity": {
+        "id": 43,
+        "parentMenuId": 0,
+        "name": "管理员用户管理",
+        "icon": "el-icon-bell\r\n",
+        "alias": "用户信息",
+        "state": "ENABLE",
+        "sort": 3,
+        "value": "/system/group",
+        "type": "LINK",
+        "createUserId": 1,
+        "role": 1003
+      },
+      "childs": null
+    },
+    {
+      "entity": {
+        "id": 44,
+        "parentMenuId": 0,
+        "name": "管理员问题",
+        "icon": "el-icon-bell\r\n",
+        "alias": "问题信息",
+        "state": "ENABLE",
+        "sort": 3,
+        "value": "/system/group",
+        "type": "LINK",
+        "createUserId": 1,
+        "role": 1003
+      },
+      "childs": null
+    },
+    {
+      "entity": {
+        "id": 45,
+        "parentMenuId": 0,
+        "name": "管理员通知管理",
+        "icon": "el-icon-bell\r\n",
+        "alias": "通知信息",
+        "state": "ENABLE",
+        "sort": 3,
+        "value": "/system/group",
+        "type": "LINK",
+        "createUserId": 1,
+        "role": 1003
+      },
+      "childs": null
+    },
+    {
+      "entity": {
+        "id": 41,
+        "parentMenuId": 0,
+        "name": "管理员个人信息",
+        "icon": "el-icon-bell\r\n",
+        "alias": "个人信息",
+        "state": "ENABLE",
+        "sort": 3,
+        "value": "/system/group",
+        "type": "LINK",
+        "createUserId": 1,
+        "role": 1003
+      },
+      "childs": null
+    },
   ]
 }
 export default config

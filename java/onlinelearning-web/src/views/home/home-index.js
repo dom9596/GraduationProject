@@ -12,7 +12,7 @@ export default {
   name: "HomeIndex",
   methods: {
     handleSelect(key, keyPath) {
-      console.log(key, keyPath)
+      console.log(key, keyPath,"点击左侧选项框")
     },
     LoginOut() {
       alert("注销")

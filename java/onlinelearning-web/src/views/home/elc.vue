@@ -1,8 +1,6 @@
 <template lang="html">
   <div>
-    <div style="margin-bottom: 20px;">
 
-    </div>
 
     <el-tabs v-model="editableTabsValue2" type="card" closable @tab-remove="removeTab">
       <el-tab-pane
@@ -12,52 +10,59 @@
         :name="item.name"
       >
         {{item.title}}
+        <class-index v-if="item.title==='班级管理'"></class-index>
       </el-tab-pane>
     </el-tabs>
 
-    <el-table :data="tableData">
-      <el-table-column prop="date" label="日期" width="140">
-      </el-table-column>
-      <el-table-column prop="name" label="姓名" width="120">
-      </el-table-column>
-      <el-table-column prop="address" label="地址">
-      </el-table-column>
-    </el-table>
+    <!--<el-table :data="tableData">-->
+      <!--<el-table-column prop="date" label="日期" width="140">-->
+      <!--</el-table-column>-->
+      <!--<el-table-column prop="name" label="姓名" width="120">-->
+      <!--</el-table-column>-->
+      <!--<el-table-column prop="address" label="地址">-->
+      <!--</el-table-column>-->
+    <!--</el-table>-->
   </div>
 
 </template>
 
 <script>
+  import ClassIndex from '../class/ClassIndex'
+  import CourseIndex from '../course/CourseIndex'
+
   export default {
-    data(){
+    data() {
       return {
-        btn:true,
-        item:{
+        btn: true,
+        item: {
           date: '2018-11-11',
           name: 'OnePiece',
           address: '郑州市高新区推进城',
-
         },
         editableTabsValue2: '2',
         editableTabs2: [],
         tabIndex: 0,
         tableData: [],
-        totalList:[],
+        totalList: [],
 
       }
     },
-    methods:{
+    components: {
+      CourseIndex: CourseIndex,
+      ClassIndex: ClassIndex,
+    },
+    methods: {
       addTab(targetName) {
-        this.btn= true
-        this.editableTabs2.forEach((v,k)=>{
+        this.btn = true
+        this.editableTabs2.forEach((v, k) => {
 
-          if(v.title==targetName){
+          if (v.title == targetName) {
 
             this.btn = false;
             this.editableTabsValue2 = v.name
           }
         })
-        if(this.btn){
+        if (this.btn) {
           let newTabName = ++this.tabIndex + '';
           this.editableTabs2.push({
             title: targetName,
@@ -95,24 +100,24 @@
 
       }
     },
-    created () {
+    created() {
       this.tableData = Array(20).fill(this.item);
 
     },
-    beforeRouteEnter (to, from, next) {
-      console.log("我从哪里来",to.params.id,from)
+    beforeRouteEnter(to, from, next) {
+      console.log("我从哪里来", to.params.id, from)
       var self = this
 
-      next(vm=>{
-        vm.item.name =to.params.id;
+      next(vm => {
+        vm.item.name = to.params.id;
         vm.addTab(to.params.id);
       })
 
 
     },
-    watch:{
-      $route(to,from){
-        this.item.name =this.$route.params.id;
+    watch: {
+      $route(to, from) {
+        this.item.name = this.$route.params.id;
         this.addTab(to.params.id);
       }
     },
