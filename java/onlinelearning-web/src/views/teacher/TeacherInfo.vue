@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>教师信息</h2>
+    <h2>教师信息----lksk</h2>
   </div>
 </template>
 

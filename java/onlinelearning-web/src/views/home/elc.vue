@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
 
-
+    <el-button type="text" @click="addTab('课程班级管理')">Test</el-button>
     <el-tabs v-model="editableTabsValue2" type="card" closable @tab-remove="removeTab">
       <el-tab-pane
         v-for="(item, index) in editableTabs2"
@@ -9,6 +9,7 @@
         :label="item.title"
         :name="item.name"
       >
+
         <!--{{item.title}}-->
         <!--教师-->
         <teacher-class v-if="item.title==='教师班级管理'"></teacher-class>
@@ -17,6 +18,12 @@
         <teacher-notice v-if="item.title==='教师公告管理'"></teacher-notice>
         <teacher-question v-if="item.title==='教师题目管理'"></teacher-question>
         <teacher-student v-if="item.title==='教师学生管理'"></teacher-student>
+
+        <teacher-course-class v-if="item.title==='课程班级管理'"></teacher-course-class>
+
+
+
+
         <!--学生-->
         <student-class v-if="item.title==='学生班级管理'"></student-class>
         <student-info v-if="item.title==='学生个人信息'"></student-info>
@@ -54,6 +61,7 @@
   import TeacherCourse from "../teacher/TeacherCourse";
   import TeacherQuestion from "../teacher/TeacherQuestion";
   import TeacherStudent from '../teacher/TeacherStudent'
+  import TeacherCourseClass from '../teacher/TeacherCourseClass'
 
   /** 学生 **/
   import StudentClass from '../student/StudentClass'
@@ -102,6 +110,7 @@
       TeacherCourse,
       TeacherNotice,
       TeacherInfo,
+      TeacherCourseClass,
       CourseIndex: CourseIndex,
       ClassIndex: ClassIndex,
     },

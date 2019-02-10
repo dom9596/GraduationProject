@@ -110,20 +110,11 @@ public class MdmCourseController {
     }
 
     /**
-     *
+     *课程查询
      */
-//    @RequestMapping("/query_bu_user_id")
-//    public Result<List<MdmCoursePo>> queryByUserId(String userId,HttpServletRequest request) {
-//        System.out.print("ppp");
-//        Result<List<MdmCoursePo>> result = new Result<>();
-//        List<MdmCoursePo> list = mdmCourseService.queryByUserId(userId);
-//        result.setData(list);
-//        return result;
-//    }
     @RequestMapping("/query_bu_user_id")
-    public PageInfo queryByUserId( @RequestParam("userId") String userId, HttpServletRequest request, @RequestParam("pageCode") int pageCode, @RequestParam("pageSize") int pageSize) {
-
-        return  mdmCourseService.queryByUserId(userId,pageCode,pageSize);
+    public PageInfo queryByUserId(@RequestParam("userId") String userId, HttpServletRequest request, @RequestParam("pageCode") int pageCode, @RequestParam("pageSize") int pageSize) {
+        return mdmCourseService.queryByUserId(userId, pageCode, pageSize);
     }
 
 }

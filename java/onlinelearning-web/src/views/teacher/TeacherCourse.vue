@@ -79,9 +79,9 @@
         pageConf: {
           //设置一些初始值(会被覆盖)
           pageCode: 1, //当前页
-          pageSize: 4, //每页显示的记录数
+          pageSize: 8, //每页显示的记录数
           totalPage: 12, //总记录数
-          pageOption: [4, 10, 20], //分页选项
+          pageOption: [8, 16, 24], //分页选项
           handleCurrentChange: function () {
             console.log("页码改变了");
           }
