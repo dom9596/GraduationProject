@@ -4,6 +4,8 @@ import com.cuishizhou.onlineLearning.mdm.dao.MdmCourseDao;
 import com.cuishizhou.onlineLearning.mdm.model.po.MdmCoursePo;
 import com.cuishizhou.onlineLearning.mdm.service.MdmCourseService;
 import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -80,7 +82,7 @@ public class MdmCourseServiceImpl implements MdmCourseService {
     /**
      * 存在即更新
      *
-     * @param map
+     * @param
      * @return
      */
     @Override
@@ -91,7 +93,7 @@ public class MdmCourseServiceImpl implements MdmCourseService {
     /**
      * 存在即更新，可选择具体属性
      *
-     * @param map
+     * @param
      * @return
      */
     @Override
@@ -117,7 +119,13 @@ public class MdmCourseServiceImpl implements MdmCourseService {
 
     /*<AUTOGEN--END>*/
     @Override
-    public List<MdmCoursePo> queryByUserId(String userId) {
-        return mdmCourseDao.queryByUserId(userId);
+    public PageInfo<MdmCoursePo> queryByUserId(String userId,int pageCode,int pageSize) {
+        PageHelper.startPage(pageCode, pageSize);
+        System.out.println("---------------");
+        System.out.println("pageCode:"+pageCode+"pageSize:"+pageSize);
+        PageInfo result = new PageInfo<>(mdmCourseDao.queryByUserId(userId));
+        return result;
+
+//        return mdmCourseDao.queryByUserId(userId);
     }
 }

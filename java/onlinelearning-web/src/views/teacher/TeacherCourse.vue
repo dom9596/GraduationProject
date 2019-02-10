@@ -40,6 +40,19 @@
       </li>
     </ul>
 
+    <!-- 分页 -->
+    <div class="pagination">
+      <el-pagination
+        background
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="pageConf.pageCode"
+        :page-sizes="pageConf.pageOption"
+        :page-size="pageConf.pageSize"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="pageConf.totalPage">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
@@ -61,10 +74,18 @@
         },
         formLabelWidth: '120px',
         DateTimePicker: '',
-
-        courseList:[],
-
-
+        courseList: [],//课程集合
+        //定义分页Config
+        pageConf: {
+          //设置一些初始值(会被覆盖)
+          pageCode: 1, //当前页
+          pageSize: 4, //每页显示的记录数
+          totalPage: 12, //总记录数
+          pageOption: [4, 10, 20], //分页选项
+          handleCurrentChange: function () {
+            console.log("页码改变了");
+          }
+        },
         addCourseDialogFormRules: {
           courseCode: [{required: true, message: '请输入', trigger: 'blur'}],
           courseNname: [{required: true, message: '请输入', trigger: 'blur'}]
@@ -89,18 +110,31 @@
           this.error = response.error_code
         })
       },
-      questByUserId(){
+      questByUserId(userId, pageCode, pageSize) {
         var api = this.GLOBAL.serverHost;
-        this.$axios.post(api + '/mdmcourse/query_bu_user_id?userId='+localStorage.getItem('userId'), {}).then((response) => {
-          console.log(response.data.data)
-          this.courseList=response.data.data;
+        this.$axios.post(api + '/mdmcourse/query_bu_user_id?userId=' + localStorage.getItem('userId') + '&pageCode=' + pageCode + "&pageSize=" + pageSize, {
+          userId: userId,
+          pageCode: pageCode,
+          pageSize: pageSize
+        }).then((response) => {
+          console.log(response)
+          this.courseList = response.data.list;
+          this.pageConf.totalPage = response.data.total;
         }, (response) => {
           this.error = response.error_code
         })
-      }
+      },
+      //pageSize改变时触发的函数
+      handleSizeChange(val) {
+        this.questByUserId(localStorage.getItem('userId'), this.pageConf.pageCode, val);
+      },
+      //当前页改变时触发的函数
+      handleCurrentChange(val) {
+        this.questByUserId(localStorage.getItem('userId'), val, this.pageConf.pageSize);
+      },
     },
-    mounted(){
-      this.questByUserId()
+    mounted() {
+      this.questByUserId(localStorage.getItem('userId'), this.pageConf.pageCode, this.pageConf.pageSize)
     }
   }
 </script>

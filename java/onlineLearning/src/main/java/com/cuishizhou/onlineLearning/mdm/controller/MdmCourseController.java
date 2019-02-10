@@ -4,11 +4,13 @@ import com.cuishizhou.onlineLearning.mdm.model.Result;
 import com.cuishizhou.onlineLearning.mdm.model.po.MdmCoursePo;
 import com.cuishizhou.onlineLearning.mdm.service.MdmCourseService;
 import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -110,13 +112,18 @@ public class MdmCourseController {
     /**
      *
      */
+//    @RequestMapping("/query_bu_user_id")
+//    public Result<List<MdmCoursePo>> queryByUserId(String userId,HttpServletRequest request) {
+//        System.out.print("ppp");
+//        Result<List<MdmCoursePo>> result = new Result<>();
+//        List<MdmCoursePo> list = mdmCourseService.queryByUserId(userId);
+//        result.setData(list);
+//        return result;
+//    }
     @RequestMapping("/query_bu_user_id")
-    public Result<List<MdmCoursePo>> queryByUserId(String userId,HttpServletRequest request) {
-        System.out.print("ppp");
-        Result<List<MdmCoursePo>> result = new Result<>();
-        List<MdmCoursePo> list = mdmCourseService.queryByUserId(userId);
-        result.setData(list);
-        return result;
+    public PageInfo queryByUserId( @RequestParam("userId") String userId, HttpServletRequest request, @RequestParam("pageCode") int pageCode, @RequestParam("pageSize") int pageSize) {
+
+        return  mdmCourseService.queryByUserId(userId,pageCode,pageSize);
     }
 
 }

@@ -2,6 +2,7 @@ package com.cuishizhou.onlineLearning.mdm.service;
 
 import com.cuishizhou.onlineLearning.mdm.model.po.MdmCoursePo;
 import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
@@ -61,7 +62,7 @@ public interface MdmCourseService {
     Long deleteBatch(List<Long> list);
 
     /*<AUTOGEN--END>*/
-    List<MdmCoursePo> queryByUserId(String userId);
+    PageInfo<MdmCoursePo> queryByUserId(String userId,int pageCode,int pageSize);
 
 
 }
