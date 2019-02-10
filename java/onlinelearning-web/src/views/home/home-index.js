@@ -17,6 +17,7 @@ export default {
     LoginOut() {
       alert("注销")
       localStorage.removeItem('token');
+      localStorage.removeItem('role');
       alert("已经注销" + localStorage.getItem("token"))
       this.$router.push({
         path: '/LoginIndex'

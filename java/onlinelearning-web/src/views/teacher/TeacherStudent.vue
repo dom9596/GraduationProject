@@ -1,10 +1,12 @@
 <template>
-
+  <div>
+    <h2>教师学生</h2>
+  </div>
 </template>
 
 <script>
     export default {
-        name: "AdminUser"
+        name: "TeacherStudent"
     }
 </script>
 

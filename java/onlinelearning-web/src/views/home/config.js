@@ -159,7 +159,7 @@ let config = {
       "entity": {
         "id": 41,
         "parentMenuId": 0,
-        "name": "管理员课程信息",
+        "name": "管理员课程管理",
         "icon": "el-icon-bell\r\n",
         "alias": "课程信息",
         "state": "ENABLE",
@@ -207,7 +207,7 @@ let config = {
       "entity": {
         "id": 44,
         "parentMenuId": 0,
-        "name": "管理员问题",
+        "name": "管理员问题管理",
         "icon": "el-icon-bell\r\n",
         "alias": "问题信息",
         "state": "ENABLE",
@@ -241,7 +241,7 @@ let config = {
         "parentMenuId": 0,
         "name": "管理员个人信息",
         "icon": "el-icon-bell\r\n",
-        "alias": "个人信息",
+        "alias": "管理员个人信息",
         "state": "ENABLE",
         "sort": 3,
         "value": "/system/group",

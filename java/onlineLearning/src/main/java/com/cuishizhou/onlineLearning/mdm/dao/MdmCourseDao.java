@@ -63,5 +63,5 @@ public interface MdmCourseDao {
     Long deleteBatch(List<Long> list);
 
     /*<AUTOGEN--END>*/
-
+    List<MdmCoursePo> queryByUserId(String  userId);
 }

@@ -4,7 +4,7 @@
 
 <script>
     export default {
-        name: "AdminClass"
+        name: "StudentClass"
     }
 </script>
 

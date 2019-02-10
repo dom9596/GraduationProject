@@ -114,6 +114,10 @@ public class MdmCourseServiceImpl implements MdmCourseService {
         return mdmCourseDao.deleteBatch(list);
     }
 
-    /*<AUTOGEN--END>*/
 
+    /*<AUTOGEN--END>*/
+    @Override
+    public List<MdmCoursePo> queryByUserId(String userId) {
+        return mdmCourseDao.queryByUserId(userId);
+    }
 }

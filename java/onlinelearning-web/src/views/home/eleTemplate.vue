@@ -1,10 +1,10 @@
 <template>
   <div class="navMenu">
-
     <label v-for="navMenu in navMenus">
       <router-link :to="{ name: 'elc', params: {id:navMenu.entity.name} }">
-        <el-menu-item v-if="navMenu.childs==null&&navMenu.entity&&navMenu.entity.state==='ENABLE'&&navMenu.entity.role===1001"
-                      :key="navMenu.entity.id" :data="navMenu" :index="navMenu.entity.name" :route="navMenu.entity.value">
+        <el-menu-item
+          v-if="navMenu.childs==null&&navMenu.entity&&navMenu.entity.state==='ENABLE'&&navMenu.entity.role==userType"
+          :key="navMenu.entity.id" :data="navMenu" :index="navMenu.entity.name" :route="navMenu.entity.value">
           <i :class="navMenu.entity.icon"></i>
           <span slot="title">{{navMenu.entity.alias}}</span>
         </el-menu-item>
@@ -29,14 +29,36 @@
     name: 'NavMenu',
     props: ['navMenus'],
     data() {
-      return {}
+      return {
+        userType: localStorage.getItem('role')
+      }
     },
-    methods: {}
+    methods: {},
+    beforeCreate: function () {
+      this.userType = localStorage.getItem('role')
+      console.log("=+=" + this.userType);
+    },
+    created: function () {
+      this.userType = localStorage.getItem('role')
+      console.log("=+=" + this.userType);
+    },
+    beforeMount: function () {
+      this.userType = localStorage.getItem('role')
+      console.log("=+=" + this.userType);
+    },
+    mounted: function () {
+      this.userType = localStorage.getItem('role')
+      console.log("=+=" + this.userType);
+    },
+    beforeUpdate: function () {
+      this.userType = localStorage.getItem('role')
+      console.log("=+=" + this.userType);
+    }
   }
 </script>
 
 <style scoped>
-  a{
-    text-decoration:none
+  a {
+    text-decoration: none
   }
 </style>

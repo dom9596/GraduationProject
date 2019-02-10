@@ -1595,7 +1595,7 @@
     </select>
 
     <select id="queryTotal" resultType="long">
-        select count(*) from mdm_course
+        select count(*) from mdm_coselectPagedurse
     </select>
 
 
@@ -1605,5 +1605,12 @@
             #{courseId}
         </foreach>
     </delete>
+
+
+    <select id="queryByUserId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from mdm_course where user_id= #{userId}
+    </select>
 
 </mapper>

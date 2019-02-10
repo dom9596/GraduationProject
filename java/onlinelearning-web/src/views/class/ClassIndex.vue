@@ -1,5 +1,5 @@
 <template>
-    <div>这是班级详情页</div>
+    <div>这是班级详情页-csz</div>
 </template>
 
 <script>

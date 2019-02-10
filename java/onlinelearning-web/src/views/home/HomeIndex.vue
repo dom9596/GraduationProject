@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="">
     <el-container>
-      <el-header style="background: cadetblue;margin-top: -60px">啦啦啦</el-header>
+      <el-header style="background: cadetblue;margin-top: -60px">啦啦啦  <el-button @click="LoginOut()">注销</el-button></el-header>
     </el-container>
     <el-container style="height: 500px; border: 1px solid #eee;">
       <el-aside width="200px" style="background-color: rgb(238, 241, 246)">

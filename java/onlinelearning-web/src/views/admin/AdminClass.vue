@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    <h2>班级</h2>
+  </div>
 </template>
 
 <script>

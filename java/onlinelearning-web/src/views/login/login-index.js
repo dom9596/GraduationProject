@@ -31,14 +31,16 @@ export default {
       }).then((response) => {
         //  token本地存储
         localStorage.setItem("token", response.data.token);
-       // localStorage.setItem("token", response.data.token);
+        localStorage.setItem("role",response.data.rows[0].userType);
+        localStorage.setItem("userId",response.data.rows[0].userId);
+        console.log("------------------")
+        console.log(localStorage.getItem("role"))
         this.$router.push({
           path: '/'
         });
         //console.log(JSON.stringify(response.data))
-        var user=JSON.stringify(response.data.rows)
-        console.log(user)
-      //  console.log(JSON.stringify(response.data.row))
+        var user=JSON.stringify(response.data.rows);
+        console.log(user);
       }, (response) => {
         this.error = response.error_code
       })
