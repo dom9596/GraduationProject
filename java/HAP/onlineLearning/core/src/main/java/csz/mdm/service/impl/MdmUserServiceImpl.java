@@ -39,7 +39,8 @@ public class MdmUserServiceImpl extends BaseServiceImpl<MdmUser> implements IMdm
     /**
      * 新用户注册
      *
-     * @param mdmUser 1、员工新建：EmployeeMapper.insertSelective
+     * @param mdmUser 0、MdmUser新建：inserMdmUser
+     *                1、员工新建：EmployeeMapper.insertSelective
      *                2、用户新建：UserMapper.insertSelective
      *                3、角色分配：UserRoleMapper.insertSelective
      *                4、修改密码 UserMapper.updatePassword
@@ -50,6 +51,8 @@ public class MdmUserServiceImpl extends BaseServiceImpl<MdmUser> implements IMdm
     public MdmUser insertMdmUser(MdmUser mdmUser, IRequest request) throws UserException {
         System.out.print(mdmUser.toString());
 
+//        0、MdmUser新建：inserMdmUser
+        inserMdmUser(mdmUser);
 //        1、员工新建：EmployeeMapper.insertSelective
         insertEmployee(mdmUser);
 //        2、用户新建：UserMapper.insertSelective
@@ -58,10 +61,12 @@ public class MdmUserServiceImpl extends BaseServiceImpl<MdmUser> implements IMdm
         insertUserRole(mdmUser);
 //        4、修改密码 UserMapper.updatePassword
         updateUserPassword(request, mdmUser);
-        return null;
+        return mdmUser;
     }
 
     /**
+     * 更新用户信息
+     *
      * @param mdmUser
      * @param request
      * @return
@@ -69,7 +74,22 @@ public class MdmUserServiceImpl extends BaseServiceImpl<MdmUser> implements IMdm
      */
     @Override
     public MdmUser updataMdmUser(MdmUser mdmUser, IRequest request) throws UserException {
-        return null;
+        insertEmployee(mdmUser);
+        insertUser(mdmUser);
+        insertUserRole(mdmUser);
+        return mdmUser;
+    }
+
+    void inserMdmUser(MdmUser mdmUser) {
+        MdmUser condition = new MdmUser();
+        condition.setUserCode(mdmUser.getUserCode());
+        List<MdmUser> list = mdmUserMapper.select(condition);
+        if (null == list || list.size() < 1) {
+            mdmUserMapper.insertSelective(mdmUser);
+        } else {
+            mdmUser.setUserId(list.get(0).getUserId());
+            mdmUserMapper.updateByPrimaryKeySelective(mdmUser);
+        }
     }
 
     //1、员工新建：EmployeeMapper.insertSelective
@@ -82,14 +102,15 @@ public class MdmUserServiceImpl extends BaseServiceImpl<MdmUser> implements IMdm
         employee.setCertificateType("ID");
         employee.setStatus("NORMAL");
         employee.setEmail(mdmUser.getUserEmail());
-
-        Employee conditions = new Employee();
-        conditions.setEmployeeCode(mdmUser.getUserCode());
-        List<Employee> list = employeeMapper.select(conditions);
+        //查看数据是否存在
+        Employee condition = new Employee();
+        condition.setEmployeeCode(mdmUser.getUserCode());
+        List<Employee> list = employeeMapper.select(condition);
         if (null == list || list.size() < 1) {
             employeeMapper.insertSelective(employee);
         } else {
-            employeeMapper.updateByPrimaryKey(employee);
+            employee.setEmployeeId(list.get(0).getEmployeeId());
+            employeeMapper.updateByPrimaryKeySelective(employee);
         }
     }
 
@@ -104,7 +125,17 @@ public class MdmUserServiceImpl extends BaseServiceImpl<MdmUser> implements IMdm
         user.setPhone(mdmUser.getUserPhone());
         user.setEmail(mdmUser.getUserEmail());
         user.setStatus("ACTV");
-        userMapper.insertSelective(user);
+        //查看数据是否存在
+        User condition = new User();
+        condition.setUserName(mdmUser.getUserCode());
+        List<User> list = userMapper.select(condition);
+        if (null == list || list.size() < 1) {
+            userMapper.insertSelective(user);
+        } else {
+            user.setUserId(list.get(0).getUserId());
+            userMapper.updateByPrimaryKeySelective(user);
+        }
+
     }
 
     //    角色分配：UserRoleMapper.insertSelective
@@ -112,9 +143,20 @@ public class MdmUserServiceImpl extends BaseServiceImpl<MdmUser> implements IMdm
         UserRole userRole = new UserRole();
         User user = new User();
         user.setUserName(mdmUser.getUserCode());
-        userRole.setUserId(userMapper.select(user).get(0).getUserId());
+        Long userId = userMapper.select(user).get(0).getUserId();
+        userRole.setUserId(userId);
         userRole.setRoleId(mdmUser.getUserRole());
-        userRoleMapper.insertSelective(userRole);
+        //查看数据是否存在
+        UserRole condition = new UserRole();
+        condition.setUserId(userId);
+        condition.setRoleId(mdmUser.getUserRole());
+        List<UserRole> list = userRoleMapper.select(condition);
+        if (null == list || list.size() < 1) {
+            userRoleMapper.insertSelective(userRole);
+        } else {
+            userRole.setSurId(list.get(0).getSurId());
+            userRoleMapper.updateByPrimaryKeySelective(userRole);
+        }
     }
 
     //    4、修改密码 UserMapper.updatePassword

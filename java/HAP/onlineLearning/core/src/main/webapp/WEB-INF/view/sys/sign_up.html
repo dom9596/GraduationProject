@@ -13,16 +13,6 @@
         },
         save: function () {//保存
             if (validator.validate()) {
-                // Hap.submitForm({
-                //     url: _basePath + 'http://localhost:8080/api/public/xx/mdm/user/insertmdmuser',
-                //     formModel: viewModel.model,
-                //     success: function (respData) {
-                //         alert("成功")
-                //     },
-                //     failure: function (respData) {
-                //         alert("失败")
-                //     }
-                // });
                 console.log(JSON.stringify(viewModel.model));
                 $.ajax({
                     type : 'post',
@@ -32,10 +22,18 @@
                     data:JSON.stringify(viewModel.model),
                     contentType : "application/json",
                     success: function (respData) {
-                        alert("成功")
+                        Hap.showToast({
+                            type: 'success',
+                            message: $l('hap.tip.success')
+                        });
                     },
                     failure: function (respData) {
-                        alert("失败")
+                        Hap.resolveError(res.responseJSON)
+                        Hap.unblockUI();
+                    },
+                    error: function (res) {
+                        Hap.resolveError(res.responseJSON)
+                        Hap.unblockUI();
                     }
                 });
             }

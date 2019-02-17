@@ -34,7 +34,7 @@ public class MdmUserController extends BaseController {
         IRequest iRequest = this.createRequestContext(request);
         logger.info("-------------------------");
         logger.info(dto.toString());
-       // service.insertMdmUser(dto, iRequest);
+        service.updataMdmUser(dto, iRequest);
         return new ResponseData();
     }
 
