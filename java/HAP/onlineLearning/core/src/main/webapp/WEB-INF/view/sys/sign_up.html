@@ -1,0 +1,334 @@
+<#include "/include/header.html">
+<script type="text/javascript">
+    // var viewModel = Hap.createGridViewModel("#grid");
+</script>
+<script>
+    var docHeaderId = '${RequestParameters.docHeaderId!0}';
+    /*头 viewModel*/
+    var viewModel = kendo.observable({
+        model: {
+            userId: '${Session.USER_ID!0}',
+            isDisabled: true,
+            hideText: false,
+        },
+        save: function () {//保存
+            if (validator.validate()) {
+                // Hap.submitForm({
+                //     url: _basePath + 'http://localhost:8080/api/public/xx/mdm/user/insertmdmuser',
+                //     formModel: viewModel.model,
+                //     success: function (respData) {
+                //         alert("成功")
+                //     },
+                //     failure: function (respData) {
+                //         alert("失败")
+                //     }
+                // });
+                console.log(JSON.stringify(viewModel.model));
+                $.ajax({
+                    type : 'post',
+                    async: false,
+                    url : '${base.contextPath}/api/public/xx/mdm/user/insertmdmuser',
+                    dataType : "json",
+                    data:JSON.stringify(viewModel.model),
+                    contentType : "application/json",
+                    success: function (respData) {
+                        alert("成功")
+                    },
+                    failure: function (respData) {
+                        alert("失败")
+                    }
+                });
+            }
+        },
+        delete: function () {//删除
+            kendo.ui.showConfirmDialog({
+                title: $l('hap.tip.info'),
+                message: '<@spring.message "aprequestsall.delete.confirm" />'
+            }).done(function (event) {
+                if (event.button == 'OK') {
+                    Hap.blockUI();
+                    $.ajax({
+                        type: "POST",
+                        url: _basePath + "/hfms/ap/requests/all/delete",
+                        contentType: "application/json",
+                        dataType: "json",
+                        data: kendo.stringify(viewHeaderModel.model),
+                        success: function (result) {
+                            Hap.unblockUI();
+                            if (result.success) {
+                                Hap.showToast({
+                                    type: 'success',
+                                    message: $l('hap.tip.success')
+                                });
+                                refreshGrid('iframe_MANUAL_PAY_QUERY', 'grid');
+                                parent.closeTab(window.frameElement.name);
+                            } else {
+                                kendo.ui.showWarningDialog({
+                                    title: $l('hap.warning'),
+                                    width: 400,
+                                    message: result.message
+                                })
+                            }
+                        },
+                        error: function (res) {
+                            Hap.resolveError(res.responseJSON)
+                            Hap.unblockUI();
+                        }
+                    });
+                }
+            });
+        },
+        approval: function () {
+            if (validator.validate()) {
+                kendo.ui.showConfirmDialog({
+                    title: $l('hap.tip.info'),
+                    message: '<@spring.message "aprequestsall.approval.confirm" />'
+                }).done(function (event) {
+                    if (event.button == 'OK') {
+                        viewHeaderModel.model.__status = (docHeaderId != 0 ? 'update' : 'add');
+                        Hap.submitForm({
+                            url: _basePath + '/hfms/ap/requests/manual/approval',
+                            formModel: viewHeaderModel.model,
+                            grid: {"apRequestLines": $("#lineGrid")},
+                            success: function (result) {
+                                if (result.success) {
+                                    Hap.showToast({
+                                        type: 'success',
+                                        message: $l('hap.tip.success')
+                                    });
+                                    refreshGrid('iframe_MANUAL_PAY_QUERY', 'grid');
+                                    parent.$("#mainTab").data("kendoTabStrip").refreshTab('MANUAL_PAY_DETAIL_' + viewHeaderModel.model.docHeaderId);
+                                } else {
+                                    kendo.ui.showWarningDialog({
+                                        title: $l('hap.warning'),
+                                        width: 400,
+                                        message: result.message
+                                    })
+                                }
+                            },
+                            error: function (res) {
+                                Hap.resolveError(res.responseJSON);
+                                Hap.unblockUI();
+                            }
+                        });
+                    }
+                });
+            }
+        }
+    });
+</script>
+<body>
+<div id="page-content">
+    <!--编号-->
+    <div class="row" id="userInfo">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class=" control-label" style="width: 55px"><@spring.message "mdmuser.userCode"/></label>
+                    <input required="required" class="k-textbox" id="userCode" style="width: 60%"
+                           data-bind="value:model.userCode">
+                    <script>kendo.bind($('#userCode'), viewModel);</script>
+                    <!--<i  class="fa fa-asterisk" style="font-size: 3px;color: #d9534f;margin-left: 3px"></i>-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--姓名-->
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="col-sm-4 control-label" style="width: 55px"><@spring.message
+                        "mdmuser.userName"/></label>
+                    <input required="required" class="k-textbox" id="userName" style="width: 60%"
+                           data-bind="value:model.userName">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--手机-->
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="col-sm-4 control-label" style="width: 55px"><@spring.message
+                        "mdmuser.userPhone"/></label>
+                    <input required="required" class="k-textbox" id="userPhone" style="width: 60%"
+                           data-bind="value:model.userPhone">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--邮箱-->
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="col-sm-4 control-label" style="width: 55px"><@spring.message
+                        "mdmuser.userEmail"/></label>
+                    <input required="required" class="k-textbox" id="userEmail" style="width: 60%"
+                           data-bind="value:model.userEmail">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--角色-->
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="col-sm-4 control-label" style="width: 55px"><@spring.message
+                        "mdmuser.userRole"/></label>
+                    <input required="required" class="k-textbox" id="userRole" style="width: 60%"
+                           data-bind="value:model.userRole">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--密码-->
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="col-sm-4 control-label" style="width: 55px"><@spring.message
+                        "mdmuser.userPassword"/></label>
+                    <input required="required" class="k-textbox" id="userPassword" style="width: 60%"
+                           data-bind="value:model.userPassword">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-确认密码-->
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="col-sm-4 control-label" style="width: 55px"><@spring.message
+                        "mdmuser.reUserPassword"/></label>
+                    <input required="required" class="k-textbox" id="reUserPassword" style="width: 60%"
+                           data-bind="value:model.reUserPassword">
+                    <!--fa-asterisk-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="col-sm-4 control-label" style="width: 55px"></label>
+                    <span id="save" class="col-sm-12 btn btn-success k-grid-save-changes" style="width: 60%"
+                          data-bind="click:save"><@spring.message "hap.save"/></span>
+                </div>
+            </div>
+            <script>kendo.bind($('#save'), viewModel);</script>
+            <script>kendo.bind($('#userInfo'), viewModel);</script>
+            <script>kendo.bind($('#page-content'), viewModel);</script>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    Hap.initEnterQuery('#query-form', viewModel.query);
+    var BaseUrl = _basePath;
+    dataSource = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: BaseUrl + "/api/public/xx/mdm/user/query",
+                type: "POST",
+                dataType: "json"
+            },
+            update: {
+                url: BaseUrl + "/xx/mdm/user/submit",
+                type: "POST",
+                contentType: "application/json"
+            },
+            destroy: {
+                url: BaseUrl + "/xx/mdm/user/remove",
+                type: "POST",
+                contentType: "application/json"
+            },
+            create: {
+                url: BaseUrl + "/xx/mdm/user/submit",
+                type: "POST",
+                contentType: "application/json"
+            },
+            parameterMap: function (options, type) {
+                if (type !== "read" && options.models) {
+                    var datas = Hap.prepareSubmitParameter(options, type)
+                    return kendo.stringify(datas);
+                } else if (type === "read") {
+                    return Hap.prepareQueryParameter(viewModel.model.toJSON(), options)
+                }
+            }
+        },
+        batch: true,
+        serverPaging: true,
+        pageSize: 10,
+        schema: {
+            data: 'rows',
+            total: 'total',
+            model: {
+                id: "userId",
+                fields: {}
+            }
+        }
+    });
+
+
+</script>
+<script>
+    $("#userCode").kendoValidator({
+        validate: function (e) {
+        },
+        //验证样式 默认为default
+        invalidMessageType: "tooltip",
+    });
+    $("#userName").kendoValidator({
+        validate: function (e) {
+        },
+        //验证样式 默认为default
+        invalidMessageType: "tooltip",
+    });
+    $("#userPhone").kendoValidator({
+        validate: function (e) {
+        },
+        //验证样式 默认为default
+        invalidMessageType: "tooltip",
+    });
+    $("#userEmail").kendoValidator({
+        validate: function (e) {
+        },
+        //验证样式 默认为default
+        invalidMessageType: "tooltip",
+    });
+    $("#userPassword").kendoValidator({
+        validate: function (e) {
+        },
+        //验证样式 默认为default
+        invalidMessageType: "tooltip",
+    });
+    $("#reUserPassword").kendoValidator({
+        validate: function (e) {
+        },
+        //验证样式 默认为default
+        invalidMessageType: "tooltip",
+    });
+    $("#userRole").kendoValidator({
+        validate: function (e) {
+        },
+        //验证样式 默认为default
+        invalidMessageType: "tooltip",
+    });
+
+    var validator = $("#userInfo").kendoValidator({
+        invalidMessageType: "tooltip"
+    }).data("kendoValidator");
+
+</script>
+</body>
+</html>
