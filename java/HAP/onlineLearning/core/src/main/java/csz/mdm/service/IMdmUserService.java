@@ -29,4 +29,15 @@ public interface IMdmUserService extends IBaseService<MdmUser>, ProxySelf<IMdmUs
      * @throws UserException
      */
     MdmUser updataMdmUser(MdmUser mdmUser, IRequest request) throws UserException;
+
+    /**
+     * 教师查询自己的学生
+     *
+     * @param iRequest
+     * @param dto
+     * @param pageMun
+     * @param pageSize
+     * @return
+     */
+    List<MdmUser> queryTeacherAllStudent(IRequest iRequest, MdmUser dto, int pageMun, int pageSize);
 }

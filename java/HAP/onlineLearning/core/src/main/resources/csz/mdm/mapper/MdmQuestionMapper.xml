@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="csz.mdm.mapper.MdmQuestionMapper">
+    <resultMap id="BaseResultMap" type="csz.mdm.dto.MdmQuestion">
+        <result column="question_id" property="questionId" jdbcType="DECIMAL"/>
+        <result column="course_id" property="courseId" jdbcType="DECIMAL"/>
+        <result column="user_id" property="userId" jdbcType="VARCHAR"/>
+        <result column="question_code" property="questionCode" jdbcType="VARCHAR"/>
+        <result column="question_stem" property="questionStem" jdbcType="VARCHAR"/>
+        <result column="question_is_share" property="questionIsShare" jdbcType="VARCHAR"/>
+        <result column="question_description" property="questionDescription" jdbcType="VARCHAR"/>
+        <result column="question_type" property="questionType" jdbcType="VARCHAR"/>
+        <result column="option1" property="option1" jdbcType="VARCHAR"/>
+        <result column="option2" property="option2" jdbcType="VARCHAR"/>
+        <result column="option3" property="option3" jdbcType="VARCHAR"/>
+        <result column="option4" property="option4" jdbcType="VARCHAR"/>
+        <result column="option5" property="option5" jdbcType="VARCHAR"/>
+        <result column="option6" property="option6" jdbcType="VARCHAR"/>
+        <result column="option7" property="option7" jdbcType="VARCHAR"/>
+        <result column="option8" property="option8" jdbcType="VARCHAR"/>
+        <result column="program_application_id" property="programApplicationId" jdbcType="DECIMAL"/>
+        <result column="program_update_date" property="programUpdateDate" jdbcType="DATE"/>
+        <result column="COURSE_NAME" property="courseName" jdbcType="VARCHAR"/>
+
+        <result column="score" property="score" jdbcType="DECIMAL"/>
+        <result column="student_id" property="studentId" jdbcType="DECIMAL"/>
+        <result column="class_id" property="classId" jdbcType="DECIMAL"/>
+
+    </resultMap>
+    <select id="questQuestion" parameterType="csz.mdm.dto.MdmQuestion" resultMap="BaseResultMap">
+        SELECT (SELECT xmc.course_name FROM XX_MDM_COURSE xmc WHERE xmc.course_id= xmq.course_id) AS course_name,xmq.*
+        FROM XX_MDM_QUESTION xmq
+        <where>
+            <if test="questionCode != null">
+                AND xmq.question_code = #{questionCode,jdbcType=VARCHAR}
+            </if>
+            <if test="questionStem != null">
+                AND xmq.question_stem = #{questionStem,jdbcType=VARCHAR}
+            </if>
+            <if test="questionDescription != null">
+                AND xmq.question_description = #{questionDescription,jdbcType=VARCHAR}
+            </if>
+            <if test="questionType != null">
+                AND xmq.question_type = #{questionType,jdbcType=VARCHAR}
+            </if>
+            <if test="questionIsShare != null">
+                AND xmq.question_is_share = #{questionIsShare,jdbcType=VARCHAR}
+            </if>
+            <if test="courseId != null">
+                AND xmq.course_id = #{courseId,jdbcType=DECIMAL}
+            </if>
+            <if test="userId != null">
+                AND xmq.user_id = #{userId,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+
+    <!--查找该同学该班级的问题和分数-->
+    <select id="questStudentQuestion" parameterType="csz.mdm.dto.MdmQuestion" resultMap="BaseResultMap">
+        select xmsq.score as score,xmsq.student_id,xmq.* from xx_mdm_question xmq ,xx_mdm_student_question xmsq
+        <where>
+            xmq.question_id=xmsq.question_id
+            <if test="studentId != null">
+                AND xmsq.student_id = #{studentId,jdbcType=DECIMAL}
+            </if>
+            <if test="classId != null">
+                AND xmsq.class_id = #{classId,jdbcType=DECIMAL}
+            </if>
+        </where>
+    </select>
+
+</mapper>

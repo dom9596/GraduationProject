@@ -1,0 +1,682 @@
+<#include "../include/header.html">
+<script src="${base.contextPath}/common/code?questionTypeData=MDM_QUESTION_TYPE" type="text/javascript"></script>
+
+<script type="text/javascript">
+    var classId = '${RequestParameters.classId!0}';
+    var courseId = '${RequestParameters.courseId!0}';
+    // if(isEmt(docHeaderId)){
+    //     docHeaderId = 0;
+    // }
+    //行viewModel定义
+    var viewModel = Hap.createGridViewModel("#grid");
+    //问题model定义
+    // var viewModelQuestion = kendo.observable({
+    //     model: {
+    //     }
+    // });
+    var viewModelQuestion = Hap.createGridViewModel("#questionGrid", {
+        model: {
+        },
+        createQuestion: function () {
+        //     $("#questionGrid").data('kendoGrid').addRow();
+        // },
+        // saveQuestion: function () {//保存
+        //     // 校验
+        //         viewHeaderModel.model.__status = (docHeaderId != 0 ? 'update' : 'add');
+        //         Hap.submitForm({
+        //             url: _basePath + '/hfms/ap/requests/all/save',
+        //             formModel: viewHeaderModel.model,
+        //             grid: {"apRequestLines": $("#lineGrid")},
+        //             success: function (respData) {
+        //                 var a0 = respData.rows[0] || {};
+        //                 if (docHeaderId == 0) {
+        //                     parent.openTab('MANUAL_PAY_DETAIL_' + a0.docHeaderId, a0.documentNum, 'xxap/biz/ap_requests_manual_detail.html?docHeaderId=' + a0.docHeaderId);
+        //                     parent.closeTab(window.frameElement.name);
+        //                 } else {
+        //                     refreshGrid('iframe_MANUAL_PAY_QUERY', 'grid');
+        //                 }
+        //             }
+        //         });
+        // },
+        // removeQuestion: function () {
+        //     var grid = $("#questionGrid").data("kendoGrid") || {};
+        //     var checked = grid.selectedDataItems();
+        //     if (grid.selectedDataItems().length) {
+        //         kendo.ui.showConfirmDialog({
+        //             title: $l('hap.tip.info'),
+        //             message: $l('hap.tip.delete_confirm')
+        //         }).done(function (event) {
+        //             if (event.button == 'OK') {
+        //                 $.each(checked, function (i, v) {
+        //                     grid.dataSource.remove(v)
+        //                 });
+        //                 grid.dataSource.sync('destroy');
+        //             }
+        //         })
+        //     }
+        }
+    });
+    //学生model
+    // var viewModelStudent = kendo.observable({
+    //     model: {
+    //     }
+    // });
+    var viewModelStudent = Hap.createGridViewModel("#studentGrid", {
+        model: {
+        },
+    });
+    var viewModelQuestionContent= kendo.observable({
+        model: {
+            questionId:'',
+            studentId:"",
+            classId :'',
+            description:"",
+            score:'',
+            answer:''
+        }
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        refresh();
+    });
+    function refresh() {
+        $.ajax({
+            type: 'get',
+            async: false,
+            url: '${base.contextPath}/xx/mdm/class/query',
+            dataType: "json",
+            data: {
+                "classId": classId
+            },
+            contentType: "application/json",
+            success: function (args) {
+                console.log(JSON.stringify(args))
+                var a0 = args.rows[0] || {};
+                for (var k in a0) {
+                    viewModel.model.set(k, a0[k]);
+                }
+            }
+        });
+    }
+</script>
+<body>
+<div id="page-content">
+    <form class="form-horizontal" id="query-form">
+        <div class="panel-body">
+            <!--1-->
+            <div class="row">
+                <!--课程编码-->
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label"><@spring.message "mdmclass.classCode"/></label>
+                        <div class="col-sm-8">
+                            <input id="documentNum" type="text" disabled style="width: 100%;" class="k-textbox" data-bind="value:model.classCode"/>
+                        </div>
+                    </div>
+                </div>
+                <!--课程名称-->
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label"><@spring.message "mdmclass.className"/></label>
+                        <div class="col-sm-8">
+                            <input id="className" class="k-textbox" disabled data-bind="value:model.className" type="text" style="width: 100%"/>
+                        </div>
+                    </div>
+                </div>
+                <!--描述-->
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label"><@spring.message "mdmclass.classDescription"/></label>
+                        <div class="col-sm-8">
+                            <input id="classDescription" class="k-textbox" disabled style="width: 100%;" type="text" data-bind="value:model.classDescription"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div style="padding:8px;border:1px solid #96c2f1;background:#eff7ff;height: 150px" >
+        <span style="width: 10%;float: left">
+            <span class="btn btn-primary" onclick="randomQuestion()"
+                  type="submit"><i class="fa fa-search" style="margin-right: 3px;"></i></i> 随机选题</span>
+            </br> </br>
+            <span class="btn btn-primary" onclick="randomStudent()"
+                  type="submit"><i class="fa fa-search" style="margin-right: 3px;"></i></i> 随机选人</span>
+            </br>
+        </span>
+        <span  style="width: 70%;float: left">
+
+               <textarea id="questionStem" style="width: 98%;height: 120px;font-size: 25px" name="textarea"  data-bind="enabled: isEnabled,value:data.text"></textarea>
+        </span>
+        <span style="width: 20%;float: left">
+             <div style="border:1px solid #96c2f1;background:#eff7ff;height: 65px;padding-left: 10px">
+                  <h4 id="studentCode"></h4>
+                  <h4 id="studentName"></h4>
+             </div>
+            <div class="star-rating">
+                <fieldset>
+                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Outstanding">5 stars</label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Very Good">4 stars</label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Good">3 stars</label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Poor">2 stars</label>
+                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Very Poor">1 star</label>
+                </fieldset>
+            </div>
+             <span  class="btn btn-primary" onclick="addGrade()"
+                   type="submit"><i class="fa fa-search" style="margin-right: 3px;"></i></i> 提交</span>
+        </span>
+    </div>
+    <script>kendo.bind($('#query-form'), viewModel);</script>
+    <div id="tabstrip" >
+        <ul>
+            <li id="questionTab"><@spring.message "mdmclassdetail.questionTab"/></li>
+            <li id="studentTab"><@spring.message "mdmclassdetail.studentTab"/></li>
+        </ul>
+        <!--问题-->
+        <div id="page-content-question">
+            <div id="query-btn">
+                <div class="pull-left" style="padding-bottom:10px;">
+            <span class="btn btn-primary k-grid-add" style="float:left;margin-right:5px;" data-bind="click:create">
+                <i class="fa fa-plus-square" style="margin-right:3px;"></i><@spring.message "hap.new"/></span>
+                    <span class="btn btn-success k-grid-save-changes" data-bind="click:save"
+                          style="float:left;margin-right:5px;">
+                <i class="fa fa-save" style="margin-right:3px;"></i><@spring.message "hap.save"/></span>
+                    <span data-bind="click:remove" class="btn btn-danger" style="float:left;">
+                <i class="fa fa-trash-o" style="margin-right:3px;"></i><@spring.message "hap.delete"/></span>
+                </div>
+                <div class="pull-right" style="padding-bottom:10px;">
+                <span class="btn btn-primary" data-bind="click:query"
+                      type="submit"><i class="fa fa-search" style="margin-right: 3px;"></i></i> <@spring.message "hap.query"/></span>
+                </div>
+            </div>
+            <script>kendo.bind($('#query-btn'), viewModelQuestion);</script>
+            <div style="clear: both;">
+                <div id="questionGrid"></div>
+            </div>
+        </div>
+        <!--<script>kendo.bind($('#page-content-houses'), viewModelHouses);</script>-->
+        <!--学生-->
+        <div id="page-content-student">
+                <div id="query-btn-student">
+                    <div class="pull-left" style="padding-bottom:10px;">
+            <span class="btn btn-primary k-grid-add" style="float:left;margin-right:5px;" data-bind="click:create">
+                <i class="fa fa-plus-square" style="margin-right:3px;"></i><@spring.message "hap.new"/></span>
+                        <span class="btn btn-success k-grid-save-changes" data-bind="click:save"
+                              style="float:left;margin-right:5px;">
+                <i class="fa fa-save" style="margin-right:3px;"></i><@spring.message "hap.save"/></span>
+                        <span data-bind="click:remove" class="btn btn-danger" style="float:left;">
+                <i class="fa fa-trash-o" style="margin-right:3px;"></i><@spring.message "hap.delete"/></span>
+                    </div>
+                    <div class="pull-right" style="padding-bottom:10px;">
+                <span class="btn btn-primary" data-bind="click:query"
+                      type="submit"><i class="fa fa-search" style="margin-right: 3px;"></i></i> <@spring.message "hap.query"/></span>
+                    </div>
+                </div>
+                <script>kendo.bind($('#query-btn-student'), viewModelStudent);</script>
+            <div style="clear: both;">
+                <div id="studentGrid"></div>
+            </div>
+        </div>
+        <!--<script>kendo.bind($('#page-content-product'), viewModelProducts);</script>-->
+    </div>
+</div>
+<script>
+    var tabToActivate = $("#questionTab");
+    var tabstrip = $("#tabstrip").kendoTabStrip({
+            animation: {
+                close: {
+                    duration: 200,
+                    effects: "fadeOut"
+                },
+                open: {
+                    duration: 200,
+                    effects: "fadeIn"
+                }
+            },
+            activate: function (e) {
+                if (e.item.id == "questionTab") {
+                    $("#questionGrid").data("kendoGrid").refresh();
+                } else if (e.item.id == "studentTab") {
+                    $("#studentGrid").data("kendoGrid").refresh();
+                }
+            }
+        }
+    ).data("kendoTabStrip");
+
+    tabstrip.activateTab(tabToActivate);
+</script>
+<script type="text/javascript">
+    // 问题
+    Hap.initEnterQuery('#query-form', viewModelQuestion.query);
+    var BaseUrl = _basePath;
+    dataSource = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: BaseUrl + "/xx/mdm/question/query",
+                type: "POST",
+                dataType: "json"
+            },
+            update: {
+                url: BaseUrl + "/xx/mdm/question/submit",
+                type: "POST",
+                contentType: "application/json"
+            },
+            destroy: {
+                url: BaseUrl + "/xx/mdm/question/remove",
+                type: "POST",
+                contentType: "application/json"
+            },
+            create: {
+                url: BaseUrl + "/xx/mdm/question/submit",
+                type: "POST",
+                contentType: "application/json"
+            },
+            parameterMap: function (options, type) {
+                if (type !== "read" && options.models) {
+                    var datas = Hap.prepareSubmitParameter(options, type)
+                    return kendo.stringify(datas);
+                } else if (type === "read") {
+                    if(courseId!=0){
+                        viewModelQuestion.model.set("courseId",courseId)
+                    }
+                    return Hap.prepareQueryParameter(viewModelQuestion.model.toJSON(), options)
+                }
+            }
+        },
+        batch: true,
+        serverPaging: true,
+        schema: {
+            data: 'rows',
+            total: 'total',
+            model: {
+                id: "questionId",
+                fields: {}
+            }
+        }
+    });
+// 问题
+    $("#questionGrid").kendoGrid({
+        dataSource: dataSource,
+        resizable: true,
+        scrollable: true,
+        navigatable: false,
+        selectable: ' rowbox',
+        dataBound: function () {
+            if (parent.autoResizeIframe) {
+                parent.autoResizeIframe('${RequestParameters.functionCode!}')
+            }
+        },
+        height:300,
+        columns: [
+            {
+                field: "courseId",
+                title: '<@spring.message "mdmquestion.courseid"/>',
+                width: 120,
+                template: function (dataItem) {
+                    return dataItem['courseName'] || '';
+                },
+                editor: function (container, options) {
+                    $('<input name="' + options.field + '"/>')
+                        .appendTo(container)
+                        .kendoLov($.extend(${lovProvider.getLov(base.contextPath, base.locale, "MDM_COURSE")}, {
+                            textField: 'courseName',
+                            select: function (e) {
+                                options.model.set("courseName", e.item.courseName);
+                            }
+                        }));
+                }
+            },
+            {
+                field: "userId",
+                title: '<@spring.message "mdmquestion.userid"/>',
+                width: 120,
+                editor: function (container, options) {
+                    container.html(options.model.userId);
+                }
+            },
+            {
+                field: "questionCode",
+                title: '<@spring.message "mdmquestion.questioncode"/>',
+                width: 120
+            },
+            {
+                field: "questionStem",
+                title: '<@spring.message "mdmquestion.questionstem"/>',
+                width: 120,
+                attributes: {style: "white-space:nowrap;text-overflow:ellipsis;"},
+            },
+
+            {
+                field: "questionDescription",
+                title: '<@spring.message "mdmquestion.questiondescription"/>',
+                width: 120,
+                attributes: {style: "white-space:nowrap;text-overflow:ellipsis;"},
+            },
+            {
+                field: "questionType",
+                title: '<@spring.message "mdmquestion.questiontype"/>',
+                width: 120,
+                template: function (dataItem) {
+                    var v = dataItem.questionType;
+                    $.each(questionTypeData, function (i, n) {
+                        if ((n.value || '').toLowerCase() == (v || '').toLowerCase()) {
+                            v = n.meaning;
+                            return v;
+                        }
+                    })
+                    return v||'';
+                },
+                editor: function (container, options) {
+                    $('<input required name="' + options.field + '"/>')
+                        .appendTo(container)
+                        .kendoDropDownList({
+                            dataTextField: "meaning",
+                            dataValueField: "value",
+                            valuePrimitive: true,
+                            dataSource: questionTypeData,
+                            // change: function () {
+                            //     //在change事件中设置lovCode的值，并清空lov表单元素的值
+                            //     options.model.set("orgCode", null);
+                            //     options.model.set("orgId", null);
+                            //     options.model.set("orgName", null);
+                            // }
+                        });
+                }
+            },
+
+        ],
+        editable: true
+    });
+    // questionGrid
+    $("#questionGrid").on("click", ".k-radiobox", function (e) {
+          console.log("questionGrid")
+           var grid=$("#questionGrid").data("kendoGrid")
+           var row = $(this).parent().closest("tr");
+           var item = grid.dataItem(row);
+             console.log(item)
+        $("#questionStem").html(item.questionStem)
+        viewModelQuestionContent.model.set("classId",classId);
+        viewModelQuestionContent.model.set("questionId",item.questionId);
+    });
+    //studentGrid
+    $("#studentGrid").on("click", ".k-radiobox", function (e) {
+        console.log("studentGrid")
+        var grid=$("#studentGrid").data("kendoGrid")
+        var row = $(this).parent().closest("tr");
+        var item = grid.dataItem(row);
+        console.log(item)
+        $("#studentName").html(item.userName)
+        $("#studentCode").html(item.userCode)
+        viewModelQuestionContent.model.set("studentId",item.userId);
+    });
+</script>
+
+<!--学生-->
+<script type="text/javascript">
+    Hap.initEnterQuery('#query-form', viewModelStudent.query);
+    var BaseUrl = _basePath;
+    dataSource = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: BaseUrl + "/xx/mdm/class/student/queryClassStudent",
+                type: "POST",
+                dataType: "json"
+            },
+            update: {
+                url: BaseUrl + "/xx/mdm/class/student/submit",
+                type: "POST",
+                contentType: "application/json"
+            },
+            destroy: {
+                url: BaseUrl + "/xx/mdm/class/student/remove",
+                type: "POST",
+                contentType: "application/json"
+            },
+            create: {
+                url: BaseUrl + "/xx/mdm/class/student/submit",
+                type: "POST",
+                contentType: "application/json"
+            },
+            parameterMap: function (options, type) {
+                if (type !== "read" && options.models) {
+                    var datas = Hap.prepareSubmitParameter(options, type)
+                    return kendo.stringify(datas);
+                } else if (type === "read") {
+                    if(classId!=0){
+                        console.log(classId+"aa")
+                        viewModelStudent.model.set("classId",classId)
+                    }
+                    return Hap.prepareQueryParameter(viewModelStudent.model.toJSON(), options)
+                }
+            }
+        },
+        batch: true,
+        serverPaging: true,
+        schema: {
+            data: 'rows',
+            total: 'total',
+            model: {
+                id: "classStuId",
+                fields: {}
+            }
+        }
+    });
+
+    $("#studentGrid").kendoGrid({
+        dataSource: dataSource,
+        resizable: true,
+        scrollable: true,
+        navigatable: false,
+        height:300,
+        selectable: ' rowbox',
+        dataBound: function () {
+            if (parent.autoResizeIframe) {
+                parent.autoResizeIframe('${RequestParameters.functionCode!}')
+            }
+        },
+        // isSelectable:function (dataItem) {
+        //     console.log("a")
+        // },
+
+        columns: [
+            // {
+            //     field: "id",
+            //     title: '<@spring.message "mdmclassstudent.username"/>',
+            //     width: 0,
+            // },
+            //
+            {
+                field: "userId",
+                title: '<@spring.message "mdmclassstudent.usercode"/>',
+                width: 120,
+                template: function (dataItem) {
+                    //返回值
+                    return dataItem['userCode']||''
+                },
+                editor: function (container, options) {
+                    $('<input required name="'+ options.field +'" />').appendTo(container)
+                        .kendoLov($.extend(<@lov "MDM_STUDENT" />, {
+                        query: function (e) {
+                            e.param['enableFlag'] = 'Y';
+                            e.param['orgType'] = options.model.get("orgType");
+                        },
+                        select: function (e) {
+                            // 将选择后的属性更新到数据模型中以保存
+                            options.model.set('userId', e.item.userId);
+                            options.model.set("userCode", e.item.userCode);
+                            options.model.set("userName", e.item.userName);
+                            options.model.set("classId",classId);
+                        },
+                        textField: 'orgCode', /* 编辑器显示的值 */
+                        model: options.model
+                    }));
+                }
+
+            },
+
+            {
+                field: "userName",
+                title: '<@spring.message "mdmclassstudent.username"/>',
+                width: 120,
+                editor: function (container, options) {
+                    container.html(options.model.userName);
+                },
+            },
+
+            // {
+            //     field: "classId",
+            //     title: '<@spring.message "mdmclassstudent.classid"/>',
+            //     width: 120,
+            //     template: function (dataItem) {
+            //         //返回值
+            //         console.log(dataItem.classId)
+            //         dataItem.classId=classId;
+            //         return classId
+            //     },
+            //     editor: function (container, options) {
+            //         container.html(classId);
+            //     }
+            // }
+
+
+        ],
+        editable: true
+    });
+    // 隐藏列id
+    // var grid = $("#studentGrid").data("kendoGrid");
+    // grid.hideColumn("id");
+</script>
+
+<script>
+    function addGrade() {
+        //得分
+       var score= $("input[name='rating']:checked").val();//
+        viewModelQuestionContent.model.set("score",score);
+        viewModelQuestionContent.model.set("classId",classId);
+        var classid= viewModelQuestionContent.model.get("classId");
+        var questionId= viewModelQuestionContent.model.get("questionId");
+        var score2=viewModelQuestionContent.model.get("score");
+        var userId=viewModelQuestionContent.model.get("studentId");
+
+         console.log("classid:"+classid);
+         console.log("questionId:"+questionId);
+         console.log("score:"+score2);
+         console.log("userId:"+userId);
+        if(questionId==""){questionId
+            kendo.ui.showWarningDialog({
+                title:'请选择题目',
+                width: 400,
+                message: '请选择题目'
+            })
+
+        }else if(userId==""){
+            kendo.ui.showWarningDialog({
+                title:'请选择学生',
+                width: 400,
+                message: '请选择学生'
+            })
+        } else if (score2==""||score2==undefined) {
+            kendo.ui.showWarningDialog({
+                title:'请评分',
+                width: 400,
+                message: '请评分'
+            })
+        }else {
+            insertMdmStudentQuestion()
+        }
+    }
+// 插入数据
+    function insertMdmStudentQuestion() {
+        alert("cha")
+        viewModelQuestionContent.model.__status = ('add');
+        $.ajax({
+            type : 'post',
+            async: false,
+            url : '${base.contextPath}/xx/mdm/student/question/insertMdmStudentQuestion',
+            dataType : "json",
+            data:JSON.stringify(viewModelQuestionContent.model),
+            contentType : "application/json",
+            success: function (respData) {
+                Hap.showToast({
+                    type: 'success',
+                    message: $l('hap.tip.success')
+                });
+            },
+            error: function (res) {
+                Hap.resolveError(res.responseJSON)
+                Hap.unblockUI();
+            }
+        });
+    }
+
+    //随机选题
+    function randomQuestion() {
+        var contactData = $("#questionGrid").data("kendoGrid").dataSource.data();
+        var max=contactData.length
+        var rowIndex=Math.floor(Math.random()*(max));
+        var item=contactData[rowIndex];
+        console.log(rowIndex+":")
+        console.log(item)
+        $("#questionStem").html(item.questionStem)
+        viewModelQuestionContent.model.set("classId",classId);
+        viewModelQuestionContent.model.set("questionId",item.questionId);
+    }
+    //随机选人
+    function randomStudent() {
+        var contactData = $("#studentGrid").data("kendoGrid").dataSource.data();
+        var max=contactData.length
+        var rowIndex=Math.floor(Math.random()*(max));
+        var item=contactData[rowIndex];
+        console.log(item)
+        $("#studentName").html(item.userName)
+        $("#studentCode").html(item.userCode)
+        viewModelQuestionContent.model.set("studentId",item.userId);
+    }
+</script>
+<style>
+    .star-rating {
+        font-family: 'FontAwesome';
+    }
+    .star-rating > fieldset {
+        border: none;
+        display: inline-block;
+    }
+    .star-rating > fieldset:not(:checked) > input {
+        position: absolute;
+        top: -9999px;
+        clip: rect(0, 0, 0, 0);
+    }
+    .star-rating > fieldset:not(:checked) > label {
+        float: right;
+        width: 1em;
+        padding: 0 .05em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 200%;
+        color: #16a085;
+    }
+    .star-rating > fieldset:not(:checked) > label:before {
+        content: '\f006  ';
+    }
+    .star-rating > fieldset:not(:checked) > label:hover,
+    .star-rating > fieldset:not(:checked) > label:hover ~ label {
+        color: #1abc9c;
+        text-shadow: 0 0 3px #1abc9c;
+    }
+    .star-rating > fieldset:not(:checked) > label:hover:before,
+    .star-rating > fieldset:not(:checked) > label:hover ~ label:before {
+        content: '\f005  ';
+    }
+    .star-rating > fieldset > input:checked ~ label:before {
+        content: '\f005  ';
+    }
+    .star-rating > fieldset > label:active {
+        position: relative;
+        top: 2px;
+    }
+</style>
+
+</body>
+</html>

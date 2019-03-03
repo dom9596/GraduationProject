@@ -1,4 +1,5 @@
 <#include "/include/header.html">
+<script src="${base.contextPath}/common/code?mdmUserRoleData=MDM_USER_ROLE" type="text/javascript"></script>
 <script type="text/javascript">
     // var viewModel = Hap.createGridViewModel("#grid");
 </script>
@@ -178,9 +179,21 @@
                 <div class="col-sm-12">
                     <label class="col-sm-4 control-label" style="width: 55px"><@spring.message
                         "mdmuser.userRole"/></label>
-                    <input required="required" class="k-textbox" id="userRole" style="width: 60%"
+                    <input required="required" id="userRole" style="width: 60%"
                            data-bind="value:model.userRole">
-
+                    <script>
+                        $("#userRole").kendoComboBox({
+                            valuePrimitive: true,
+                            dataTextField: "meaning",
+                            dataValueField: "value",
+                            dataSource: [
+                                {meaning:"学生",value:"10004"},
+                                {meaning:"教师",value:"10003"},
+                                {meaning:"管理员",value:"10001"}
+                            ],
+                        });
+                        kendo.bind($('#userRole'), viewModel);
+                    </script>
                 </div>
             </div>
         </div>

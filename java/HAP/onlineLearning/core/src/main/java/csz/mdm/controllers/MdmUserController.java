@@ -28,6 +28,24 @@ public class MdmUserController extends BaseController {
     @Autowired
     private IMdmUserService service;
 
+
+    /**
+     * 教师查询自己的学生
+     *
+     * @param dto
+     * @param page
+     * @param pageSize
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/api/public/xx/mdm/user/queryTeacherAllStudent")
+    @ResponseBody
+    public ResponseData queryTeacherAllStudent(MdmUser dto, @RequestParam(defaultValue = DEFAULT_PAGE) int page,
+                                               @RequestParam(defaultValue = DEFAULT_PAGE_SIZE) int pageSize, HttpServletRequest request) {
+        IRequest requestContext = createRequestContext(request);
+        return new ResponseData(service.queryTeacherAllStudent(requestContext, dto, page, pageSize));
+    }
+
     @RequestMapping(value = "/api/public/xx/mdm/user/updatamdmuser")
     @ResponseBody
     public ResponseData updataMdmUser(@RequestBody MdmUser dto, HttpServletRequest request) throws UserException {

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="csz.mdm.mapper.MdmCourseMapper">
+    <resultMap id="BaseResultMap" type="csz.mdm.dto.MdmCourse">
+        <result column="course_id" property="courseId" jdbcType="DECIMAL"/>
+        <result column="course_name" property="courseName" jdbcType="VARCHAR"/>
+        <result column="course_code" property="courseCode" jdbcType="VARCHAR"/>
+        <result column="user_id" property="userId" jdbcType="VARCHAR"/>
+        <result column="course_description" property="courseDescription" jdbcType="VARCHAR"/>
+        <result column="course_number" property="courseNumber" jdbcType="DECIMAL"/>
+        <result column="course_start_date" property="courseStartDate" jdbcType="DATE"/>
+        <result column="course_end_date" property="courseEndDate" jdbcType="DATE"/>
+        <result column="course_credit" property="courseCredit" jdbcType="DECIMAL"/>
+        <result column="program_application_id" property="programApplicationId" jdbcType="DECIMAL"/>
+        <result column="program_update_date" property="programUpdateDate" jdbcType="DATE"/>
+        <result column="course_name" property="courseName" jdbcType="VARCHAR"/>
+
+        <result column="student_name" property="studentName" jdbcType="VARCHAR"/>
+        <result column="student_code" property="studentCode" jdbcType="VARCHAR"/>
+        <result column="student_id" property="studentId" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <!--查找指定学生指定老师下的课程-->
+    <select id="queryStudentCourse" parameterType="csz.mdm.dto.MdmCourse" resultMap="BaseResultMap">
+        select xmut.user_id as student_id, xmco.*
+        from xx_mdm_user  xmut,
+        xx_mdm_class_student xmcs,
+        xx_mdm_class xmc,
+        xx_mdm_course xmco
+        <where>
+          xmut.user_id=xmcs.user_id
+            and xmc.class_id=xmcs.class_id
+            and xmc.course_id=xmco.course_id
+
+            <if test="studentName != null">
+                AND xmut.user_name = #{studentName,jdbcType=VARCHAR}
+            </if>
+            <if test="studentCode != null">
+                AND xmut.user_code = #{studentCode,jdbcType=VARCHAR}
+            </if>
+            <if test="courseId != null">
+                AND class.course_id = #{courseId,jdbcType=DECIMAL}
+            </if>
+            <if test="userId != null">
+                AND xmco.user_id = #{userId,jdbcType=VARCHAR}
+            </if>
+            <if test="studentId != null">
+                AND xmut.user_id= #{studentId,jdbcType=DECIMAL}
+            </if>
+        </where>
+        group by xmc.course_id
+    </select>
+
+</mapper>

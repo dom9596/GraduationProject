@@ -1,5 +1,6 @@
 package csz.mdm.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.hand.hap.account.dto.User;
 import com.hand.hap.account.dto.UserRole;
 import com.hand.hap.account.exception.UserException;
@@ -35,6 +36,21 @@ public class MdmUserServiceImpl extends BaseServiceImpl<MdmUser> implements IMdm
     private IUserService userService;
     @Autowired
     private IEmployeeService employeeService;
+
+    /**
+     * 教师查询自己的学生
+     *
+     * @param iRequest
+     * @param dto
+     * @param pageMun
+     * @param pageSize
+     * @return
+     */
+    @Override
+    public List<MdmUser> queryTeacherAllStudent(IRequest iRequest, MdmUser dto, int pageMun, int pageSize) {
+        PageHelper.startPage(pageMun, pageSize);
+        return mdmUserMapper.queryTeacherAllStudent(dto);
+    }
 
     /**
      * 新用户注册
@@ -80,6 +96,7 @@ public class MdmUserServiceImpl extends BaseServiceImpl<MdmUser> implements IMdm
         return mdmUser;
     }
 
+
     void inserMdmUser(MdmUser mdmUser) {
         MdmUser condition = new MdmUser();
         condition.setUserCode(mdmUser.getUserCode());
@@ -98,7 +115,7 @@ public class MdmUserServiceImpl extends BaseServiceImpl<MdmUser> implements IMdm
         employee.setEmployeeCode(mdmUser.getUserCode());
         employee.setName(mdmUser.getUserName());
         employee.setGender("M");
-        employee.setCertificateId("xx");
+        employee.setCertificateId(mdmUser.getUserCode());
         employee.setCertificateType("ID");
         employee.setStatus("NORMAL");
         employee.setEmail(mdmUser.getUserEmail());

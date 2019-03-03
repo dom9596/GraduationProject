@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="csz.mdm.mapper.MdmClassMapper">
+    <resultMap id="BaseResultMap" type="csz.mdm.dto.MdmClass">
+        <result column="class_id" property="classId" jdbcType="DECIMAL"/>
+        <result column="class_name" property="className" jdbcType="VARCHAR"/>
+        <result column="class_code" property="classCode" jdbcType="VARCHAR"/>
+        <result column="course_id" property="courseId" jdbcType="DECIMAL"/>
+        <result column="user_id" property="userId" jdbcType="VARCHAR"/>
+        <result column="class_number" property="classNumber" jdbcType="DECIMAL"/>
+        <result column="class_description" property="classDescription" jdbcType="VARCHAR"/>
+        <result column="PROGRAM_APPLICATION_ID" property="programApplicationId" jdbcType="DECIMAL"/>
+        <result column="PROGRAM_UPDATE_DATE" property="programUpdateDate" jdbcType="DATE"/>
+        <result column="COURSE_NAME" property="courseName" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="queryClass" parameterType="csz.mdm.dto.MdmClass" resultMap="BaseResultMap">
+        SELECT (select course.course_name from XX_MDM_COURSE course where class.course_id=course.course_id ) as
+        COURSE_NAME ,class.*
+        FROM XX_MDM_CLASS class
+        <where>
+            <if test="className != null">
+                AND class.class_name = #{className,jdbcType=VARCHAR}
+            </if>
+            <if test="classCode != null">
+                AND class.class_code = #{classCode,jdbcType=VARCHAR}
+            </if>
+            <if test="classId != null">
+                AND class.class_id = #{classId,jdbcType=DECIMAL}
+            </if>
+            <if test="courseId != null">
+                AND class.course_id = #{courseId,jdbcType=DECIMAL}
+            </if>
+            <if test="userId != null">
+                AND class.user_id = #{userId,jdbcType=VARCHAR}
+            </if>
+        </where>
+
+    </select>
+    <select id="queryStudentCourseClass" parameterType="csz.mdm.dto.MdmClass" resultMap="BaseResultMap">
+        select  xmc.*,xmcs.*
+        from xx_mdm_class_student xmcs,
+        xx_mdm_class xmc
+        <where> xmcs.class_id=xmc.class_id
+            <if test="courseId != null">
+                AND xmc.course_id = #{courseId,jdbcType=DECIMAL}
+            </if>
+            <if test="userId != null">
+                AND xmcs.user_id = #{userId,jdbcType=DECIMAL}
+            </if>
+        </where>
+
+    </select>
+</mapper>

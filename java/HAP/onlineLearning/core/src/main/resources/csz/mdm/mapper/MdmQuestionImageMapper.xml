@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="csz.mdm.mapper.MdmQuestionImageMapper">
+    <resultMap id="BaseResultMap" type="csz.mdm.dto.MdmQuestionImage">
+        <result column="question_image_id" property="questionImageId" jdbcType="DECIMAL" />
+        <result column="question_id" property="questionId" jdbcType="DECIMAL" />
+        <result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
+        <result column="image_sequence" property="imageSequence" jdbcType="DECIMAL" />
+        <result column="program_application_id" property="programApplicationId" jdbcType="DECIMAL" />
+        <result column="program_update_date" property="programUpdateDate" jdbcType="DATE" />
+    </resultMap>
+
+
+</mapper>

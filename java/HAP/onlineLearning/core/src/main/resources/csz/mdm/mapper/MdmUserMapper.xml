@@ -3,16 +3,58 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="csz.mdm.mapper.MdmUserMapper">
     <resultMap id="BaseResultMap" type="csz.mdm.dto.MdmUser">
-        <result column="user_id" property="userId" jdbcType="DECIMAL" />
-        <result column="user_name" property="userName" jdbcType="VARCHAR" />
-        <result column="user_code" property="userCode" jdbcType="VARCHAR" />
-        <result column="user_phone" property="userPhone" jdbcType="VARCHAR" />
-        <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
-        <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
-        <result column="user_role" property="userRole" jdbcType="DECIMAL" />
-        <result column="PROGRAM_APPLICATION_ID" property="programApplicationId" jdbcType="DECIMAL" />
-        <result column="PROGRAM_UPDATE_DATE" property="programUpdateDate" jdbcType="DATE" />
+        <result column="user_id" property="userId" jdbcType="DECIMAL"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="user_code" property="userCode" jdbcType="VARCHAR"/>
+        <result column="user_phone" property="userPhone" jdbcType="VARCHAR"/>
+        <result column="user_email" property="userEmail" jdbcType="VARCHAR"/>
+        <result column="user_password" property="userPassword" jdbcType="VARCHAR"/>
+        <result column="user_role" property="userRole" jdbcType="DECIMAL"/>
+        <result column="PROGRAM_APPLICATION_ID" property="programApplicationId" jdbcType="DECIMAL"/>
+        <result column="PROGRAM_UPDATE_DATE" property="programUpdateDate" jdbcType="DATE"/>
+
+        <result column="teacher_code" property="teacherCode" jdbcType="VARCHAR"/>
+        <result column="teacher_name" property="teacherName" jdbcType="VARCHAR"/>
+        <result column="course_id" property="courseId" jdbcType="DECIMAL"/>
+
     </resultMap>
+
+    <!--查询老师的所有学生-->
+    <select id="queryTeacherAllStudent" parameterType="csz.mdm.dto.MdmUser" resultMap="BaseResultMap">
+        select xmut.user_code as teacher_code,
+        xmut.user_name as teacher_name,
+        xmco.course_name,
+        xmco.course_id,
+        xmc.class_name,
+        xmus.user_code,
+        xmus.user_name,
+        xmus.user_email,
+        xmus.user_phone,
+        xmcs.*
+        from xx_mdm_class_student xmcs ,
+        xx_mdm_class xmc,
+        xx_mdm_course xmco,
+        xx_mdm_user xmut,
+        xx_mdm_user xmus
+        <where> xmcs.class_id=xmc.class_id
+        and xmc.course_id=xmco.course_id
+        and xmco.user_id=xmut.user_code
+        and xmcs.user_id=xmus.user_id
+            <if test="teacherCode != null">
+                AND xmut.user_code = #{teacherCode,jdbcType=VARCHAR}
+            </if>
+            <if test="userCode != null">
+                AND xmus.user_code LIKE concat('%', concat(#{userCode,jdbcType=VARCHAR}, '%'))
+            </if>
+            <if test="userName != null">
+                AND xmus.user_name LIKE concat('%', concat(#{userName,jdbcType=VARCHAR}, '%'))
+            </if>
+            <if test="courseId != null">
+                AND xmco.course_id = #{courseId,jdbcType=DECIMAL}
+            </if>
+        </where>
+        group by xmus.user_name
+    </select>
 
 
 </mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="csz.mdm.mapper.MdmAnswerMapper">
+    <resultMap id="BaseResultMap" type="csz.mdm.dto.MdmAnswer">
+        <result column="answer_id" property="answerId" jdbcType="DECIMAL" />
+        <result column="question_id" property="questionId" jdbcType="DECIMAL" />
+        <result column="question_type" property="questionType" jdbcType="VARCHAR" />
+        <result column="answer" property="answer" jdbcType="VARCHAR" />
+        <result column="program_application_id" property="programApplicationId" jdbcType="DECIMAL" />
+        <result column="program_update_date" property="programUpdateDate" jdbcType="DATE" />
+    </resultMap>
+
+
+</mapper>

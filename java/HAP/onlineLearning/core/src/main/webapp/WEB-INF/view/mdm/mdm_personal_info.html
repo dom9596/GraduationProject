@@ -44,7 +44,6 @@
     $(document).ready(function () {
         refresh();
     });
-
     function refresh() {
         var userCode = "${Session.userName!''}";
         $.ajax({
@@ -79,7 +78,7 @@
                         <label class="col-sm-4 control-label" style="width: 55px"><@spring.message
                             "mdmuser.userCode"/></label>
                         <input required="required" class="k-textbox" id="userCode" style="width: 60%"
-                               data-bind="disabled:model.isDisabled,value:model.userCode">
+                               data-bind="value:model.userCode">
                     </div>
                 </div>
             </div>

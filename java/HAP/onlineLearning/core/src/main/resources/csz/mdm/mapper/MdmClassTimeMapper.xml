@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="csz.mdm.mapper.MdmClassTimeMapper">
+    <resultMap id="BaseResultMap" type="csz.mdm.dto.MdmClassTime">
+        <result column="class_tiem_id" property="classTiemId" jdbcType="DECIMAL" />
+        <result column="class_id" property="classId" jdbcType="DECIMAL" />
+        <result column="class_start_time" property="classStartTime" jdbcType="DATE" />
+        <result column="class_end_time" property="classEndTime" jdbcType="DATE" />
+        <result column="program_application_id" property="programApplicationId" jdbcType="DECIMAL" />
+        <result column="program_update_date" property="programUpdateDate" jdbcType="DATE" />
+    </resultMap>
+
+
+</mapper>
